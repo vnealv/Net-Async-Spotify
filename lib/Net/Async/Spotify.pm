@@ -59,24 +59,31 @@ sub _add_to_loop {
 =over 4
 
 =item base_uri
+
 Spotify base_uri default https://accounts.spotify.com/
 
 =item client_id
+
 Spotify App Client ID
 
 =item client_secret
+
 Spotify App Client Secret
 
 =item redirect_uri
+
 Spotify App callback URI
 
 =item access_token
+
 Spotify App User access_token
 
 =item refresh_token
+
 Spotify App User refresh_token
 
 =item token_scope
+
 Spotify App User token allowed scope list
 
 =back
@@ -95,7 +102,7 @@ sub redirect_uri  { shift->{redirect_uri} //= URI->new('http://localhost/callbac
 sub access_token  { shift->{access_token} }
 sub refresh_token { shift->{refresh_token} }
 sub token_scope   { shift->{token_scope} }
-sub token_type    { shift->{token_type} }
+sub token_type    { shift->{token_type} //= 'Bearer' }
 sub token_expiry  { shift->{token_expiry} //= 3600 }
 
 =head1 METHODS
@@ -110,23 +117,29 @@ Accepts limited named parameters
 =over 4
 
 =item client_id
+
 Spotify ClientID, set to class client_id if not passed.
 
 =item response_type
+
 set as `code` for default. Since Authorization Code Flow is used.
 
 =item redirect_uri
+
 URI string that will be used as Authorization callback URL. Set to main app redirect_url if not peresnt.
 
 =item state
+
 Used as linking mechanism between this generated Authorize Request, and the incoming callback code response.
 will be set to a random hexadecimal number.
 
 =item scope
+
 Sets permissions to be requested. Accepts array of scopes or scopes categories.
 e.g. scope => [app_remote_control', 'user-follow-read', 'spotify_connect']
 
 =item show_dialog
+
 optional param can be passed set to either true|false
 
 =back
@@ -166,13 +179,16 @@ or from a previously obtained refresh token.
 =over 4
 
 =item code
+
 representing Spotify Authorization Code, if passed, `grant_type` parameter will be set to authorization_code.
 and the request will be for a new Spotify Token pair.
 
 =item redirect_uri
+
 optional, must be matching the one used to obtain code. Only used when `code` parameter is present
 
 =item auto_refresh
+
 if set it will start C<IO::Async::Timer::Periodic> in order to refresh access token before it expires.
 
 =back
