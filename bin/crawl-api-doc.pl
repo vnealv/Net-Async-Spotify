@@ -38,6 +38,11 @@ If exists it will generate endpoint classes based on parsed response.
 
 If exists it will generate object classes based on parsed response.
 
+=item B<-i>, B<--init-class>
+
+If exists it will Generate/Overwrite Main classes for objects and endpoint
+Caution only use this option to rewrite main classes.
+
 =item B<-j>, B<--only-json>
 
 If exists it will only print out Spotify enpoints and object structure as JSON.
@@ -71,6 +76,7 @@ GetOptions(
     'd|docs-uri=s'      => \(my $docs_uri = 'https://developer.spotify.com/documentation/web-api/reference/'),
     'e|endpoint-gen'    => \my $endpoint_gen,
     'o|object-gen'      => \my $object_gen,
+    'i|init-class'      => \my $init_class,
     'l|log-level=s'     => \(my $log_level = 'info'),
     'j|only-json'       => \my $only_json,
     'h|help'            => \my $help,
@@ -180,31 +186,50 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
     }
 });
 
-sub generate_api_classes {
+push @INC, path('lib/')->absolute->stringify;
+
+sub gen_from_template {
+    my ($template, $vars, $output, $module) = @_;
     my $tt = Template->new;
-    push @INC, path('lib/')->absolute->stringify;
+	$tt->process(
+    	$template, $vars, $output
+	) or die $tt->error;
+    $log->infof('Testing generated Class %s for compiling...', $module) unless $only_json;
+    try {
+        require_module($module);  
+        $log->info('Compiled fine.') unless $only_json;
+    } catch ($e) {
+        $log->warnf('Failed compiling generate API %s | error: %s', $module, $e);
+    }
+}
+
+sub generate_api_classes {
     for my $api (keys %$endpoints) {
         $log->infof('Generating API %s', $api) unless $only_json;
-	    $tt->process(
-    	    'share/SpotifyAPI.pm.tt2',
-    	    {
-        	    endpoints => $endpoints->{$api},
-			    api_name => $api,
-    	    },
-    	    "lib/Net/Async/Spotify/API/Generated/$api.pm"
-	    ) or die $tt->error;
-        $log->infof('Testing generated Class %s for compiling...', $api) unless $only_json;
-        try {
-            require_module("Net::Async::Spotify::API::Generated::$api");  
-            $log->info('Compiled fine.') unless $only_json;
-        } catch ($e) {
-            $log->warnf('Failed compiling generate API %s | error: %s', $api, $e);
+        my $vars = {endpoints => $endpoints->{$api}, api_name => $api,};
+        gen_from_template('share/SpotifyAPI.pm.tt2', $vars, "lib/Net/Async/Spotify/API/Generated/$api.pm", "Net::Async::Spotify::API::Generated::$api");
+        if ( !path("lib/Net/Async/Spotify/API/$api.pm")->exists or $init_class) {
+            $log->infof('Generating Main API %s', $api) unless $only_json;
+            gen_from_template('share/SpotifyAPI_main.pm.tt2', $vars, "lib/Net/Async/Spotify/API/$api.pm", "Net::Async::Spotify::API::$api");
+        }
+    }
+}
+
+sub generate_obj_classes {
+    for my $obj (keys %$objects) {
+        $log->infof('Generating Object %s', $obj) unless $only_json;
+        my $vars = {fields => $objects->{$obj}, obj_name => $obj,};
+        gen_from_template('share/SpotifyObj.pm.tt2', $vars, "lib/Net/Async/Spotify/Object/Generated/$obj.pm", "Net::Async::Spotify::Object::Generated::$obj");
+        if ( !path("lib/Net/Async/Spotify/Object/$obj.pm")->exists or $init_class) {
+            $log->infof('Generating Main Object %s', $obj) unless $only_json;
+            gen_from_template('share/SpotifyObj_main.pm.tt2', $vars, "lib/Net/Async/Spotify/Object/$obj.pm", "Net::Async::Spotify::Object::$obj");
         }
     }
 }
 
 $log->infof('%s', encode_json_utf8({enpoints => $endpoints, objects => $objects})) if $only_json;
 generate_api_classes() if $endpoint_gen;
+generate_obj_classes() if $object_gen;
 
 $log->info('FINISHED;') unless $only_json;
 
