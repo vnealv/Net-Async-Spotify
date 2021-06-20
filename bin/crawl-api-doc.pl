@@ -13,7 +13,7 @@ C<crawl-api-doc.pl> - Script to read Spotify documentation page and generate cla
 
 =head1 SYNOPSIS
 
-perl bin/crawl-api-doc.pl -e -o
+    perl bin/crawl-api-doc.pl -e -o
 
 =head1 DESCRIPTION
 

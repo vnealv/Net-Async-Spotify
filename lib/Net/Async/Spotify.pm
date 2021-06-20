@@ -5,7 +5,7 @@ use warnings;
 
 # VERSION
 
-# ABSTRACT: Interaction with the spotify.com API 
+# ABSTRACT: Interaction with spotify.com API
 
 use parent qw(IO::Async::Notifier);
 
@@ -16,16 +16,28 @@ use Net::Async::HTTP;
 use IO::Async::Timer::Periodic;
 use URI;
 use URI::QueryParam;
-use MIME::Base64 qw(encode_base64 encode_base64url);
+use MIME::Base64 qw(encode_base64);
 use Math::Random::Secure qw(irand);
 use JSON::MaybeUTF8 qw(:v1);
 use curry;
 
 use Net::Async::Spotify::Scope qw(:all);
+use Net::Async::Spotify::API;
+use Net::Async::Spotify::Token;
 
 sub configure_unknown {
     my ($self, %args) = @_;
-    for my $k (grep exists $args{$_}, qw(client_id client_secret redirect_uri access_token refresh_token base_uri)) {
+    my $apis = delete $args{apis};
+    $self->{api} = Net::Async::Spotify::API->new(spotify => $self, apis => $apis);
+
+    # get Token params, as they can be passed here too
+    my $token = Net::Async::Spotify::Token->new();
+    for my $k (grep exists $args{$_}, qw(access_token refresh_token token_type)) {
+        $token->$k($args{$k});
+    }
+    $self->{token} = $token;
+
+    for my $k (grep exists $args{$_}, qw(client_id client_secret redirect_uri base_uri)) {
         $self->{$k} = $args{$k};
     }
 }
@@ -45,7 +57,7 @@ sub _add_to_loop {
         ));
     $self->add_child(
         $self->{token_timer} = IO::Async::Timer::Periodic->new(
-            interval => $self->token_expiry - 46,
+            interval => $self->token->expires_in - 46,
             on_tick  => $self->$curry::weak(sub {
                 my $self = shift;
                 $self->obtain_token()->retain;
@@ -74,17 +86,15 @@ Spotify App Client Secret
 
 Spotify App callback URI
 
-=item access_token
+=item token
 
-Spotify App User access_token
+C<Net::Async::Spotify::Token> Object, holding Spotify Token information.
+Its parameter can be passed here too, C<access_token>, C<refresh_token> and C<token_type>
+those params can be passed along with C<Net::Async::Spotify> new object.
 
-=item refresh_token
+=item api
 
-Spotify App User refresh_token
-
-=item token_scope
-
-Spotify App User token allowed scope list
+Accessor to available defined Spotify APIs C<Net::Async::Spotify::API>
 
 =back
 
@@ -99,11 +109,8 @@ sub client_id     { shift->{client_id} }
 sub client_secret { shift->{client_secret} }
 sub redirect_uri  { shift->{redirect_uri} //= URI->new('http://localhost/callback') }
 
-sub access_token  { shift->{access_token} }
-sub refresh_token { shift->{refresh_token} }
-sub token_scope   { shift->{token_scope} }
-sub token_type    { shift->{token_type} //= 'Bearer' }
-sub token_expiry  { shift->{token_expiry} //= 3600 }
+sub token  { shift->{token} }
+sub api { shift->{api} }
 
 =head1 METHODS
 
@@ -205,7 +212,7 @@ async sub obtain_token {
         $args{redirect_uri} //= $self->redirect_uri->as_string;
     } else {
         $args{grant_type} = 'refresh_token';
-        $args{refresh_token} = $self->refresh_token;
+        $args{refresh_token} = $self->token->refresh_token;
     }
 
     # We can also pass client_id & client_secret in body param
@@ -222,24 +229,21 @@ async sub obtain_token {
             method => 'POST',
             uri => URI->new($self->base_uri . join '/', 'api', 'token'),
             content_type => 'application/x-www-form-urlencoded',
-            content => [%args],
+            content => \%args,
             headers => {
                 Authorization => "Basic ". encode_base64(join(':', $self->client_id, $self->client_secret), ''),
             },
         );
         $result = decode_json_utf8($result->decoded_content);
     } catch ($e) {
-        $log->errorf('Error obtaining Access token | %s', $e);
+        use Data::Dumper;
+        $log->errorf('Error obtaining Access token | %s', Dumper($e));
         return;
     }
 
-    $self->{access_token} = $result->{access_token};
-    $self->{refresh_token} = $result->{refresh_token} if exists $result->{refresh_token};
-    $self->{token_scope} = [ split ' ', $result->{scope} ];
-    $self->{token_type} = $result->{token_type};
-    $self->{token_expiry} = $result->{expires_in};
+    $self->token->renew($result);
 
-    $log->debugf('RESULT: %s', $result);
+    $log->debugf('obtaining token response: %s', $self->token);
     if ($auto_refresh) {
         $log->infof('Enabling auto token refresh...');
         $self->token_timer->start;
