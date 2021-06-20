@@ -57,6 +57,8 @@ sub apply_type {
         return $value if $value =~ /[+-]?[0-9]*[.]?[0-9]+/;
     } elsif ( $type eq 'String' ) {
         return $value unless ref $value;
+    } elsif ( $type eq 'Boolean' ) {
+        return $value if ref $value eq 'JSON::PP::Boolean';
     } elsif ( my ( $obj ) = $type =~ /^(?!Array)(.*?)(Object)/ ) {
         my $module = "Net::Async::Spotify::Object::$obj";
         try {
@@ -73,8 +75,9 @@ sub apply_type {
     } elsif ( my ($array_type, $object_array) = $type =~ /^Array\[(.*?)(Object)?\]/m ) {
         my $array = [];
         if ( $object_array ) {
-            my $module = $array_type ? "Net::Async::Spotify::Object::$array_type" : "Net::Async::Spotify::Object";
+            my $module = $array_type ? "Net::Async::Spotify::Object::$array_type" : "Net::Async::Spotify::Object::General";
             try {
+                # TODO: check if this step can be removed.
                 require_module($module);
             } catch($e) {
                 $log->errorf('Unrecognized Object type %s | Error: %s', $module, $e);
