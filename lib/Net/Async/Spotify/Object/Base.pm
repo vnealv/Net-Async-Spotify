@@ -6,6 +6,7 @@ use warnings;
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
 use Module::Runtime qw(require_module);
+use Time::Moment;
 
 sub new {
     my ( $class, $fields, %args ) = @_;
@@ -18,6 +19,7 @@ sub generate {
     my ( $self, $fields, %args ) = @_;
 
     for my $field (keys %$fields) {
+        next if $field eq '';
         my $accessor = join '::', ref($self), $field;
         {
             # here we need to allow hard references
@@ -37,11 +39,13 @@ sub generate {
             }
             unless defined &{$accessor};
         }
-        exists $args{$field} ?
-            $self->$field(delete $args{$field}) :
-            $self->$field('');
+        $self->$field(delete $args{$field});
     }
-    $log->warnf('Unknown field %s passed | Object: %s', $_, ref $self) for keys %args;
+    # Fields that are added but not present in documentation and current Object class
+    for my $k (keys %args) {
+        $log->debugf('Unknown field %s passed | Object: %s', $k, ref $self);
+        $self->{extra_fields}{$k} = $args{$k};
+    }
 
 }
 
@@ -59,6 +63,13 @@ sub apply_type {
         return $value unless ref $value;
     } elsif ( $type eq 'Boolean' ) {
         return $value if ref $value eq 'JSON::PP::Boolean';
+    } elsif ( $type eq 'Timestamp' ) {
+        try {
+            return Time::Moment->from_string($value);
+        } catch ($e) {
+            $log->warnf('Unrecognized Timestamp string: %s | Error: %s', $value, $e);
+            return {corrupt_timestamp => $value};
+        }
     } elsif ( my ( $obj ) = $type =~ /^(?!Array)(.*?)(Object)/ ) {
         my $module = "Net::Async::Spotify::Object::$obj";
         try {
@@ -83,7 +94,17 @@ sub apply_type {
                 $log->errorf('Unrecognized Object type %s | Error: %s', $module, $e);
             }
             if ( $value ) {
-                push @$array, $module->new($_->%*) for @$value;
+                # Can be attached to pagination object.
+                # TODO: maybe unify implementation with Object.pm
+                if ( ref $value eq 'HASH' and exists $value->{items} and exists $value->{limit} and exists $value->{total} ) {
+                    push @$array, $module->new($_->%*) for $value->{items}->@*;
+                    delete $value->{items};
+                    my $paging = Net::Async::Spotify::Object::Paging->new($value->%*);
+                    $paging->{items} = $array;
+                    return $paging;
+                } else {
+                    push @$array, $module->new($_->%*) for @$value;
+                }
             }
         } elsif ( $value ) {
             push @$array, $_ for @$value;
@@ -93,5 +114,7 @@ sub apply_type {
     $log->errorf('Unmatching Type. %s is not %s | %s', $value, $type, ref $self);
     return $value;
 }
+
+sub extra_fields { shift->{extra_fields} }
 
 1;

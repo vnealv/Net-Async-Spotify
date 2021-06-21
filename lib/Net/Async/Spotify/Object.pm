@@ -64,8 +64,10 @@ sub new {
         # Check if pagination or Error object.
         if ( exists $data->{items} and exists $data->{limit} and exists $data->{total} ) {
             push @$content, $class->new($_->%*) for $data->{items}->@*;
-            $data->{items} = $content;
-            return Net::Async::Spotify::Object::Paging->new($data->%*);
+            delete $data->{items};
+            my $page = Net::Async::Spotify::Object::Paging->new($data->%*);
+            $page->{items} = $content;
+            return $page;
             # TODO: Add error checking.
         } else {
             return $class->new($data->%*);
