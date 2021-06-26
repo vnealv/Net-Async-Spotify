@@ -206,10 +206,10 @@ sub generate_api_classes {
     for my $api (keys %$endpoints) {
         $log->infof('Generating API %s', $api) unless $only_json;
         my $vars = {endpoints => $endpoints->{$api}, api_name => $api,};
-        gen_from_template('share/SpotifyAPI_pm.tt2', $vars, "lib/Net/Async/Spotify/API/Generated/$api.pm", "Net::Async::Spotify::API::Generated::$api");
+        gen_from_template('scripts/SpotifyAPI_pm.tt2', $vars, "lib/Net/Async/Spotify/API/Generated/$api.pm", "Net::Async::Spotify::API::Generated::$api");
         if ( !path("lib/Net/Async/Spotify/API/$api.pm")->exists or $init_class) {
             $log->infof('Generating Main API %s', $api) unless $only_json;
-            gen_from_template('share/SpotifyAPI_main_pm.tt2', $vars, "lib/Net/Async/Spotify/API/$api.pm", "Net::Async::Spotify::API::$api");
+            gen_from_template('scripts/SpotifyAPI_main_pm.tt2', $vars, "lib/Net/Async/Spotify/API/$api.pm", "Net::Async::Spotify::API::$api");
         }
     }
 }
@@ -218,10 +218,10 @@ sub generate_obj_classes {
     for my $obj (keys %$objects) {
         $log->infof('Generating Object %s', $obj) unless $only_json;
         my $vars = {fields => $objects->{$obj}, obj_name => $obj,};
-        gen_from_template('share/SpotifyObj_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/Generated/$obj.pm", "Net::Async::Spotify::Object::Generated::$obj");
+        gen_from_template('scripts/SpotifyObj_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/Generated/$obj.pm", "Net::Async::Spotify::Object::Generated::$obj");
         if ( !path("lib/Net/Async/Spotify/Object/$obj.pm")->exists or $init_class) {
             $log->infof('Generating Main Object %s', $obj) unless $only_json;
-            gen_from_template('share/SpotifyObj_main_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/$obj.pm", "Net::Async::Spotify::Object::$obj");
+            gen_from_template('scripts/SpotifyObj_main_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/$obj.pm", "Net::Async::Spotify::Object::$obj");
         }
     }
 }
