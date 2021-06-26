@@ -109,7 +109,6 @@ $loop->add($http);
 
 my $docs_resonse = await $http->do_request(uri => URI->new($docs_uri));
 
-
 my $docs_dom = Mojo::DOM->new($docs_resonse->content);
 
 my $endpoints;
