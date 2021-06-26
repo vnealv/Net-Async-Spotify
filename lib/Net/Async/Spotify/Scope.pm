@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 =encoding utf8
 
@@ -37,7 +38,7 @@ Returns list of Spotify Scopes, if no specific scopes requested; will return all
 
 =cut
 
-sub scopes { 
+sub scopes {
     # Allow it to be called as method
     my $self = shift;
     unshift @_, $self if $self and $self ne __PACKAGE__;

@@ -3,6 +3,9 @@ package Net::Async::Spotify::Util;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
 
@@ -35,7 +38,7 @@ This method will act as a reliable mapping for Spotify API responses to their de
 
 sub response_object_map {
     my ($available_types, $res_hash) = @_;
-    
+
     my $possible_types = $res_hash->{response_objs};
     my $for_uri = $res_hash->{uri};
     $log->tracef('Got response object to map. Possible_types: %s | for_uri: %s', $possible_types, $for_uri);
@@ -51,12 +54,11 @@ sub response_object_map {
         ($possible_name) = grep { /$type[0]/gi } @$available_types unless defined $possible_name;
         return undef unless defined $possible_name;
     } else {
-       $possible_name = $uri_responses{$for_uri}; 
+       $possible_name = $uri_responses{$for_uri};
     }
     my $class = join '::', 'Net::Async::Spotify::Object', $possible_name;
 
     return $class;
-
 }
 
 1;

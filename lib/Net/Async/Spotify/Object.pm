@@ -3,6 +3,9 @@ package Net::Async::Spotify::Object;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Future::AsyncAwait;
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
@@ -11,7 +14,7 @@ use Module::Path qw(module_path);
 use Module::Runtime qw(require_module);
 use Net::Async::Spotify::Util qw(response_object_map);
 use Net::Async::Spotify::Object::General;
- 
+
 =head1 NAME
 
     Net::Async::Spotify::Object - Common Wrapper package for Spotify response Objects
@@ -79,22 +82,3 @@ sub new {
 }
 
 1;
-
-=d
-        my @keys = keys %$data;
-        # Object name containing multiple objects
-        if (scalar @keys == 1 and ref $data->{$keys[0]} eq 'ARRAY') {
-            push @$content, $class->new($_->%*) for $data->{$keys[0]}->@*;
-            my $accessor = join '::', ref($self), $keys[0];
-            {
-                no strict 'refs';
-                *{$accessor} = sub {
-                    my ($self, $data) = @_;
-                    $self->{$keys[0]} = $data if defined $data;
-                    return $self->{$keys[0]};
-                };
-            }
-            $self->{$keys[0]} = $content;
-        # Single Object
-        } else {
-=cut

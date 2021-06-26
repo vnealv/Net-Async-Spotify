@@ -3,6 +3,9 @@ package Net::Async::Spotify::Object::Base;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
 use Module::Runtime qw(require_module);

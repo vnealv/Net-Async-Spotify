@@ -119,70 +119,70 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
     my $id = $_;
     if ( $id =~ /^endpoint/ ) {
         $log->infof('found an endpoint: %s', $id) unless $only_json;
-        $id =~ /^endpoint-(.*)/; 
-		my ($ep_name) = $1 =~ s/-/_/gr;
-		my $element = $docs_dom->at('#'.$id);
-		my ($api_cat) =  split ' ', $element->preceding('h1[id]')->last->content;
-		$endpoints->{$api_cat}{$ep_name}{short_description} = $element->text;
-		@{$endpoints->{$api_cat}{$ep_name}}{qw(method uri)} = split ' ', $element->next->children->first->at('code')->content;
-		chomp( $endpoints->{$api_cat}{$ep_name}{long_description} = $element->next->next->all_text );
+        $id =~ /^endpoint-(.*)/;
+        my ($ep_name) = $1 =~ s/-/_/gr;
+        my $element = $docs_dom->at('#'.$id);
+        my ($api_cat) =  split ' ', $element->preceding('h1[id]')->last->content;
+        $endpoints->{$api_cat}{$ep_name}{short_description} = $element->text;
+        @{$endpoints->{$api_cat}{$ep_name}}{qw(method uri)} = split ' ', $element->next->children->first->at('code')->content;
+        chomp( $endpoints->{$api_cat}{$ep_name}{long_description} = $element->next->next->all_text );
 
-		my $request_dom = $element->following("h5")->first;
-		# Make sure it's request details.
-		if ( $request_dom->content eq 'Request') {
-			my $next = $request_dom->next;
-			# Check all available tables. 
-			# header, path parameters, and query parameters
-			while ( $next->tag eq 'table' ) {
-				my $keys = $next->find('thead tr th')->map('content')->map(sub { lc $_ =~ s/ /_/rg; })->to_array;
-				$next->find('tbody tr')->each(sub {
-					my $row = $_->children('td');
-					my $field_name = $keys->[0];
-					my $param_name = $row->first->at('code')->content =~ s/{|}//gr;
-					chomp( $endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
-					my $c = 1;
-					$row->tail(-1)->each(sub {
-						my $r = shift;
-						my $k = $keys->[$c++];
-						$endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{$k} = lc $r->child_nodes->first->content;
-					});
-				});
-				$next = $next->next;
-			}
-		} else {
-			$log->warnf('Expecting to parse Request DOM for element ID: %s', $id);
-		}
+        my $request_dom = $element->following("h5")->first;
+        # Make sure it's request details.
+        if ( $request_dom->content eq 'Request') {
+            my $next = $request_dom->next;
+            # Check all available tables.
+            # header, path parameters, and query parameters
+            while ( $next->tag eq 'table' ) {
+                my $keys = $next->find('thead tr th')->map('content')->map(sub { lc $_ =~ s/ /_/rg; })->to_array;
+                $next->find('tbody tr')->each(sub {
+                    my $row = $_->children('td');
+                    my $field_name = $keys->[0];
+                    my $param_name = $row->first->at('code')->content =~ s/{|}//gr;
+                    chomp( $endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
+                    my $c = 1;
+                    $row->tail(-1)->each(sub {
+                        my $r = shift;
+                        my $k = $keys->[$c++];
+                        $endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{$k} = lc $r->child_nodes->first->content;
+                    });
+                });
+                $next = $next->next;
+            }
+        } else {
+            $log->warnf('Expecting to parse Request DOM for element ID: %s', $id);
+        }
 
-		my $response_dom = $element->following("h5")->tail(-1)->first;
-		if ( $response_dom->content eq 'Response') {
-			my $next = $response_dom->next;
-			while ( $next->tag ne 'h2' and $next->tag ne 'h1' ) {
-				chomp($endpoints->{$api_cat}{$ep_name}{response}{raw} .= $next->all_text);
+        my $response_dom = $element->following("h5")->tail(-1)->first;
+        if ( $response_dom->content eq 'Response') {
+            my $next = $response_dom->next;
+            while ( $next->tag ne 'h2' and $next->tag ne 'h1' ) {
+                chomp($endpoints->{$api_cat}{$ep_name}{response}{raw} .= $next->all_text =~ s/^\s|\s$//rgm );
                 push $endpoints->{$api_cat}{$ep_name}{response}{objects}->@*, ($next->content =~ /(\w+ object)/);
-				$next = $next->next;
-			}
-		} else {
-			$log->warnf('Expecting to parse Response DOM for element ID: %s', $id);
-		}
-		$log->tracef('API Category: %s, name: %s | element: %s | request: %s', $api_cat, $ep_name, Dumper($endpoints->{$api_cat}{$ep_name}), $request_dom);
+                $next = $next->next;
+            }
+        } else {
+            $log->warnf('Expecting to parse Response DOM for element ID: %s', $id);
+        }
+        $log->tracef('API Category: %s, name: %s | element: %s | request: %s', $api_cat, $ep_name, Dumper($endpoints->{$api_cat}{$ep_name}), $request_dom);
     } elsif ( $id =~ /^object-/ ) {
         $log->infof('found an object: %s', $id) unless $only_json;
-		my $element = $docs_dom->at('#'.$id); 
-		my $o_name = $element->content =~ s/Object//r;
-		$log->tracef('Class %s', $o_name);
+        my $element = $docs_dom->at('#'.$id);
+        my $o_name = $element->content =~ s/Object//r;
+        $log->tracef('Class %s', $o_name);
 
-		my $next = $element->next;
-		if ( $next->tag eq 'table' ) {
-			$next->find('tbody tr')->each(sub {
-				my $row = $_->children('td');
-				my $field_name = $row->first->at('code')->content;
-				chomp( $objects->{$o_name}{$field_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
-				$objects->{$o_name}{$field_name}{type} = $row->tail(-1)->first->content;
-			});
-		} else {
-			$log->warnf('Expected table for Object details, %s', $id);
-		}
-		$log->tracef('Object %s | %s', $o_name, Dumper($objects->{$o_name}));
+        my $next = $element->next;
+        if ( $next->tag eq 'table' ) {
+            $next->find('tbody tr')->each(sub {
+                my $row = $_->children('td');
+                my $field_name = $row->first->at('code')->content;
+                chomp( $objects->{$o_name}{$field_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
+                $objects->{$o_name}{$field_name}{type} = $row->tail(-1)->first->content;
+            });
+        } else {
+            $log->warnf('Expected table for Object details, %s', $id);
+        }
+        $log->tracef('Object %s | %s', $o_name, Dumper($objects->{$o_name}));
     }
 });
 
@@ -191,12 +191,12 @@ push @INC, path('lib/')->absolute->stringify;
 sub gen_from_template {
     my ($template, $vars, $output, $module) = @_;
     my $tt = Template->new;
-	$tt->process(
-    	$template, $vars, $output
-	) or die $tt->error;
+    $tt->process(
+        $template, $vars, $output
+    ) or die $tt->error;
     $log->infof('Testing generated Class %s for compiling...', $module) unless $only_json;
     try {
-        require_module($module);  
+        require_module($module);
         $log->info('Compiled fine.') unless $only_json;
     } catch ($e) {
         $log->warnf('Failed compiling generate API %s | error: %s', $module, $e);
@@ -207,10 +207,10 @@ sub generate_api_classes {
     for my $api (keys %$endpoints) {
         $log->infof('Generating API %s', $api) unless $only_json;
         my $vars = {endpoints => $endpoints->{$api}, api_name => $api,};
-        gen_from_template('share/SpotifyAPI.pm.tt2', $vars, "lib/Net/Async/Spotify/API/Generated/$api.pm", "Net::Async::Spotify::API::Generated::$api");
+        gen_from_template('share/SpotifyAPI_pm.tt2', $vars, "lib/Net/Async/Spotify/API/Generated/$api.pm", "Net::Async::Spotify::API::Generated::$api");
         if ( !path("lib/Net/Async/Spotify/API/$api.pm")->exists or $init_class) {
             $log->infof('Generating Main API %s', $api) unless $only_json;
-            gen_from_template('share/SpotifyAPI_main.pm.tt2', $vars, "lib/Net/Async/Spotify/API/$api.pm", "Net::Async::Spotify::API::$api");
+            gen_from_template('share/SpotifyAPI_main_pm.tt2', $vars, "lib/Net/Async/Spotify/API/$api.pm", "Net::Async::Spotify::API::$api");
         }
     }
 }
@@ -219,10 +219,10 @@ sub generate_obj_classes {
     for my $obj (keys %$objects) {
         $log->infof('Generating Object %s', $obj) unless $only_json;
         my $vars = {fields => $objects->{$obj}, obj_name => $obj,};
-        gen_from_template('share/SpotifyObj.pm.tt2', $vars, "lib/Net/Async/Spotify/Object/Generated/$obj.pm", "Net::Async::Spotify::Object::Generated::$obj");
+        gen_from_template('share/SpotifyObj_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/Generated/$obj.pm", "Net::Async::Spotify::Object::Generated::$obj");
         if ( !path("lib/Net/Async/Spotify/Object/$obj.pm")->exists or $init_class) {
             $log->infof('Generating Main Object %s', $obj) unless $only_json;
-            gen_from_template('share/SpotifyObj_main.pm.tt2', $vars, "lib/Net/Async/Spotify/Object/$obj.pm", "Net::Async::Spotify::Object::$obj");
+            gen_from_template('share/SpotifyObj_main_pm.tt2', $vars, "lib/Net/Async/Spotify/Object/$obj.pm", "Net::Async::Spotify::Object::$obj");
         }
     }
 }
@@ -232,4 +232,3 @@ generate_api_classes() if $endpoint_gen;
 generate_obj_classes() if $object_gen;
 
 $log->info('FINISHED;') unless $only_json;
-

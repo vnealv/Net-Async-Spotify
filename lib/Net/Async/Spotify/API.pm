@@ -3,6 +3,9 @@ package Net::Async::Spotify::API;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Future::AsyncAwait;
 
 use Scalar::Util qw(isweak weaken);
@@ -16,7 +19,7 @@ use Module::Runtime qw(require_module);
 
 Common Wrapper class to be used in order to give you access for all available Spotify API
 It will create an instance for the requested API when invoked.
-also you can limit which APIs you want to be avaliable by passing them in C<apis>
+also you can limit which APIs you want to be available by passing them in C<apis>
 
 =head1 SYNOPSIS
 
@@ -69,7 +72,6 @@ sub new {
 
 sub spotify { shift->{spotify} }
 
-
 sub prepare_apis {
     my ($self, $apis) = @_;
 
@@ -82,7 +84,7 @@ sub prepare_apis {
                 my $self = shift;
                 # Define when called. And then cache it.
                 return $self->{$api} //= do {
-                    my $class = join '::', 'Net::Async::Spotify::API', ucfirst $api; 
+                    my $class = join '::', 'Net::Async::Spotify::API', ucfirst $api;
                     require_module($class);
                     # Note its not weak anymore, since passing a copy.
                     $class->new(spotify => $self->spotify);

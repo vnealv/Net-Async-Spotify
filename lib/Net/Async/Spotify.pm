@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 our $VERSION = 0.001;
+# AUTHORITY
 
 # ABSTRACT: Interaction with spotify.com API
 
@@ -92,7 +93,7 @@ C<Net::Async::Spotify::Token> Object, holding Spotify Token information.
 Its parameter can be passed here too, C<access_token>, C<refresh_token> and C<token_type>
 those params can be passed along with C<Net::Async::Spotify> new object.
 
-=item api
+=item API
 
 Accessor to available defined Spotify APIs C<Net::Async::Spotify::API>
 

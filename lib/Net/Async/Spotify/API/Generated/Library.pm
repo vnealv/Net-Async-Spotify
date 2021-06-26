@@ -177,7 +177,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-library-read scope must have been authorised by the user.
 
 =back
 
@@ -432,8 +432,7 @@ and Response Objects being:
 - episode object
 
 
-
-  On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved episode objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
+ On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved episode objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -487,7 +486,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-library-read scope must have been authorised by the user.
 
 =back
 

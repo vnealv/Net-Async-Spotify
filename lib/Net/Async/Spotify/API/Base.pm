@@ -3,6 +3,9 @@ package Net::Async::Spotify::API::Base;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Future::AsyncAwait;
 use Log::Any qw($log);
 use Syntax::Keyword::Try;

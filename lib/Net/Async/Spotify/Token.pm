@@ -3,6 +3,9 @@ package Net::Async::Spotify::Token;
 use strict;
 use warnings;
 
+# VERSION
+# AUTHORITY
+
 use Log::Any qw($log);
 use Time::Moment;
 
@@ -87,7 +90,7 @@ sub expires_in {
     $self->{expires_in} = $expiry if defined $expiry;
     # Set it to default if not set
     return $self->{expires_in} //= 3600;
-} 
+}
 
 sub scope {
     my ( $self, $scopes ) = @_;

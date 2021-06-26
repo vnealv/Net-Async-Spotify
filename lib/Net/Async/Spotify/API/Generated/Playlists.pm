@@ -964,14 +964,12 @@ can be used to identify your playlist version in future requests.On error, the h
 Trying to remove an item when you do not have the user’s authorization returns error 403 Forbidden.
 Attempting to use several different ways to remove items returns 400 Bad Request.
 Other client errors returning 400 Bad Request include specifying invalid positions.Notes### Frequently Asked Questions:
-  
-    Is it possible to delete a playlist?
+   Is it possible to delete a playlist?
 No, it isn’t. The reason there is no endpoint for this is explained in our Working With Playlists Guide in the section Following and Unfollowing a Playlist.
-  
-  
-    Can I use X-HTTP-Method-Override or similar to send a DELETE request overriding the HTTP verb?
-Not at the moment, the delete operation needs to be specified through a DELETE request.
-  Try in our Web Console
+
+
+   Can I use X-HTTP-Method-Override or similar to send a DELETE request overriding the HTTP verb?
+Not at the moment, the delete operation needs to be specified through a DELETE request.Try in our Web Console
 
 =cut
 
@@ -1113,8 +1111,8 @@ and Response Objects being:
 On a successful reorder operation, the response body contains a snapshot_id in JSON format
 and the HTTP status code in the response header is 200 OK. The snapshot_id
 can be used to identify your playlist version in future requests.On a successful replace operation, the HTTP status code in the response header is 201
-Created.On error, the header status code is an error code, 
-the response body contains an error object, 
+Created.On error, the header status code is an error code,
+the response body contains an error object,
 and the existing playlist is unmodified.
 Trying to set an item when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
@@ -1219,9 +1217,9 @@ and Response Objects being:
 
 
 
-If you get status code 429, it means that you have sent too many requests. 
-If this happens, have a look in the Retry-After header, where you will see a number displayed. 
-This is the amount of seconds that you need to wait, before you can retry sending your requests.NotesThe request should contain a Base64 encoded JPEG image data, maximum payload size is 256 KB.Rate Limiting: If you get status code 429, it means that you have sent too many requests. 
+If you get status code 429, it means that you have sent too many requests.
+If this happens, have a look in the Retry-After header, where you will see a number displayed.
+This is the amount of seconds that you need to wait, before you can retry sending your requests.NotesThe request should contain a Base64 encoded JPEG image data, maximum payload size is 256 KB.Rate Limiting: If you get status code 429, it means that you have sent too many requests.
 If this happens, have a look in the Retry-After header, where you will see a number displayed. This is the amount of seconds that you need to wait, before you can retry sending your requests.Try in our Web Console
 
 =cut

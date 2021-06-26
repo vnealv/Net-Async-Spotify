@@ -9,7 +9,7 @@ use utf8;
 
 =head1 NAME
 
-C<spotify-cli.pl> - Script to interact with Spotify API in various ways. 
+C<spotify-cli.pl> - Script to interact with Spotify API in various ways.
 
 =head1 SYNOPSIS
 
@@ -66,7 +66,7 @@ use Future::AsyncAwait;
 use Syntax::Keyword::Try;
 use Log::Any qw($log);
 use Net::Async::Spotify;
-use Data::Dumper; 
+use Data::Dumper;
 use JSON::MaybeUTF8 qw(:v1);
 
 GetOptions(
@@ -141,7 +141,7 @@ if ( $interactive ) {
     $stream->write("Please insert your `state` response in callback URL...\n");
     my ( $auth_state ) = await $stream->read_until( "\n" );
     chomp $auth_state;
-    
+
     await $spotify->obtain_token(code => $auth_code, auto_refresh => 1);
     $stream->write("Waiting for your Command!...\nC: ");
     $loop->run;
@@ -216,6 +216,4 @@ async sub generic {
 }
 
 async sub filter {
-    
 }
-
