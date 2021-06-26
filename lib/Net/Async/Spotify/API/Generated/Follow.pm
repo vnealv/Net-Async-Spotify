@@ -38,7 +38,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid user access token or your client credentials. Requires the <code class="highlighter-rouge">user-follow-read</code> scope.
+A valid user access token or your client credentials. Requires the user-follow-read scope.
 
 =back
 
@@ -49,12 +49,12 @@ A valid user access token or your client credentials. Requires the <code class="
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the artist or the user <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> to check. For example: <code class="highlighter-rouge">ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q</code>. A maximum of 50 IDs can be sent in one request.
+A comma-separated list of the artist or the user Spotify IDs to check. For example: ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q. A maximum of 50 IDs can be sent in one request.
 
 =item type
 
 Type: string | Required: required
-The ID type: either <code class="highlighter-rouge">artist</code> or <code class="highlighter-rouge">user</code>.
+The ID type: either artist or user.
 
 =back
 
@@ -114,7 +114,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid user access token or your client credentials. Requires the <code class="highlighter-rouge">playlist-read-private</code> scope if a private playlist is requested.
+A valid user access token or your client credentials. Requires the playlist-read-private scope if a private playlist is requested.
 
 =back
 
@@ -125,7 +125,7 @@ A valid user access token or your client credentials. Requires the <code class="
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> of the playlist.
+The Spotify ID of the playlist.
 
 =back
 
@@ -136,7 +136,7 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> of the
 =item ids
 
 Type: string | Required: required
-A comma-separated list of <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify User IDs</a> ; the ids of the users that you want to check to see if they follow the playlist. Maximum: 5 ids.
+A comma-separated list of Spotify User IDs ; the ids of the users that you want to check to see if they follow the playlist. Maximum: 5 ids.
 
 =back
 
@@ -198,12 +198,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid user access token or your client credentials. Requires the <code class="highlighter-rouge">user-follow-modify</code> scope.
+A valid user access token or your client credentials. Requires the user-follow-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if IDs are passed in the request body, otherwise ignored</em>. The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -214,8 +214,8 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: required
-A JSON array of the artist or user <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>.
-For example: <code class="highlighter-rouge">{ids:[&quot;74ASZWbe4lXaubB36ztrGX&quot;, &quot;08td7MxkoHQkXnWAYD8d6Q&quot;]}</code>. A maximum of 50 IDs can be sent in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the artist or user Spotify IDs.
+For example: {ids:["74ASZWbe4lXaubB36ztrGX", "08td7MxkoHQkXnWAYD8d6Q"]}. A maximum of 50 IDs can be sent in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -226,13 +226,13 @@ For example: <code class="highlighter-rouge">{ids:[&quot;74ASZWbe4lXaubB36ztrGX&
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the artist or the user <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>.
-For example: <code class="highlighter-rouge">ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q</code>. A maximum of 50 IDs can be sent in one request.
+A comma-separated list of the artist or the user Spotify IDs.
+For example: ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q. A maximum of 50 IDs can be sent in one request.
 
 =item type
 
 Type: string | Required: required
-The ID type: either <code class="highlighter-rouge">artist</code> or <code class="highlighter-rouge">user</code>.
+The ID type: either artist or user.
 
 =back
 
@@ -302,12 +302,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />Following a playlist publicly requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; following a playlist privately requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.<br /><em>Note that the scopes you provide relate only to whether the current user is following the playlist publicly or privately (i.e. showing others what they are following), not whether the playlist itself is public or private.</em>
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.Following a playlist publicly requires authorization of the playlist-modify-public scope; following a playlist privately requires the playlist-modify-private scope. See Using Scopes.Note that the scopes you provide relate only to whether the current user is following the playlist publicly or privately (i.e. showing others what they are following), not whether the playlist itself is public or private.
 
 =item Content-Type
 
 Type: string | Required: required
-The content type of the request body: <code class="highlighter-rouge">application/json</code>
+The content type of the request body: application/json
 
 =back
 
@@ -318,7 +318,7 @@ The content type of the request body: <code class="highlighter-rouge">applicatio
 =item public
 
 Type: boolean | Required: optional
-Defaults to <code class="highlighter-rouge">true</code>. If <code class="highlighter-rouge">true</code> the playlist will be included in user’s public playlists, if <code class="highlighter-rouge">false</code> it will remain private.
+Defaults to true. If true the playlist will be included in user’s public playlists, if false it will remain private.
 
 =back
 
@@ -329,7 +329,7 @@ Defaults to <code class="highlighter-rouge">true</code>. If <code class="highlig
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> of the playlist. Any playlist can be followed, regardless of its <a href="/documentation/general/guides/working-with-playlists/#public-private-and-collaborative-status">public/private status</a>, as long as you know its playlist ID.
+The Spotify ID of the playlist. Any playlist can be followed, regardless of its public/private status, as long as you know its playlist ID.
 
 =back
 
@@ -382,7 +382,7 @@ async sub follow_playlist {
 
 =head2 get_followed
 
-get_followed - Get User&#39;s Followed Artists
+get_followed - Get User's Followed Artists
 
 Get the current user’s followed artists.
 
@@ -395,7 +395,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid user access token or your client credentials. Requires the <code class="highlighter-rouge">user-follow-modify</code> scope.
+A valid user access token or your client credentials. Requires the user-follow-modify scope.
 
 =back
 
@@ -416,7 +416,7 @@ The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
 =item type
 
 Type: string | Required: required
-The ID type: currently only <code class="highlighter-rouge">artist</code> is supported.
+The ID type: currently only artist is supported.
 
 =back
 
@@ -481,12 +481,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid user access token or your client credentials. Requires the <code class="highlighter-rouge">user-follow-modify</code> scope.
+A valid user access token or your client credentials. Requires the user-follow-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if IDs are passed in the request body, otherwise ignored</em>. The content type of the request body: <code class="highlighter-rouge">application/json</code>.
+Required if IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json.
 
 =back
 
@@ -497,7 +497,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the artist or user <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">{ids:[&quot;74ASZWbe4lXaubB36ztrGX&quot;, &quot;08td7MxkoHQkXnWAYD8d6Q&quot;]}</code>. A maximum of 50 IDs can be sent in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the artist or user Spotify IDs. For example: {ids:["74ASZWbe4lXaubB36ztrGX", "08td7MxkoHQkXnWAYD8d6Q"]}. A maximum of 50 IDs can be sent in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -508,12 +508,12 @@ A JSON array of the artist or user <a href="/documentation/web-api/#spotify-uris
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the artist or the user <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q</code>. A maximum of 50 IDs can be sent in one request.
+A comma-separated list of the artist or the user Spotify IDs. For example: ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q. A maximum of 50 IDs can be sent in one request.
 
 =item type
 
 Type: string | Required: required
-The ID type: either <code class="highlighter-rouge">artist</code> or <code class="highlighter-rouge">user</code>.
+The ID type: either artist or user.
 
 =back
 
@@ -583,7 +583,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />Unfollowing a publicly followed playlist for a user requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; unfollowing a privately followed playlist requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.<br /><em>Note that the scopes you provide relate only to whether the current user is following the playlist publicly or privately (i.e. showing others what they are following), not whether the playlist itself is public or private.</em>
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.Unfollowing a publicly followed playlist for a user requires authorization of the playlist-modify-public scope; unfollowing a privately followed playlist requires the playlist-modify-private scope. See Using Scopes.Note that the scopes you provide relate only to whether the current user is following the playlist publicly or privately (i.e. showing others what they are following), not whether the playlist itself is public or private.
 
 =back
 
@@ -594,7 +594,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> of the playlist that is to be no longer followed.
+The Spotify ID of the playlist that is to be no longer followed.
 
 =back
 

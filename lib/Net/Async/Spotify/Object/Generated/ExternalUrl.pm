@@ -25,7 +25,7 @@ Those are Spotify ExternalUrl Object attributes:
 =item spotify
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URL</a> for the object.
+Description: The Spotify URL for the object.
 
 =back
 

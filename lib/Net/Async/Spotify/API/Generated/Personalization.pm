@@ -25,7 +25,7 @@ Check C<crawl-api-doc.pl> for more information.
 
 =head2 get_users_top_artists_and_tracks
 
-get_users_top_artists_and_tracks - Get a User&#39;s Top Artists and Tracks
+get_users_top_artists_and_tracks - Get a User's Top Artists and Tracks
 
 Get the current user’s top artists or tracks based on calculated affinity.
 
@@ -38,7 +38,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the current user.<br />Getting details of a user’s top artists and tracks requires authorization of the <code class="highlighter-rouge">user-top-read</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the current user.Getting details of a user’s top artists and tracks requires authorization of the user-top-read scope. See Using Scopes.
 
 =back
 
@@ -49,7 +49,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item type
 
 Type: string | Required: required
-The type of entity to return. Valid values: <code class="highlighter-rouge">artists</code> or <code class="highlighter-rouge">tracks</code>
+The type of entity to return. Valid values: artists or tracks
 
 =back
 
@@ -60,7 +60,7 @@ The type of entity to return. Valid values: <code class="highlighter-rouge">arti
 =item limit
 
 Type: integer | Required: optional
-The number of entities to return. Default: 20. Minimum: 1. Maximum: 50. For example: <code class="highlighter-rouge">limit=2</code>
+The number of entities to return. Default: 20. Minimum: 1. Maximum: 50. For example: limit=2
 
 =item offset
 
@@ -70,7 +70,7 @@ The index of the first entity to return. Default: 0 (i.e., the first track). Use
 =item time_range
 
 Type: string | Required: optional
-Over what time frame the affinities are computed. Valid values: <code class="highlighter-rouge">long_term</code> (calculated from several years of data and including all new data as it becomes available), <code class="highlighter-rouge">medium_term</code> (approximately last 6 months), <code class="highlighter-rouge">short_term</code> (approximately last 4 weeks). Default: <code class="highlighter-rouge">medium_term</code>
+Over what time frame the affinities are computed. Valid values: long_term (calculated from several years of data and including all new data as it becomes available), medium_term (approximately last 6 months), short_term (approximately last 4 weeks). Default: medium_term
 
 =back
 

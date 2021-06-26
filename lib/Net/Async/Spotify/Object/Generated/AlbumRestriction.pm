@@ -25,7 +25,7 @@ Those are Spotify AlbumRestriction Object attributes:
 =item reason
 
 Type: String
-Description: The reason for the restriction. Supported values:<br />
+Description: The reason for the restriction. Supported values:
 
 =back
 

@@ -25,12 +25,12 @@ Those are Spotify ExplicitContentSettings Object attributes:
 =item filter_enabled
 
 Type: Boolean
-Description: When <code class="highlighter-rouge">true</code>, indicates that explicit content should not be played.
+Description: When true, indicates that explicit content should not be played.
 
 =item filter_locked
 
 Type: Boolean
-Description: When <code class="highlighter-rouge">true</code>, indicates that the explicit content setting is locked and can’t be changed by the user.
+Description: When true, indicates that the explicit content setting is locked and can’t be changed by the user.
 
 =back
 

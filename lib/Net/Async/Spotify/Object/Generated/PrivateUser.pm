@@ -25,22 +25,22 @@ Those are Spotify PrivateUser Object attributes:
 =item country
 
 Type: String
-Description: The country of the user, as set in the user’s account profile. An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. <em>This field is only available when the current user has granted access to the <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">user-read-private</a> scope.</em>
+Description: The country of the user, as set in the user’s account profile. An ISO 3166-1 alpha-2 country code. This field is only available when the current user has granted access to the user-read-private scope.
 
 =item display_name
 
 Type: String
-Description: The name displayed on the user’s profile. <code class="highlighter-rouge">null</code> if not available.
+Description: The name displayed on the user’s profile. null if not available.
 
 =item email
 
 Type: String
-Description: The user’s email address, as entered by the user when creating their account. <em><strong>Important!</strong> This email address is unverified; there is no proof that it actually belongs to the user.</em> <em>This field is only available when the current user has granted access to the <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">user-read-email</a> scope.</em>
+Description: The user’s email address, as entered by the user when creating their account. Important! This email address is unverified; there is no proof that it actually belongs to the user. This field is only available when the current user has granted access to the user-read-email scope.
 
 =item explicit_content
 
 Type: ExplicitContentSettingsObject
-Description: The user’s explicit content settings. <em>This field is only available when the current user has granted access to the <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">user-read-private</a> scope.</em>
+Description: The user’s explicit content settings. This field is only available when the current user has granted access to the user-read-private scope.
 
 =item external_urls
 
@@ -60,7 +60,7 @@ Description: A link to the Web API endpoint for this user.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify user ID</a> for the user.
+Description: The Spotify user ID for the user.
 
 =item images
 
@@ -70,7 +70,7 @@ Description: The user’s profile image.
 =item product
 
 Type: String
-Description: The user’s Spotify subscription level: “premium”, “free”, etc. (The subscription level “open” can be considered the same as “free”.) <em>This field is only available when the current user has granted access to the <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">user-read-private</a> scope.</em>
+Description: The user’s Spotify subscription level: “premium”, “free”, etc. (The subscription level “open” can be considered the same as “free”.) This field is only available when the current user has granted access to the user-read-private scope.
 
 =item type
 
@@ -80,7 +80,7 @@ Description: The object type: “user”
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the user.
+Description: The Spotify URI for the user.
 
 =back
 

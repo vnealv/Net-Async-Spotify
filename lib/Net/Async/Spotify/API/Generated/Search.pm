@@ -39,7 +39,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.
 
 =back
 
@@ -50,52 +50,52 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item include_external
 
 Type: string | Required: optional
-Possible values: <i>audio</i> <br />If <i>include_external=audio</i>
+Possible values: audio If include_external=audio
 is specified the response will include any relevant audio content that is
-hosted externally. <br />By default external content is filtered out from responses.
+hosted externally. By default external content is filtered out from responses.
 
 =item limit
 
 Type: integer | Required: optional
-Maximum number of results to return. <br />Default:
-20 <br />Minimum: 1 <br />Maximum: 50 <br /><strong>Note</strong>: The limit is applied within
-each type, not on the total response. <br />For example, if the limit value
-is 3 and the type is <code class="highlighter-rouge">artist,album</code>, the response contains 3 artists and 3
+Maximum number of results to return. Default:
+20 Minimum: 1 Maximum: 50 Note: The limit is applied within
+each type, not on the total response. For example, if the limit value
+is 3 and the type is artist,album, the response contains 3 artists and 3
 albums.
 
 =item market
 
 Type: string | Required: optional
-An <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. <br />If a country code is specified, only content that is playable in that market is returned.
-<br /><strong>Note</strong>: <br />- Playlist results are not affected by the market parameter.
-<br />- If market is set to <code class="highlighter-rouge">from_token</code>, and a valid access token is specified
+An ISO 3166-1 alpha-2 country code
+or the string from_token. If a country code is specified, only content that is playable in that market is returned.
+Note: - Playlist results are not affected by the market parameter.
+- If market is set to from_token, and a valid access token is specified
 in the request header, only content playable in the country associated with
-the user account, is returned. <br />- Users can view the country that is associated
-with their account in the <a href="https://www.spotify.com/se/account/overview/">account settings</a>.
-A user must grant access to the <code class="highlighter-rouge">user-read-private</code> scope prior to when the
+the user account, is returned. - Users can view the country that is associated
+with their account in the account settings.
+A user must grant access to the user-read-private scope prior to when the
 access token is issued.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first result to return. <br />Default:
-0 (the first result). <br />Maximum offset (including limit): 1,000. <br />Use
+The index of the first result to return. Default:
+0 (the first result). Maximum offset (including limit): 1,000. Use
 with limit to get the next page of search results.
 
 =item q
 
 Type: string | Required: required
-Search <a href="#writing-a-query---guidelines">query</a>
-keywords and optional field filters and operators. <br />For example: <br /><code class="highlighter-rouge">q=roadhouse%20blues</code>.
+Search query
+keywords and optional field filters and operators. For example: q=roadhouse%20blues.
 
 =item type
 
 Type: string | Required: required
 A comma-separated list of item types to search
-across. <br />Valid types are: <code class="highlighter-rouge">album</code> , <code class="highlighter-rouge">artist</code>, <code class="highlighter-rouge">playlist</code>, <code class="highlighter-rouge">track</code>, <code class="highlighter-rouge">show</code> and <code class="highlighter-rouge">episode</code>.
-<br />Search results include hits from all the specified item types. <br />For
-example: <code class="highlighter-rouge">q=name:abacab&amp;type=album,track</code> returns both albums <em><strong>and</strong></em> tracks
+across. Valid types are: album , artist, playlist, track, show and episode.
+Search results include hits from all the specified item types. For
+example: q=name:abacab&type=album,track returns both albums and tracks
 with “abacab” included in their name.
 
 =back

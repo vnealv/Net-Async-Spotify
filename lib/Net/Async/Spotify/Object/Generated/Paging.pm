@@ -40,7 +40,7 @@ Description: The maximum number of items in the response (as set in the query or
 =item next
 
 Type: String
-Description: URL to the next page of items. ( <code class="highlighter-rouge">null</code> if none)
+Description: URL to the next page of items. ( null if none)
 
 =item offset
 
@@ -50,7 +50,7 @@ Description: The offset of the items returned (as set in the query or by default
 =item previous
 
 Type: String
-Description: URL to the previous page of items. ( <code class="highlighter-rouge">null</code> if none)
+Description: URL to the previous page of items. ( null if none)
 
 =item total
 

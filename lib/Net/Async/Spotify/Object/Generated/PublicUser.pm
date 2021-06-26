@@ -25,7 +25,7 @@ Those are Spotify PublicUser Object attributes:
 =item display_name
 
 Type: String
-Description: The name displayed on the user’s profile. <code class="highlighter-rouge">null</code> if not available.
+Description: The name displayed on the user’s profile. null if not available.
 
 =item external_urls
 
@@ -45,7 +45,7 @@ Description: A link to the Web API endpoint for this user.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify user ID</a> for this user.
+Description: The Spotify user ID for this user.
 
 =item images
 
@@ -60,7 +60,7 @@ Description: The object type: “user”
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for this user.
+Description: The Spotify URI for this user.
 
 =back
 

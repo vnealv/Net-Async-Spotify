@@ -60,7 +60,7 @@ Description: Predicts whether a track contains no vocals. “Ooh” and “aah�
 =item key
 
 Type: Integer
-Description: The key the track is in. Integers map to pitches using standard <a href="https://en.wikipedia.org/wiki/Pitch_class">Pitch Class notation</a> . E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.
+Description: The key the track is in. Integers map to pitches using standard Pitch Class notation . E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.
 
 =item liveness
 

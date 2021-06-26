@@ -50,7 +50,7 @@ Description: Predicts whether a track contains no vocals. “Ooh” and “aah�
 =item key
 
 Type: Integer
-Description: The key the track is in. Integers map to pitches using standard <a href="https://en.wikipedia.org/wiki/Pitch_class">Pitch Class notation</a>. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.
+Description: The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.
 
 =item liveness
 
@@ -70,7 +70,7 @@ Description: Mode indicates the modality (major or minor) of a track, the type o
 =item popularity
 
 Type: Float
-Description: The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. <em>Note: When applying track relinking via the <code class="highlighter-rouge">market</code> parameter, it is expected to find relinked tracks with popularities that do not match <code class="highlighter-rouge">min_*</code>, <code class="highlighter-rouge">max_*</code>and <code class="highlighter-rouge">target_*</code> popularities. These relinked tracks are accurate replacements for unplayable tracks with the expected popularity scores. Original, non-relinked tracks are available via the <code class="highlighter-rouge">linked_from</code> attribute of the <a href="/documentation/general/guides/track-relinking-guide">relinked track response</a>.</em>
+Description: The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Note: When applying track relinking via the market parameter, it is expected to find relinked tracks with popularities that do not match min_*, max_*and target_* popularities. These relinked tracks are accurate replacements for unplayable tracks with the expected popularity scores. Original, non-relinked tracks are available via the linked_from attribute of the relinked track response.
 
 =item speechiness
 

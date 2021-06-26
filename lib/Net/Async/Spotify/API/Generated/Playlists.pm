@@ -38,12 +38,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />Adding items to the current user’s public playlists requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; adding items to the current user’s private playlist (including collaborative playlists) requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.Adding items to the current user’s public playlists requires authorization of the playlist-modify-public scope; adding items to the current user’s private playlist (including collaborative playlists) requires the playlist-modify-private scope. See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: required
-<em>Required if URIs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if URIs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -54,12 +54,12 @@ Type: string | Required: required
 =item position
 
 Type: integer | Required: optional
-The position to insert the items, a zero-based index. For example, to insert the items in the first position: <code class="highlighter-rouge">position=0</code> ; to insert the items in the third position: <code class="highlighter-rouge">position=2</code>. If omitted, the items will be appended to the playlist. Items are added in the order they appear in the uris array. For example: <code class="highlighter-rouge">{&quot;uris&quot;: [&quot;spotify:track:4iV5W9uYEdYUVa79Axb7Rh&quot;,&quot;spotify:track:1301WleyT98MSxVHPZCA6M&quot;], &quot;position&quot;: 3}</code>
+The position to insert the items, a zero-based index. For example, to insert the items in the first position: position=0 ; to insert the items in the third position: position=2. If omitted, the items will be appended to the playlist. Items are added in the order they appear in the uris array. For example: {"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh","spotify:track:1301WleyT98MSxVHPZCA6M"], "position": 3}
 
 =item uris
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URIs</a> to add. For example: <code class="highlighter-rouge">{&quot;uris&quot;: [&quot;spotify:track:4iV5W9uYEdYUVa79Axb7Rh&quot;,&quot;spotify:track:1301WleyT98MSxVHPZCA6M&quot;, &quot;spotify:episode:512ojhOuo1ktJprKbVcKyQ&quot;]}</code><br />A maximum of 100 items can be added in one request. <em>Note: if the <code class="highlighter-rouge">uris</code> parameter is present in the query string, any URIs listed here in the body will be ignored.</em>
+A JSON array of the Spotify URIs to add. For example: {"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh","spotify:track:1301WleyT98MSxVHPZCA6M", "spotify:episode:512ojhOuo1ktJprKbVcKyQ"]}A maximum of 100 items can be added in one request. Note: if the uris parameter is present in the query string, any URIs listed here in the body will be ignored.
 
 =back
 
@@ -70,7 +70,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -82,12 +82,12 @@ for the playlist.
 =item position
 
 Type: integer | Required: optional
-The position to insert the items, a zero-based index. For example, to insert the items in the first position: <code class="highlighter-rouge">position=0</code>; to insert the items in the third position: <code class="highlighter-rouge">position=2</code> . If omitted, the items will be appended to the playlist. Items are added in the order they are listed in the query string or request body.
+The position to insert the items, a zero-based index. For example, to insert the items in the first position: position=0; to insert the items in the third position: position=2 . If omitted, the items will be appended to the playlist. Items are added in the order they are listed in the query string or request body.
 
 =item uris
 
 Type: string | Required: optional
-A comma-separated list of <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URIs</a> to add, can be track or episode URIs. For example:<br /><code class="highlighter-rouge">uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh, spotify:track:1301WleyT98MSxVHPZCA6M, spotify:episode:512ojhOuo1ktJprKbVcKyQ</code><br />A maximum of 100 items can be added in one request. <em>Note: it is likely that passing a large number of item URIs as a query parameter will exceed the maximum length of the request URI. When adding a large number of items, it is recommended to pass them in the request body, see below.</em>
+A comma-separated list of Spotify URIs to add, can be track or episode URIs. For example:uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh, spotify:track:1301WleyT98MSxVHPZCA6M, spotify:episode:512ojhOuo1ktJprKbVcKyQA maximum of 100 items can be added in one request. Note: it is likely that passing a large number of item URIs as a query parameter will exceed the maximum length of the request URI. When adding a large number of items, it is recommended to pass them in the request body, see below.
 
 =back
 
@@ -153,7 +153,7 @@ async sub add_tracks_to_playlist {
 
 =head2 change_playlist_details
 
-change_playlist_details - Change a Playlist&#39;s Details
+change_playlist_details - Change a Playlist's Details
 
 Change a playlist’s name and public/private state. (The user must, of
 course, own the playlist.)
@@ -167,12 +167,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />Changing a public playlist for a user requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; changing a private playlist requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.Changing a public playlist for a user requires authorization of the playlist-modify-public scope; changing a private playlist requires the playlist-modify-private scope. See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: required
-The content type of the request body: <code class="highlighter-rouge">application/json</code>
+The content type of the request body: application/json
 
 =back
 
@@ -183,7 +183,7 @@ The content type of the request body: <code class="highlighter-rouge">applicatio
 =item collaborative
 
 Type: boolean | Required: optional
-If <code class="highlighter-rouge">true</code> , the playlist will become collaborative and other users will be able to modify the playlist in their Spotify client. <em>Note: You can only set <code class="highlighter-rouge">collaborative</code> to <code class="highlighter-rouge">true</code> on non-public playlists.</em>
+If true , the playlist will become collaborative and other users will be able to modify the playlist in their Spotify client. Note: You can only set collaborative to true on non-public playlists.
 
 =item description
 
@@ -193,12 +193,12 @@ Value for playlist description as displayed in Spotify Clients and in the Web AP
 =item name
 
 Type: string | Required: optional
-The new name for the playlist, for example <code class="highlighter-rouge">&quot;My New Playlist Title&quot;</code>
+The new name for the playlist, for example "My New Playlist Title"
 
 =item public
 
 Type: boolean | Required: optional
-If <code class="highlighter-rouge">true</code> the playlist will be public, if <code class="highlighter-rouge">false</code> it will be private.
+If true the playlist will be public, if false it will be private.
 
 =back
 
@@ -209,7 +209,7 @@ If <code class="highlighter-rouge">true</code> the playlist will be public, if <
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -277,7 +277,7 @@ async sub change_playlist_details {
 create_playlist - Create a Playlist
 
 Create a playlist for a Spotify user. (The playlist will be empty until
-you <a href="/documentation/web-api/reference/#endpoint-add-tracks-to-playlist">add tracks</a>.)
+you add tracks.)
 
 with Request details being:
 
@@ -288,12 +288,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user. Creating a public playlist for a user requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; creating a private playlist requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user. Creating a public playlist for a user requires authorization of the playlist-modify-public scope; creating a private playlist requires the playlist-modify-private scope. See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: optional
-The content type of the request body: <code class="highlighter-rouge">application/json</code>
+The content type of the request body: application/json
 
 =back
 
@@ -304,7 +304,7 @@ The content type of the request body: <code class="highlighter-rouge">applicatio
 =item collaborative
 
 Type: boolean | Required: optional
-Defaults to <code class="highlighter-rouge">false</code> . If <code class="highlighter-rouge">true</code> the playlist will be collaborative. Note that to create a collaborative playlist you must also set <code class="highlighter-rouge">public</code> to <code class="highlighter-rouge">false</code> . To create collaborative playlists you must have granted <code class="highlighter-rouge">playlist-modify-private</code> and <code class="highlighter-rouge">playlist-modify-public</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scopes</a> .
+Defaults to false . If true the playlist will be collaborative. Note that to create a collaborative playlist you must also set public to false . To create collaborative playlists you must have granted playlist-modify-private and playlist-modify-public scopes .
 
 =item description
 
@@ -314,12 +314,12 @@ value for playlist description as displayed in Spotify Clients and in the Web AP
 =item name
 
 Type: string | Required: required
-The name for the new playlist, for example <code class="highlighter-rouge">&quot;Your Coolest Playlist&quot;</code> . This name does not need to be unique; a user may have several playlists with the same name.
+The name for the new playlist, for example "Your Coolest Playlist" . This name does not need to be unique; a user may have several playlists with the same name.
 
 =item public
 
 Type: boolean | Required: optional
-Defaults to <code class="highlighter-rouge">true</code> . If <code class="highlighter-rouge">true</code> the playlist will be public, if <code class="highlighter-rouge">false</code> it will be private. To be able to create private playlists, the user must have granted the <code class="highlighter-rouge">playlist-modify-private</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>
+Defaults to true . If true the playlist will be public, if false it will be private. To be able to create private playlists, the user must have granted the playlist-modify-private scope
 
 =back
 
@@ -330,7 +330,7 @@ Defaults to <code class="highlighter-rouge">true</code> . If <code class="highli
 =item user_id
 
 Type: string | Required: required
-The user’s <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify user ID</a>.
+The user’s Spotify user ID.
 
 =back
 
@@ -399,7 +399,7 @@ async sub create_playlist {
 
 =head2 get_a_list_of_current_users_playlists
 
-get_a_list_of_current_users_playlists - Get a List of Current User&#39;s Playlists
+get_a_list_of_current_users_playlists - Get a List of Current User's Playlists
 
 Get a list of the playlists owned or followed by the current Spotify
 user.
@@ -413,7 +413,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Private playlists are only retrievable <em>for the current user</em> and requires the <code class="highlighter-rouge">playlist-read-private</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> to have been authorized by the user. Note that this scope alone will not return collaborative playlists, even though they are always private.<br />Collaborative playlists are only retrievable <em>for the current user</em> and requires the <code class="highlighter-rouge">playlist-read-collaborative</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> to have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Private playlists are only retrievable for the current user and requires the playlist-read-private scope to have been authorized by the user. Note that this scope alone will not return collaborative playlists, even though they are always private.Collaborative playlists are only retrievable for the current user and requires the playlist-read-collaborative scope to have been authorized by the user.
 
 =back
 
@@ -431,7 +431,7 @@ Type: integer | Required: optional
 
 Type: integer | Required: optional
 ‘The index of the first playlist to return. Default:
-0 (the first object). Maximum offset: 100.000. Use with <code class="highlighter-rouge">limit</code> to get the
+0 (the first object). Maximum offset: 100.000. Use with limit to get the
 next set of playlists.’
 
 =back
@@ -478,7 +478,7 @@ async sub get_a_list_of_current_users_playlists {
 
 =head2 get_list_users_playlists
 
-get_list_users_playlists - Get a List of a User&#39;s Playlists
+get_list_users_playlists - Get a List of a User's Playlists
 
 Get a list of the playlists owned or followed by a Spotify user.
 
@@ -491,7 +491,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Private playlists are only retrievable <em>for the current user</em> and requires the <code class="highlighter-rouge">playlist-read-private</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> to have been authorized by the user. Note that this scope alone will not return collaborative playlists, even though they are always private.<br />Collaborative playlists are only retrievable <em>for the current user</em> and requires the <code class="highlighter-rouge">playlist-read-collaborative</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> to have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Private playlists are only retrievable for the current user and requires the playlist-read-private scope to have been authorized by the user. Note that this scope alone will not return collaborative playlists, even though they are always private.Collaborative playlists are only retrievable for the current user and requires the playlist-read-collaborative scope to have been authorized by the user.
 
 =back
 
@@ -502,7 +502,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item user_id
 
 Type: string | Required: required
-The user’s <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify user ID</a>.
+The user’s Spotify user ID.
 
 =back
 
@@ -520,7 +520,7 @@ The maximum number of playlists to return. Default:
 
 Type: integer | Required: optional
 The index of the first playlist to return. Default:
-0 (the first object). Maximum offset: 100.000. Use with <code class="highlighter-rouge">limit</code> to get the
+0 (the first object). Maximum offset: 100.000. Use with limit to get the
 next set of playlists.
 
 =back
@@ -587,7 +587,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details. Both Public and Private playlists belonging to any user are retrievable
 on provision of a valid access token.
 
@@ -600,7 +600,7 @@ on provision of a valid access token.
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -612,32 +612,32 @@ for the playlist.
 =item additional_types
 
 Type: string | Required: optional
-A comma-separated list of item types that your client supports besides the default <code class="highlighter-rouge">track</code> type. Valid types are: <code class="highlighter-rouge">track</code> and <code class="highlighter-rouge">episode</code>.
-<strong>Note</strong>: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future.
-In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the <code class="highlighter-rouge">type</code> field of each object.
+A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode.
+Note: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future.
+In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the type field of each object.
 
 =item fields
 
 Type: string | Required: optional
 Filters for the query: a comma-separated list of the
 fields to return. If omitted, all fields are returned. For example, to get
-just the playlist’’s description and URI: <code class="highlighter-rouge">fields=description,uri</code>. A dot
+just the playlist’’s description and URI: fields=description,uri. A dot
 separator can be used to specify non-reoccurring fields, while parentheses
 can be used to specify reoccurring fields within objects. For example, to
-get just the added date and user ID of the adder: <code class="highlighter-rouge">fields=tracks.items(added_at,added_by.id)</code>.
-Use multiple parentheses to drill down into nested objects, for example: <code class="highlighter-rouge">fields=tracks.items(track(name,href,album(name,href)))</code>.
+get just the added date and user ID of the adder: fields=tracks.items(added_at,added_by.id).
+Use multiple parentheses to drill down into nested objects, for example: fields=tracks.items(track(name,href,album(name,href))).
 Fields can be excluded by prefixing them with an exclamation mark, for example:
-<code class="highlighter-rouge">fields=tracks.items(track(name,href,album(!name,href)))</code>
+fields=tracks.items(track(name,href,album(!name,href)))
 
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track
-Relinking</a>.
+An ISO 3166-1 alpha-2 country code
+or the string from_token. Provide this parameter if you want to apply Track
+Relinking.
 For episodes, if a valid user access token is specified in the request header, the country associated with
-the user account will take priority over this parameter.<br />
-<em>Note: If neither market or user country are provided, the episode is considered unavailable for the client.</em>
+the user account will take priority over this parameter.
+Note: If neither market or user country are provided, the episode is considered unavailable for the client.
 
 =back
 
@@ -706,7 +706,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />This access token must be issued on behalf of the user. <br /> Current playlist image for both Public and Private playlists of any user are retrievable on provision of a valid access token.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.This access token must be issued on behalf of the user.  Current playlist image for both Public and Private playlists of any user are retrievable on provision of a valid access token.
 
 =back
 
@@ -717,7 +717,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -760,7 +760,7 @@ async sub get_playlist_cover {
 
 =head2 get_playlists_tracks
 
-get_playlists_tracks - Get a Playlist&#39;s Items
+get_playlists_tracks - Get a Playlist's Items
 
 Get full details of the items of a playlist owned by a Spotify user.
 
@@ -773,7 +773,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. Both Public and Private playlists belonging to any user are retrievable on provision of a valid access token.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. Both Public and Private playlists belonging to any user are retrievable on provision of a valid access token.
 
 =back
 
@@ -784,7 +784,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -796,21 +796,21 @@ for the playlist.
 =item additional_types
 
 Type: string | Required: optional
-A comma-separated list of item types that your client supports besides the default <code class="highlighter-rouge">track</code> type. Valid types are: <code class="highlighter-rouge">track</code> and <code class="highlighter-rouge">episode</code>.
-<strong>Note</strong>: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future.
-In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the <code class="highlighter-rouge">type</code> field of each object.
+A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode.
+Note: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future.
+In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the type field of each object.
 
 =item fields
 
 Type: string | Required: optional
 Filters for the query: a comma-separated list of the
 fields to return. If omitted, all fields are returned. For example, to get
-just the total number of items and the request limit:<br /><code class="highlighter-rouge">fields=total,limit</code><br />A
+just the total number of items and the request limit:fields=total,limitA
 dot separator can be used to specify non-reoccurring fields, while parentheses
 can be used to specify reoccurring fields within objects. For example, to
-get just the added date and user ID of the adder:<br /><code class="highlighter-rouge">fields=items(added_at,added_by.id)</code><br />Use
-multiple parentheses to drill down into nested objects, for example:<br /><code class="highlighter-rouge">fields=items(track(name,href,album(name,href)))</code><br />Fields
-can be excluded by prefixing them with an exclamation mark, for example:<br /><code class="highlighter-rouge">fields=items.track.album(!external_urls,images)</code>
+get just the added date and user ID of the adder:fields=items(added_at,added_by.id)Use
+multiple parentheses to drill down into nested objects, for example:fields=items(track(name,href,album(name,href)))Fields
+can be excluded by prefixing them with an exclamation mark, for example:fields=items.track.album(!external_urls,images)
 
 =item limit
 
@@ -821,12 +821,12 @@ Minimum: 1. Maximum: 100.
 =item market
 
 Type: string | Required: required
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track
-Relinking</a>.
+An ISO 3166-1 alpha-2 country code
+or the string from_token. Provide this parameter if you want to apply Track
+Relinking.
 For episodes, if a valid user access token is specified in the request header, the country associated with
-the user account will take priority over this parameter.<br />
-<em>Note: If neither market or user country are provided, the episode is considered unavailable for the client.</em>
+the user account will take priority over this parameter.
+Note: If neither market or user country are provided, the episode is considered unavailable for the client.
 
 =item offset
 
@@ -909,13 +909,13 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
-for details. The access token must have been issued on behalf of the user. Removing items from a user’s public playlist requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope; removing items from a private playlist requires the <code class="highlighter-rouge">playlist-modify-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide
+for details. The access token must have been issued on behalf of the user. Removing items from a user’s public playlist requires authorization of the playlist-modify-public scope; removing items from a private playlist requires the playlist-modify-private scope. See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: required
-The content type of the request body: <code class="highlighter-rouge">application/json</code>
+The content type of the request body: application/json
 
 =back
 
@@ -933,8 +933,8 @@ even if more recent changes have been made to the playlist.
 =item tracks
 
 Type: array[string] | Required: required
-An array of objects containing <a href="https://developer.spotify.com/spotify-documentation/web-api/#spotify-uris-and-ids">Spotify URIs</a> of the tracks or episodes to remove.
-For example: <code class="highlighter-rouge">{ &quot;tracks&quot;: [{ &quot;uri&quot;: &quot;spotify:track:4iV5W9uYEdYUVa79Axb7Rh&quot; },{ &quot;uri&quot;: &quot;spotify:track:1301WleyT98MSxVHPZCA6M&quot; }] }</code>. A maximum of 100 objects can be sent at once.
+An array of objects containing Spotify URIs of the tracks or episodes to remove.
+For example: { "tracks": [{ "uri": "spotify:track:4iV5W9uYEdYUVa79Axb7Rh" },{ "uri": "spotify:track:1301WleyT98MSxVHPZCA6M" }] }. A maximum of 100 objects can be sent at once.
 
 =back
 
@@ -945,7 +945,7 @@ For example: <code class="highlighter-rouge">{ &quot;tracks&quot;: [{ &quot;uri&
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 
 =back
 
@@ -1015,14 +1015,14 @@ async sub remove_tracks_playlist {
 
 =head2 reorder_or_replace_playlists_tracks
 
-reorder_or_replace_playlists_tracks - Reorder or Replace a Playlist&#39;s Items
+reorder_or_replace_playlists_tracks - Reorder or Replace a Playlist's Items
 
 Either reorder or replace items in a playlist depending on the request’s parameters.
-To reorder items, include <code class="highlighter-rouge">range_start</code>, <code class="highlighter-rouge">insert_before</code>, <code class="highlighter-rouge">range_length</code> and <code class="highlighter-rouge">snapshot_id</code> in the request’s body.
-To replace items, include <code class="highlighter-rouge">uris</code> as either a query parameter or in the request’s body.
+To reorder items, include range_start, insert_before, range_length and snapshot_id in the request’s body.
+To replace items, include uris as either a query parameter or in the request’s body.
 Replacing items in a playlist will overwrite its existing items. This operation can be used for replacing or clearing items in a playlist.
-<br />
-<strong>Note</strong>: Replace and reorder are mutually exclusive operations which share the same endpoint, but have different parameters.
+
+Note: Replace and reorder are mutually exclusive operations which share the same endpoint, but have different parameters.
 These operations can’t be applied together in a single request.
 
 with Request details being:
@@ -1035,16 +1035,16 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+see the Web API Authorization Guide for details.
 The access token must have been issued on behalf of the user.
-<br />Reordering or replacing items in the current user’s public playlists requires authorization of the <code class="highlighter-rouge">playlist-modify-public</code> scope;
-reordering or replacing items in the current user’s private playlist (including collaborative playlists) requires the <code class="highlighter-rouge">playlist-modify-private</code> scope.
-See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+Reordering or replacing items in the current user’s public playlists requires authorization of the playlist-modify-public scope;
+reordering or replacing items in the current user’s private playlist (including collaborative playlists) requires the playlist-modify-private scope.
+See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if URIs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if URIs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -1055,12 +1055,12 @@ Type: string | Required: optional
 =item insert_before
 
 Type: integer | Required: optional
-The position where the items should be inserted.<br />To reorder the items to the end of the playlist, simply set <em>insert_before</em> to the position after the last item.<br />Examples:<br />To reorder the first item to the last position in a playlist with 10 items, set <em>range_start</em> to 0, and <em>insert_before</em> to 10.<br />To reorder the last item in a playlist with 10 items to the start of the playlist, set <em>range_start</em> to 9, and <em>insert_before</em> to 0.
+The position where the items should be inserted.To reorder the items to the end of the playlist, simply set insert_before to the position after the last item.Examples:To reorder the first item to the last position in a playlist with 10 items, set range_start to 0, and insert_before to 10.To reorder the last item in a playlist with 10 items to the start of the playlist, set range_start to 9, and insert_before to 0.
 
 =item range_length
 
 Type: integer | Required: optional
-The amount of items to be reordered. Defaults to 1 if not set.<br />The range of items to be reordered begins from the <em>range_start</em> position, and includes the <em>range_length</em> subsequent items.<br />Example:<br />To move the items at index 9-10 to the start of the playlist, <em>range_start</em> is set to 9, and <em>range_length</em> is set to 2.
+The amount of items to be reordered. Defaults to 1 if not set.The range of items to be reordered begins from the range_start position, and includes the range_length subsequent items.Example:To move the items at index 9-10 to the start of the playlist, range_start is set to 9, and range_length is set to 2.
 
 =item range_start
 
@@ -1086,7 +1086,7 @@ Type: array[string] | Required: optional
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back
@@ -1098,7 +1098,7 @@ for the playlist.
 =item uris
 
 Type: string | Required: optional
-A comma-separated list of <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URIs</a> to set, can be track or episode URIs. For example: <code class="highlighter-rouge">uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:512ojhOuo1ktJprKbVcKyQ</code><br />A maximum of 100 items can be set in one request.
+A comma-separated list of Spotify URIs to set, can be track or episode URIs. For example: uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:512ojhOuo1ktJprKbVcKyQA maximum of 100 items can be set in one request.
 
 =back
 
@@ -1191,12 +1191,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user.<br />This access token must be tied to the user who owns the playlist, and must have the scope <code class="highlighter-rouge">ugc-image-upload</code> granted. In addition, the token must also contain <code class="highlighter-rouge">playlist-modify-public</code> and/or <code class="highlighter-rouge">playlist-modify-private</code>, depending the public status of the playlist you want to update . See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user.This access token must be tied to the user who owns the playlist, and must have the scope ugc-image-upload granted. In addition, the token must also contain playlist-modify-public and/or playlist-modify-private, depending the public status of the playlist you want to update . See Using Scopes.
 
 =item Content-Type
 
 Type: string | Required: required
-The content type of the request body: <code class="highlighter-rouge">image/jpeg</code>
+The content type of the request body: image/jpeg
 
 =back
 
@@ -1207,7 +1207,7 @@ The content type of the request body: <code class="highlighter-rouge">image/jpeg
 =item playlist_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the playlist.
 
 =back

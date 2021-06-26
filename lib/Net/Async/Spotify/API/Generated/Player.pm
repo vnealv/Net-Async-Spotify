@@ -38,7 +38,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback
 
 =back
 
@@ -99,7 +99,7 @@ async sub add_to_queue {
 
 =head2 get_a_users_available_devices
 
-get_a_users_available_devices - Get a User&#39;s Available Devices
+get_a_users_available_devices - Get a User's Available Devices
 
 Get information about a user’s available devices.
 
@@ -113,9 +113,9 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.  The access token must have been issued on behalf of a user.
-The access token must have the <code class="highlighter-rouge">user-read-playback-state</code> scope authorized
+The access token must have the user-read-playback-state scope authorized
 in order to read information.
 
 =back
@@ -153,7 +153,7 @@ async sub get_a_users_available_devices {
 
 =head2 get_information_about_the_users_current_playback
 
-get_information_about_the_users_current_playback - Get Information About The User&#39;s Current Playback
+get_information_about_the_users_current_playback - Get Information About The User's Current Playback
 
 Get information about the user’s current playback state, including track or episode, progress, and active device.
 
@@ -166,7 +166,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.
 
 =back
 
@@ -177,15 +177,15 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item additional_types
 
 Type: string | Required: optional
-A comma-separated list of item types that your client supports besides the default <code class="highlighter-rouge">track</code> type. Valid types are: <code class="highlighter-rouge">track</code> and <code class="highlighter-rouge">episode</code>. An unsupported type in the response is expected to be represented as <code class="highlighter-rouge">null</code> value in the <code class="highlighter-rouge">item</code> field.
-<strong>Note</strong>: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future. In addition to providing this parameter, make sure that your client properly handles cases of new
+A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode. An unsupported type in the response is expected to be represented as null value in the item field.
+Note: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future. In addition to providing this parameter, make sure that your client properly handles cases of new
 
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track
-Relinking</a>.
+An ISO 3166-1 alpha-2 country code
+or the string from_token. Provide this parameter if you want to apply Track
+Relinking.
 
 =back
 
@@ -230,10 +230,10 @@ async sub get_information_about_the_users_current_playback {
 
 =head2 get_recently_played
 
-get_recently_played - Get Current User&#39;s Recently Played Tracks
+get_recently_played - Get Current User's Recently Played Tracks
 
 Get tracks from the current user’s recently played tracks.
-<em>Note: Currently doesn’t support podcast episodes.</em>
+Note: Currently doesn’t support podcast episodes.
 
 with Request details being:
 
@@ -244,7 +244,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of a user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of a user.
 
 =back
 
@@ -256,15 +256,15 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 
 Type: integer | Required: optional
 A Unix timestamp in milliseconds. Returns all items
-after (but not including) this cursor position. If <code class="highlighter-rouge">after</code> is specified, <code class="highlighter-rouge">before</code>
+after (but not including) this cursor position. If after is specified, before
 must not be specified.
 
 =item before
 
 Type: integer | Required: optional
 A Unix timestamp in milliseconds. Returns all items
-before (but not including) this cursor position. If <code class="highlighter-rouge">before</code> is specified,
-<code class="highlighter-rouge">after</code> must not be specified.
+before (but not including) this cursor position. If before is specified,
+after must not be specified.
 
 =item limit
 
@@ -319,7 +319,7 @@ async sub get_recently_played {
 
 =head2 get_the_users_currently_playing_track
 
-get_the_users_currently_playing_track - Get the User&#39;s Currently Playing Track
+get_the_users_currently_playing_track - Get the User's Currently Playing Track
 
 Get the object currently being played on the user’s Spotify account.
 
@@ -333,9 +333,9 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details. The access token must have been issued on behalf of a user. The
-access token must have the <code class="highlighter-rouge">user-read-currently-playing</code> and/or <code class="highlighter-rouge">user-read-playback-state</code>
+access token must have the user-read-currently-playing and/or user-read-playback-state
 scope authorized in order to read information.
 
 =back
@@ -347,15 +347,15 @@ scope authorized in order to read information.
 =item additional_types
 
 Type: string | Required: optional
-A comma-separated list of item types that your client supports besides the default <code class="highlighter-rouge">track</code> type. Valid types are: <code class="highlighter-rouge">track</code> and <code class="highlighter-rouge">episode</code>. An unsupported type in the response is expected to be represented as <code class="highlighter-rouge">null</code> value in the <code class="highlighter-rouge">item</code> field.
-<strong>Note</strong>: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future. In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the <code class="highlighter-rouge">currently_playing_type</code> field.
+A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode. An unsupported type in the response is expected to be represented as null value in the item field.
+Note: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future. In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the currently_playing_type field.
 
 =item market
 
 Type: string | Required: required
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track
-Relinking</a>.
+An ISO 3166-1 alpha-2 country code
+or the string from_token. Provide this parameter if you want to apply Track
+Relinking.
 
 =back
 
@@ -399,7 +399,7 @@ async sub get_the_users_currently_playing_track {
 
 =head2 pause_a_users_playback
 
-pause_a_users_playback - Pause a User&#39;s Playback
+pause_a_users_playback - Pause a User's Playback
 
 Pause playback on the user’s account.
 
@@ -412,7 +412,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.
 
 =back
 
@@ -476,7 +476,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback
 
 =back
 
@@ -553,7 +553,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -570,10 +570,10 @@ not supplied, the user’s currently active device is the target.
 =item state
 
 Type: string | Required: required
-<strong>track</strong>, <strong>context</strong> or <strong>off</strong>.<br />
-<strong>track</strong> will repeat the current track.<br />
-<strong>context</strong> will repeat the current context.<br />
-<strong>off</strong> will turn repeat off.
+track, context or off.
+track will repeat the current track.
+context will repeat the current context.
+off will turn repeat off.
 
 =back
 
@@ -617,7 +617,7 @@ async sub set_repeat_mode_on_users_playback {
 
 =head2 set_volume_for_users_playback
 
-set_volume_for_users_playback - Set Volume For User&#39;s Playback
+set_volume_for_users_playback - Set Volume For User's Playback
 
 Set the volume for the user’s current playback device.
 
@@ -630,7 +630,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -703,7 +703,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -767,7 +767,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -819,7 +819,7 @@ async sub skip_users_playback_to_previous_track {
 
 =head2 start_a_users_playback
 
-start_a_users_playback - Start/Resume a User&#39;s Playback
+start_a_users_playback - Start/Resume a User's Playback
 
 Start a new context or resume current playback on the user’s active device.
 
@@ -832,7 +832,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -940,7 +940,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -957,8 +957,8 @@ not supplied, the user’s currently active device is the target.
 =item state
 
 Type: boolean | Required: required
-<strong>true</strong> : Shuffle user’s playback.<br />
-<strong>false</strong> : Do not shuffle user’s playback.
+true : Shuffle user’s playback.
+false : Do not shuffle user’s playback.
 
 =back
 
@@ -1002,7 +1002,7 @@ async sub toggle_shuffle_for_users_playback {
 
 =head2 transfer_a_users_playback
 
-transfer_a_users_playback - Transfer a User&#39;s Playback
+transfer_a_users_playback - Transfer a User's Playback
 
 Transfer playback to a new device and determine if it should start playing.
 
@@ -1015,7 +1015,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />The access token must have been issued on behalf of a user.<br />The access token must have the <code class="highlighter-rouge">user-modify-playback-state</code> scope authorized in order to control playback.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.The access token must have been issued on behalf of a user.The access token must have the user-modify-playback-state scope authorized in order to control playback.
 
 =back
 
@@ -1026,12 +1026,12 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item device_ids
 
 Type: array[string] | Required: required
-A JSON array containing the ID of the device on which playback should be started/transferred.<br />For example:<code class="highlighter-rouge">{device_ids:[&quot;74ASZWbe4lXaubB36ztrGX&quot;]}</code><br />Note: Although an array is accepted, only a single device_id is currently supported. Supplying more than one will return <code class="highlighter-rouge">400 Bad Request</code>
+A JSON array containing the ID of the device on which playback should be started/transferred.For example:{device_ids:["74ASZWbe4lXaubB36ztrGX"]}Note: Although an array is accepted, only a single device_id is currently supported. Supplying more than one will return 400 Bad Request
 
 =item play
 
 Type: boolean | Required: optional
-<strong>true</strong>: ensure playback happens on new device.<br /><strong>false</strong> or not provided: keep the current playback state.
+true: ensure playback happens on new device.false or not provided: keep the current playback state.
 
 =back
 

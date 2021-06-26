@@ -25,7 +25,7 @@ Those are Spotify Device Object attributes:
 =item id
 
 Type: String
-Description: The device ID. This may be <code class="highlighter-rouge">null</code>.
+Description: The device ID. This may be null.
 
 =item is_active
 

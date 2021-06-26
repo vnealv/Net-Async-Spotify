@@ -25,7 +25,7 @@ Those are Spotify Image Object attributes:
 =item height
 
 Type: Integer
-Description: The image height in pixels. If unknown: <code class="highlighter-rouge">null</code> or not returned.
+Description: The image height in pixels. If unknown: null or not returned.
 
 =item url
 
@@ -35,7 +35,7 @@ Description: The source URL of the image.
 =item width
 
 Type: Integer
-Description: The image width in pixels. If unknown: <code class="highlighter-rouge">null</code> or not returned.
+Description: The image width in pixels. If unknown: null or not returned.
 
 =back
 

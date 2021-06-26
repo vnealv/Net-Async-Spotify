@@ -25,7 +25,7 @@ Those are Spotify SimplifiedShow Object attributes:
 =item available_markets
 
 Type: Array[String]
-Description: A list of the countries in which the show can be played, identified by their <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+Description: A list of the countries in which the show can be played, identified by their ISO 3166-1 alpha-2 code.
 
 =item copyrights
 
@@ -35,7 +35,7 @@ Description: The copyright statements of the show.
 =item description
 
 Type: String
-Description: A description of the show. HTML tags are stripped away from this field, use <code class="highlighter-rouge">html_description</code> field in case HTML tags are needed.
+Description: A description of the show. HTML tags are stripped away from this field, use html_description field in case HTML tags are needed.
 
 =item explicit
 
@@ -60,7 +60,7 @@ Description: A description of the show. This field may contain HTML tags.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the show.
+Description: The Spotify ID for the show.
 
 =item images
 
@@ -70,12 +70,12 @@ Description: The cover art for the show in various sizes, widest first.
 =item is_externally_hosted
 
 Type: Boolean
-Description: True if all of the show’s episodes are hosted outside of Spotify’s CDN. This field might be <code class="highlighter-rouge">null</code> in some cases.
+Description: True if all of the show’s episodes are hosted outside of Spotify’s CDN. This field might be null in some cases.
 
 =item languages
 
 Type: Array[String]
-Description: A list of the languages used in the show, identified by their <a href="https://en.wikipedia.org/wiki/ISO_639">ISO 639</a> code.
+Description: A list of the languages used in the show, identified by their ISO 639 code.
 
 =item media_type
 
@@ -100,7 +100,7 @@ Description: The object type: “show”.
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the show.
+Description: The Spotify URI for the show.
 
 =back
 

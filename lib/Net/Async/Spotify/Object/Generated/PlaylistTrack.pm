@@ -25,17 +25,17 @@ Those are Spotify PlaylistTrack Object attributes:
 =item added_at
 
 Type: Timestamp
-Description: The date and time the track or episode was added. <em>Note that some very old playlists may return <code class="highlighter-rouge">null</code> in this field.</em>
+Description: The date and time the track or episode was added. Note that some very old playlists may return null in this field.
 
 =item added_by
 
 Type: PublicUserObject
-Description: The Spotify user who added the track or episode. <em>Note that some very old playlists may return <code class="highlighter-rouge">null</code> in this field.</em>
+Description: The Spotify user who added the track or episode. Note that some very old playlists may return null in this field.
 
 =item is_local
 
 Type: Boolean
-Description: Whether this track or episode is a <a href="https://developer.spotify.com/web-api/local-files-spotify-playlists/">local file</a> or not.
+Description: Whether this track or episode is a local file or not.
 
 =item track
 

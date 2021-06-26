@@ -30,7 +30,7 @@ Description: A short description of the cause of the error.
 =item status
 
 Type: Integer
-Description: The HTTP status code (also returned in the response header; see <a href="/documentation/web-api/#response-status-codes">Response Status Codes</a> for more information).
+Description: The HTTP status code (also returned in the response header; see Response Status Codes for more information).
 
 =back
 

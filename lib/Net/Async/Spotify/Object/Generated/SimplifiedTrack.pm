@@ -25,17 +25,17 @@ Those are Spotify SimplifiedTrack Object attributes:
 =item artists
 
 Type: Array[SimplifiedArtistObject]
-Description: The artists who performed the track. Each artist object includes a link in <code class="highlighter-rouge">href</code> to more detailed information about the artist.
+Description: The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
 
 =item available_markets
 
 Type: Array[String]
-Description: A list of the countries in which the track can be played, identified by their <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+Description: A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.
 
 =item disc_number
 
 Type: Integer
-Description: The disc number (usually <code class="highlighter-rouge">1</code> unless the album consists of more than one disc).
+Description: The disc number (usually 1 unless the album consists of more than one disc).
 
 =item duration_ms
 
@@ -45,7 +45,7 @@ Description: The track length in milliseconds.
 =item explicit
 
 Type: Boolean
-Description: Whether or not the track has explicit lyrics ( <code class="highlighter-rouge">true</code> = yes it does; <code class="highlighter-rouge">false</code> = no it does not OR unknown).
+Description: Whether or not the track has explicit lyrics ( true = yes it does; false = no it does not OR unknown).
 
 =item external_urls
 
@@ -60,7 +60,7 @@ Description: A link to the Web API endpoint providing full details of the track.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the track.
+Description: The Spotify ID for the track.
 
 =item is_local
 
@@ -70,12 +70,12 @@ Description: Whether or not the track is from a local file.
 =item is_playable
 
 Type: Boolean
-Description: Part of the response when <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a> is applied. If <code class="highlighter-rouge">true</code> , the track is playable in the given market. Otherwise <code class="highlighter-rouge">false</code>.
+Description: Part of the response when Track Relinking is applied. If true , the track is playable in the given market. Otherwise false.
 
 =item linked_from
 
 Type: LinkedTrackObject
-Description: Part of the response when <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a> is applied and is only part of the response if the track linking, in fact, exists. The requested track has been replaced with a different track. The track in the <code class="highlighter-rouge">linked_from</code> object contains information about the originally requested track.
+Description: Part of the response when Track Relinking is applied and is only part of the response if the track linking, in fact, exists. The requested track has been replaced with a different track. The track in the linked_from object contains information about the originally requested track.
 
 =item name
 
@@ -91,7 +91,7 @@ Description: A URL to a 30 second preview (MP3 format) of the track.
 
 Type: TrackRestrictionObject
 Description: Included in the response when a content restriction is applied.
-See <a href="/documentation/web-api/reference/#object-trackrestrictionobject">Restriction Object</a> for more details.
+See Restriction Object for more details.
 
 =item track_number
 
@@ -106,7 +106,7 @@ Description: The object type: “track”.
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the track.
+Description: The Spotify URI for the track.
 
 =back
 

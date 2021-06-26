@@ -25,22 +25,22 @@ Those are Spotify Track Object attributes:
 =item album
 
 Type: SimplifiedAlbumObject
-Description: The album on which the track appears. The album object includes a link in <code class="highlighter-rouge">href</code> to full information about the album.
+Description: The album on which the track appears. The album object includes a link in href to full information about the album.
 
 =item artists
 
 Type: Array[ArtistObject]
-Description: The artists who performed the track. Each artist object includes a link in <code class="highlighter-rouge">href</code> to more detailed information about the artist.
+Description: The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
 
 =item available_markets
 
 Type: Array[String]
-Description: A list of the countries in which the track can be played, identified by their <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+Description: A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.
 
 =item disc_number
 
 Type: Integer
-Description: The disc number (usually <code class="highlighter-rouge">1</code> unless the album consists of more than one disc).
+Description: The disc number (usually 1 unless the album consists of more than one disc).
 
 =item duration_ms
 
@@ -50,7 +50,7 @@ Description: The track length in milliseconds.
 =item explicit
 
 Type: Boolean
-Description: Whether or not the track has explicit lyrics ( <code class="highlighter-rouge">true</code> = yes it does; <code class="highlighter-rouge">false</code> = no it does not OR unknown).
+Description: Whether or not the track has explicit lyrics ( true = yes it does; false = no it does not OR unknown).
 
 =item external_ids
 
@@ -70,7 +70,7 @@ Description: A link to the Web API endpoint providing full details of the track.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the track.
+Description: The Spotify ID for the track.
 
 =item is_local
 
@@ -80,12 +80,12 @@ Description: Whether or not the track is from a local file.
 =item is_playable
 
 Type: Boolean
-Description: Part of the response when <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a> is applied. If <code class="highlighter-rouge">true</code> , the track is playable in the given market. Otherwise <code class="highlighter-rouge">false</code>.
+Description: Part of the response when Track Relinking is applied. If true , the track is playable in the given market. Otherwise false.
 
 =item linked_from
 
 Type: 
-Description: Part of the response when <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a> is applied, and the requested track has been replaced with different track. The track in the <code class="highlighter-rouge">linked_from</code> object contains information about the originally requested track.
+Description: Part of the response when Track Relinking is applied, and the requested track has been replaced with different track. The track in the linked_from object contains information about the originally requested track.
 
 =item name
 
@@ -95,18 +95,18 @@ Description: The name of the track.
 =item popularity
 
 Type: Integer
-Description: The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.<br />The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.<br />Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. Note that the popularity value may lag actual popularity by a few days: the value is not updated in real time.
+Description: The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. Note that the popularity value may lag actual popularity by a few days: the value is not updated in real time.
 
 =item preview_url
 
 Type: String
-Description: A link to a 30 second preview (MP3 format) of the track. Can be <code class="highlighter-rouge">null</code>
+Description: A link to a 30 second preview (MP3 format) of the track. Can be null
 
 =item restrictions
 
 Type: TrackRestrictionObject
 Description: Included in the response when a content restriction is applied.
-See <a href="/documentation/web-api/reference/#object-trackrestrictionobject">Restriction Object</a> for more details.
+See Restriction Object for more details.
 
 =item track_number
 
@@ -121,7 +121,7 @@ Description: The object type: “track”.
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the track.
+Description: The Spotify URI for the track.
 
 =back
 

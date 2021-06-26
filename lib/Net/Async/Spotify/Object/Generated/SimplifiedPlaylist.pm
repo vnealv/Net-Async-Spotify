@@ -25,12 +25,12 @@ Those are Spotify SimplifiedPlaylist Object attributes:
 =item collaborative
 
 Type: Boolean
-Description: <code class="highlighter-rouge">true</code> if the owner allows other users to modify the playlist.
+Description: true if the owner allows other users to modify the playlist.
 
 =item description
 
 Type: String
-Description: The playlist description. <em>Only returned for modified, verified playlists, otherwise</em> <code class="highlighter-rouge">null</code>.
+Description: The playlist description. Only returned for modified, verified playlists, otherwise null.
 
 =item external_urls
 
@@ -45,12 +45,12 @@ Description: A link to the Web API endpoint providing full details of the playli
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the playlist.
+Description: The Spotify ID for the playlist.
 
 =item images
 
 Type: Array[ImageObject]
-Description: Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See <a href="/documentation/general/guides/working-with-playlists/">Working with Playlists</a>. <em>Note: If returned, the source URL for the image (<code class="highlighter-rouge">url</code>) is temporary and will expire in less than a day.</em>
+Description: Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See Working with Playlists. Note: If returned, the source URL for the image (url) is temporary and will expire in less than a day.
 
 =item name
 
@@ -65,7 +65,7 @@ Description: The user who owns the playlist
 =item public
 
 Type: Boolean
-Description: The playlist’s public/private status: <code class="highlighter-rouge">true</code> the playlist is public, <code class="highlighter-rouge">false</code> the playlist is private, <code class="highlighter-rouge">null</code> the playlist status is not relevant. For more about public/private status, see <a href="/documentation/general/guides/working-with-playlists/">Working with Playlists</a>
+Description: The playlist’s public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant. For more about public/private status, see Working with Playlists
 
 =item snapshot_id
 
@@ -75,7 +75,7 @@ Description: The version identifier for the current playlist. Can be supplied in
 =item tracks
 
 Type: PlaylistTracksRefObject
-Description: A collection containing a link ( <code class="highlighter-rouge">href</code> ) to the Web API endpoint where full details of the playlist’s tracks can be retrieved, along with the <code class="highlighter-rouge">total</code> number of tracks in the playlist. Note, a track object may be <code class="highlighter-rouge">null</code>. This can happen if a track is no longer available.
+Description: A collection containing a link ( href ) to the Web API endpoint where full details of the playlist’s tracks can be retrieved, along with the total number of tracks in the playlist. Note, a track object may be null. This can happen if a track is no longer available.
 
 =item type
 
@@ -85,7 +85,7 @@ Description: The object type: “playlist”
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the playlist.
+Description: The Spotify URI for the playlist.
 
 =back
 

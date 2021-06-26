@@ -91,7 +91,7 @@ async sub get_an_artist {
 
 =head2 get_an_artists_albums
 
-get_an_artists_albums - Get an Artist&#39;s Albums
+get_an_artists_albums - Get an Artist's Albums
 
 Get Spotify catalog information about an artist’s albums.
 
@@ -115,7 +115,7 @@ A valid user access token or your client credentials.
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the artist.
+The Spotify ID for the artist.
 
 =back
 
@@ -126,22 +126,22 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for th
 =item include_groups
 
 Type: string | Required: optional
-A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:<br />- <code class="highlighter-rouge">album</code><br />- <code class="highlighter-rouge">single</code><br />- <code class="highlighter-rouge">appears_on</code><br />- <code class="highlighter-rouge">compilation</code><br />For example: <code class="highlighter-rouge">include_groups=album,single</code>.
+A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:- album- single- appears_on- compilationFor example: include_groups=album,single.
 
 =item limit
 
 Type: integer | Required: optional
-The number of album objects to return. Default: 20. Minimum: 1. Maximum: 50. For example: <code class="highlighter-rouge">limit=2</code>
+The number of album objects to return. Default: 20. Minimum: 1. Maximum: 50. For example: limit=2
 
 =item market
 
 Type: string | Required: optional
-Synonym for <code class="highlighter-rouge">country</code>. An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>.<br />Supply this parameter to limit the response to one particular geographical market. For example, for albums available in Sweden: <code class="highlighter-rouge">market=SE</code>.<br /><em>If not given, results will be returned for all markets and you are likely to get duplicate results per album, one for each market in which the album is available!</em>
+Synonym for country. An ISO 3166-1 alpha-2 country code or the string from_token.Supply this parameter to limit the response to one particular geographical market. For example, for albums available in Sweden: market=SE.If not given, results will be returned for all markets and you are likely to get duplicate results per album, one for each market in which the album is available!
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first album to return. Default: 0 (i.e., the first album). Use with <code class="highlighter-rouge">limit</code> to get the next set of albums.
+The index of the first album to return. Default: 0 (i.e., the first album). Use with limit to get the next set of albums.
 
 =back
 
@@ -201,9 +201,9 @@ async sub get_an_artists_albums {
 
 =head2 get_an_artists_related_artists
 
-get_an_artists_related_artists - Get an Artist&#39;s Related Artists
+get_an_artists_related_artists - Get an Artist's Related Artists
 
-Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community’s <a href="http://news.spotify.com/se/2010/02/03/related-artists/">listening history</a>.
+Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community’s listening history.
 
 with Request details being:
 
@@ -225,7 +225,7 @@ A valid user access token or your client credentials.
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the artist
+The Spotify ID for the artist
 
 =back
 
@@ -267,7 +267,7 @@ async sub get_an_artists_related_artists {
 
 =head2 get_an_artists_top_tracks
 
-get_an_artists_top_tracks - Get an Artist&#39;s Top Tracks
+get_an_artists_top_tracks - Get an Artist's Top Tracks
 
 Get Spotify catalog information about an artist’s top tracks by country.
 
@@ -291,7 +291,7 @@ A valid user access token or your client credentials.
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the artist
+The Spotify ID for the artist
 
 =back
 
@@ -302,7 +302,7 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for th
 =item market
 
 Type: string | Required: required
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>. Synonym for <code class="highlighter-rouge">country</code>.
+An ISO 3166-1 alpha-2 country code or the string from_token. Synonym for country.
 
 =back
 
@@ -374,7 +374,7 @@ A valid user access token or your client credentials.
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the artists. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the artists. Maximum: 50 IDs.
 
 =back
 

@@ -60,7 +60,7 @@ The Spotify ID of the album.
 =item market
 
 Type: string | Required: optional
-The market you’d like to request. Synonym for <code class="highlighter-rouge">country</code>.
+The market you’d like to request. Synonym for country.
 
 =back
 
@@ -108,7 +108,7 @@ async sub get_an_album {
 
 =head2 get_an_albums_tracks
 
-get_an_albums_tracks - Get an Album&#39;s Tracks
+get_an_albums_tracks - Get an Album's Tracks
 
 Get Spotify catalog information about an album’s tracks.
 Optional parameters can be used to limit the number of tracks returned.
@@ -149,8 +149,8 @@ The maximum number of tracks to return. Default: 20. Minimum: 1. Maximum: 50.
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string from_token.
-Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token.
+Provide this parameter if you want to apply Track Relinking.
 
 =item offset
 
@@ -235,13 +235,13 @@ A valid user access token or your client credentials.
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the albums. Maximum: 20 IDs.
+A comma-separated list of the Spotify IDs for the albums. Maximum: 20 IDs.
 
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string from_token.
-Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token.
+Provide this parameter if you want to apply Track Relinking.
 
 =back
 

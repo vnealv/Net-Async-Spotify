@@ -25,7 +25,7 @@ Check C<crawl-api-doc.pl> for more information.
 
 =head2 get_current_users_profile
 
-get_current_users_profile - Get Current User&#39;s Profile
+get_current_users_profile - Get Current User's Profile
 
 Get detailed profile information about the current user (including the
 current user’s username).
@@ -39,7 +39,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the current user.<br />Reading the user’s email address requires the <code class="highlighter-rouge">user-read-email</code> scope; reading country, product subscription level and explicit content settings requires the <code class="highlighter-rouge">user-read-private</code> scope. See <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">Using Scopes</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the current user.Reading the user’s email address requires the user-read-email scope; reading country, product subscription level and explicit content settings requires the user-read-private scope. See Using Scopes.
 
 =back
 
@@ -75,7 +75,7 @@ async sub get_current_users_profile {
 
 =head2 get_users_profile
 
-get_users_profile - Get a User&#39;s Profile
+get_users_profile - Get a User's Profile
 
 Get public profile information about a Spotify user.
 
@@ -89,7 +89,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.
 
 =back
@@ -101,7 +101,7 @@ for details.
 =item user_id
 
 Type: string | Required: required
-The user’s <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify user ID</a>.
+The user’s Spotify user ID.
 
 =back
 

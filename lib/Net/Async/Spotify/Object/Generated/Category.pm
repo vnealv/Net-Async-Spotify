@@ -35,7 +35,7 @@ Description: The category icon, in various sizes.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify category ID</a> of the category.
+Description: The Spotify category ID of the category.
 
 =item name
 

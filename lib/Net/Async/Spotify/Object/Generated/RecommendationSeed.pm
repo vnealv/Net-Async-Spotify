@@ -35,12 +35,12 @@ Description: The number of tracks available after relinking for regional availab
 =item href
 
 Type: String
-Description: A link to the full track or artist data for this seed. For tracks this will be a link to a <a href="/documentation/web-api/reference/#object-trackobject">Track Object</a>. For artists a link to <a href="/documentation/web-api/reference/#object-artistobject">an Artist Object</a>. For genre seeds, this value will be <code class="highlighter-rouge">null</code>.
+Description: A link to the full track or artist data for this seed. For tracks this will be a link to a Track Object. For artists a link to an Artist Object. For genre seeds, this value will be null.
 
 =item id
 
 Type: String
-Description: The id used to select this seed. This will be the same as the string used in the <code class="highlighter-rouge">seed_artists</code>, <code class="highlighter-rouge">seed_tracks</code> or <code class="highlighter-rouge">seed_genres</code> parameter.
+Description: The id used to select this seed. This will be the same as the string used in the seed_artists, seed_tracks or seed_genres parameter.
 
 =item initialPoolSize
 
@@ -50,7 +50,7 @@ Description: The number of recommended tracks available for this seed.
 =item type
 
 Type: String
-Description: The entity type of this seed. One of <code class="highlighter-rouge">artist</code>, <code class="highlighter-rouge">track</code> or <code class="highlighter-rouge">genre</code>.
+Description: The entity type of this seed. One of artist, track or genre.
 
 =back
 

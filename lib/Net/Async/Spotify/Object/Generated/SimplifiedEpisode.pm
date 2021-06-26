@@ -25,12 +25,12 @@ Those are Spotify SimplifiedEpisode Object attributes:
 =item audio_preview_url
 
 Type: String
-Description: A URL to a 30 second preview (MP3 format) of the episode. <code class="highlighter-rouge">null</code> if not available.
+Description: A URL to a 30 second preview (MP3 format) of the episode. null if not available.
 
 =item description
 
 Type: String
-Description: A description of the episode. HTML tags are stripped away from this field, use <code class="highlighter-rouge">html_description</code> field in case HTML tags are needed.
+Description: A description of the episode. HTML tags are stripped away from this field, use html_description field in case HTML tags are needed.
 
 =item duration_ms
 
@@ -60,7 +60,7 @@ Description: A description of the episode. This field may contain HTML tags.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the episode.
+Description: The Spotify ID for the episode.
 
 =item images
 
@@ -80,12 +80,12 @@ Description: True if the episode is playable in the given market. Otherwise fals
 =item language
 
 Type: String
-Description: <strong>Note: This field is deprecated and might be removed in the future. Please use the <code class="highlighter-rouge">languages</code> field instead.</strong> The language used in the episode, identified by a <a href="https://en.wikipedia.org/wiki/ISO_639">ISO 639</a> code.
+Description: Note: This field is deprecated and might be removed in the future. Please use the languages field instead. The language used in the episode, identified by a ISO 639 code.
 
 =item languages
 
 Type: Array[String]
-Description: A list of the languages used in the episode, identified by their <a href="https://en.wikipedia.org/wiki/ISO_639">ISO 639</a> code.
+Description: A list of the languages used in the episode, identified by their ISO 639 code.
 
 =item name
 
@@ -95,18 +95,18 @@ Description: The name of the episode.
 =item release_date
 
 Type: String
-Description: The date the episode was first released, for example <code class="highlighter-rouge">&quot;1981-12-15&quot;</code>. Depending on the precision, it might be shown as <code class="highlighter-rouge">&quot;1981&quot;</code> or <code class="highlighter-rouge">&quot;1981-12&quot;</code>.
+Description: The date the episode was first released, for example "1981-12-15". Depending on the precision, it might be shown as "1981" or "1981-12".
 
 =item release_date_precision
 
 Type: String
-Description: The precision with which <code class="highlighter-rouge">release_date</code> value is known: <code class="highlighter-rouge">&quot;year&quot;</code>, <code class="highlighter-rouge">&quot;month&quot;</code>, or <code class="highlighter-rouge">&quot;day&quot;</code>.
+Description: The precision with which release_date value is known: "year", "month", or "day".
 
 =item restrictions
 
 Type: EpisodeRestrictionObject
 Description: Included in the response when a content restriction is applied.
-See <a href="/documentation/web-api/reference/#object-episoderestrictionobject">Restriction Object</a> for more details.
+See Restriction Object for more details.
 
 =item resume_point
 
@@ -121,7 +121,7 @@ Description: The object type: “episode”.
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the episode.
+Description: The Spotify URI for the episode.
 
 =back
 

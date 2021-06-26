@@ -40,7 +40,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.
 
 =back
@@ -52,7 +52,7 @@ for details.
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the episode.
+The Spotify ID for the episode.
 
 =back
 
@@ -63,12 +63,12 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for th
 =item market
 
 Type: string | Required: optional
-An <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>.
-If a country code is specified, only shows and episodes that are available in that market will be returned.<br />
+An ISO 3166-1 alpha-2 country code.
+If a country code is specified, only shows and episodes that are available in that market will be returned.
 If a valid user access token is specified in the request header, the country associated with
-the user account will take priority over this parameter.<br />
-<em>Note: If neither market or user country are provided, the content is considered unavailable for the client.</em><br />
-Users can view the country that is associated with their account in the <a href="https://www.spotify.com/se/account/overview/">account settings</a>.
+the user account will take priority over this parameter.
+Note: If neither market or user country are provided, the content is considered unavailable for the client.
+Users can view the country that is associated with their account in the account settings.
 
 =back
 
@@ -135,7 +135,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.
 
 =back
@@ -147,17 +147,17 @@ for details.
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the episodes. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the episodes. Maximum: 50 IDs.
 
 =item market
 
 Type: string | Required: optional
-An <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>.
-If a country code is specified, only shows and episodes that are available in that market will be returned.<br />
+An ISO 3166-1 alpha-2 country code.
+If a country code is specified, only shows and episodes that are available in that market will be returned.
 If a valid user access token is specified in the request header, the country associated with
-the user account will take priority over this parameter.<br />
-<em>Note: If neither market or user country are provided, the content is considered unavailable for the client.</em><br />
-Users can view the country that is associated with their account in the <a href="https://www.spotify.com/se/account/overview/">account settings</a>.
+the user account will take priority over this parameter.
+Note: If neither market or user country are provided, the content is considered unavailable for the client.
+Users can view the country that is associated with their account in the account settings.
 
 =back
 

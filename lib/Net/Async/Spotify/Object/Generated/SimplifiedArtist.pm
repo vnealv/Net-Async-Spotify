@@ -35,7 +35,7 @@ Description: A link to the Web API endpoint providing full details of the artist
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the artist.
+Description: The Spotify ID for the artist.
 
 =item name
 
@@ -45,12 +45,12 @@ Description: The name of the artist.
 =item type
 
 Type: String
-Description: The object type: <code class="highlighter-rouge">&quot;artist&quot;</code>
+Description: The object type: "artist"
 
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the artist.
+Description: The Spotify URI for the artist.
 
 =back
 

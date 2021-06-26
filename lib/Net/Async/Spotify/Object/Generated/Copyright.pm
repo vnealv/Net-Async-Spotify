@@ -30,7 +30,7 @@ Description: The copyright text for this content.
 =item type
 
 Type: String
-Description: The type of copyright: <code class="highlighter-rouge">C</code> = the copyright, <code class="highlighter-rouge">P</code> = the sound recording (performance) copyright.
+Description: The type of copyright: C = the copyright, P = the sound recording (performance) copyright.
 
 =back
 

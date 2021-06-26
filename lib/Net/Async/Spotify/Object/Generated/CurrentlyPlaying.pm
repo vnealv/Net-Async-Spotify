@@ -25,27 +25,27 @@ Those are Spotify CurrentlyPlaying Object attributes:
 =item context
 
 Type: ContextObject
-Description: A Context Object. Can be <code class="highlighter-rouge">null</code>.
+Description: A Context Object. Can be null.
 
 =item currently_playing_type
 
 Type: String
-Description: The object type of the currently playing item. Can be one of <code class="highlighter-rouge">track</code>, <code class="highlighter-rouge">episode</code>, <code class="highlighter-rouge">ad</code> or <code class="highlighter-rouge">unknown</code>.
+Description: The object type of the currently playing item. Can be one of track, episode, ad or unknown.
 
 =item is_playing
 
 Type: Boolean
-Description: If something is currently playing, return <code class="highlighter-rouge">true</code>.
+Description: If something is currently playing, return true.
 
 =item item
 
 Type: TrackObject | EpisodeObject
-Description: The currently playing track or episode. Can be <code class="highlighter-rouge">null</code>.
+Description: The currently playing track or episode. Can be null.
 
 =item progress_ms
 
 Type: Integer
-Description: Progress into the currently playing track or episode. Can be <code class="highlighter-rouge">null</code>.
+Description: Progress into the currently playing track or episode. Can be null.
 
 =item timestamp
 

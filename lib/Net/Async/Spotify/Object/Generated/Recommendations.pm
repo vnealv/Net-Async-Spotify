@@ -25,12 +25,12 @@ Those are Spotify Recommendations Object attributes:
 =item seeds
 
 Type: Array[RecommendationSeedObject]
-Description: An array of <a href="/documentation/web-api/reference/#object-recommendationseedobject">recommendation seed objects</a>.
+Description: An array of recommendation seed objects.
 
 =item tracks
 
 Type: Array[SimplifiedTrackObject]
-Description: An array of <a href="/documentation/web-api/reference/#object-simplifiedtrackobject">track object (simplified)</a> ordered according to the parameters supplied.
+Description: An array of track object (simplified) ordered according to the parameters supplied.
 
 =back
 

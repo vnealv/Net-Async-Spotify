@@ -25,7 +25,7 @@ Check C<crawl-api-doc.pl> for more information.
 
 =head2 get_a_categories_playlists
 
-get_a_categories_playlists - Get a Category&#39;s Playlists
+get_a_categories_playlists - Get a Category's Playlists
 
 Get a list of Spotify playlists tagged with a particular category.
 
@@ -49,7 +49,7 @@ A valid user access token or your client credentials.
 =item category_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify category ID</a> for the category.
+The Spotify category ID for the category.
 
 =back
 
@@ -60,7 +60,7 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify category ID</
 =item country
 
 Type: string | Required: optional
-A country: an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. Provide this parameter to ensure that the category exists for a particular country.
+A country: an ISO 3166-1 alpha-2 country code. Provide this parameter to ensure that the category exists for a particular country.
 
 =item limit
 
@@ -70,7 +70,7 @@ The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
 =item offset
 
 Type: integer | Required: optional
-The index of the first item to return. Default: 0 (the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of items.
+The index of the first item to return. Default: 0 (the first object). Use with limit to get the next set of items.
 
 =back
 
@@ -150,7 +150,7 @@ A valid user access token or your client credentials.
 =item category_id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify category ID</a> for the category.
+The Spotify category ID for the category.
 
 =back
 
@@ -161,12 +161,12 @@ The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify category ID</
 =item country
 
 Type: string | Required: optional
-A country: an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. Provide this parameter to ensure that the category exists for a particular country.
+A country: an ISO 3166-1 alpha-2 country code. Provide this parameter to ensure that the category exists for a particular country.
 
 =item locale
 
 Type: string | Required: optional
-The desired language, consisting of an <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> language code and an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>, joined by an underscore. For example: <code class="highlighter-rouge">es_MX</code>, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you want the category strings returned in a particular language. Note that, if <code class="highlighter-rouge">locale</code> is not supplied, or if the specified language is not available, the category strings returned will be in the Spotify default language (American English).
+The desired language, consisting of an ISO 639-1 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)". Provide this parameter if you want the category strings returned in a particular language. Note that, if locale is not supplied, or if the specified language is not available, the category strings returned will be in the Spotify default language (American English).
 
 =back
 
@@ -242,7 +242,7 @@ A valid user access token or your client credentials.
 =item country
 
 Type: string | Required: optional
-A country: an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. Provide this parameter if you want to narrow the list of returned categories to those relevant to a particular country. If omitted, the returned items will be globally relevant.
+A country: an ISO 3166-1 alpha-2 country code. Provide this parameter if you want to narrow the list of returned categories to those relevant to a particular country. If omitted, the returned items will be globally relevant.
 
 =item limit
 
@@ -252,12 +252,12 @@ The maximum number of categories to return. Default: 20. Minimum: 1. Maximum: 50
 =item locale
 
 Type: string | Required: optional
-The desired language, consisting of an <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> language code and an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>, joined by an underscore. For example: <code class="highlighter-rouge">es_MX</code>, meaning “Spanish (Mexico)”. Provide this parameter if you want the category metadata returned in a particular language. Note that, if <code class="highlighter-rouge">locale</code> is not supplied, or if the specified language is not available, all strings will be returned in the Spotify default language (American English). The <code class="highlighter-rouge">locale</code> parameter, combined with the <code class="highlighter-rouge">country</code> parameter, may give odd results if not carefully matched. For example <code class="highlighter-rouge">country=SE&amp;locale=de_DE</code> will return a list of categories relevant to Sweden but as German language strings.
+The desired language, consisting of an ISO 639-1 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning “Spanish (Mexico)”. Provide this parameter if you want the category metadata returned in a particular language. Note that, if locale is not supplied, or if the specified language is not available, all strings will be returned in the Spotify default language (American English). The locale parameter, combined with the country parameter, may give odd results if not carefully matched. For example country=SE&locale=de_DE will return a list of categories relevant to Sweden but as German language strings.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first item to return. Default: 0 (the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of categories.
+The index of the first item to return. Default: 0 (the first object). Use with limit to get the next set of categories.
 
 =back
 
@@ -335,7 +335,7 @@ A valid user access token or your client credentials.
 =item country
 
 Type: string | Required: optional
-A country: an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries.
+A country: an ISO 3166-1 alpha-2 country code. Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries.
 
 =item limit
 
@@ -345,17 +345,17 @@ The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
 =item locale
 
 Type: string | Required: optional
-The desired language, consisting of a lowercase <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 language code</a> and an uppercase <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>, joined by an underscore. For example: <code class="highlighter-rouge">es_MX</code>, meaning “Spanish (Mexico)”. Provide this parameter if you want the results returned in a particular language (where available). Note that, if <code class="highlighter-rouge">locale</code> is not supplied, or if the specified language is not available, all strings will be returned in the Spotify default language (American English). The <code class="highlighter-rouge">locale</code> parameter, combined with the <code class="highlighter-rouge">country</code> parameter, may give odd results if not carefully matched. For example <code class="highlighter-rouge">country=SE&amp;locale=de_DE</code> will return a list of categories relevant to Sweden but as German language strings.
+The desired language, consisting of a lowercase ISO 639-1 language code and an uppercase ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning “Spanish (Mexico)”. Provide this parameter if you want the results returned in a particular language (where available). Note that, if locale is not supplied, or if the specified language is not available, all strings will be returned in the Spotify default language (American English). The locale parameter, combined with the country parameter, may give odd results if not carefully matched. For example country=SE&locale=de_DE will return a list of categories relevant to Sweden but as German language strings.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first item to return. Default: 0 (the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of items.
+The index of the first item to return. Default: 0 (the first object). Use with limit to get the next set of items.
 
 =item timestamp
 
 Type: string | Required: optional
-A timestamp in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a>: <code class="highlighter-rouge">yyyy-MM-ddTHH:mm:ss</code>. Use this parameter to specify the user’s local time to get results tailored for that specific date and time in the day. If not provided, the response defaults to the current UTC time. Example: “2014-10-23T09:00:00” for a user whose local time is 9AM. If there were no featured playlists (or there is no data) at the specified time, the response will revert to the current UTC time.
+A timestamp in ISO 8601 format: yyyy-MM-ddTHH:mm:ss. Use this parameter to specify the user’s local time to get results tailored for that specific date and time in the day. If not provided, the response defaults to the current UTC time. Example: “2014-10-23T09:00:00” for a user whose local time is 9AM. If there were no featured playlists (or there is no data) at the specified time, the response will revert to the current UTC time.
 
 =back
 
@@ -439,7 +439,7 @@ A valid user access token or your client credentials.
 =item country
 
 Type: string | Required: optional
-A country: an <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>. Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries.
+A country: an ISO 3166-1 alpha-2 country code. Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries.
 
 =item limit
 
@@ -449,7 +449,7 @@ The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
 =item offset
 
 Type: integer | Required: optional
-The index of the first item to return. Default: 0 (the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of items.
+The index of the first item to return. Default: 0 (the first object). Use with limit to get the next set of items.
 
 =back
 
@@ -501,7 +501,7 @@ async sub get_new_releases {
 
 get_recommendation_genres - Get Recommendation Genres
 
-Retrieve a list of available genres seed parameter values for <a href="/documentation/web-api/reference/#endpoint-get-recommendations">recommendations</a>.
+Retrieve a list of available genres seed parameter values for recommendations.
 
 with Request details being:
 
@@ -577,172 +577,172 @@ The target size of the list of recommended tracks. For seeds with unusually smal
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide">Track Relinking</a>. Because <code class="highlighter-rouge">min_*</code>, <code class="highlighter-rouge">max_*</code> and <code class="highlighter-rouge">target_*</code> are applied to pools before relinking, the generated results may not precisely match the filters applied. Original, non-relinked tracks are available via the <code class="highlighter-rouge">linked_from</code> attribute of the <a href="/documentation/general/guides/track-relinking-guide">relinked track response</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking. Because min_*, max_* and target_* are applied to pools before relinking, the generated results may not precisely match the filters applied. Original, non-relinked tracks are available via the linked_from attribute of the relinked track response.
 
 =item max_acousticness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_danceability
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_duration_ms
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_energy
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_instrumentalness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_key
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_liveness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_loudness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_mode
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_popularity
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_speechiness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_tempo
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_time_signature
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item max_valence
 
 Type: number | Required: optional
-For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">max_instrumentalness=0.35</code> would filter out most tracks that are likely to be instrumental.
+For each tunable track attribute, a hard ceiling on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, max_instrumentalness=0.35 would filter out most tracks that are likely to be instrumental.
 
 =item min_acousticness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_danceability
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_duration_ms
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_energy
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_instrumentalness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_key
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_liveness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_loudness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_mode
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_popularity
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_speechiness
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_tempo
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_time_signature
 
 Type: integer | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item min_valence
 
 Type: number | Required: optional
-For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, <code class="highlighter-rouge">min_tempo=140</code> would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
+For each tunable track attribute, a hard floor on the selected track attribute’s value can be provided. See tunable track attributes below for the list of available options. For example, min_tempo=140 would restrict results to only those tracks with a tempo of greater than 140 beats per minute.
 
 =item seed_artists
 
 Type: string | Required: required
-A comma separated list of <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for seed artists.  Up to 5 seed values may be provided in any combination of <code class="highlighter-rouge">seed_artists</code>, <code class="highlighter-rouge">seed_tracks</code> and <code class="highlighter-rouge">seed_genres</code>.
+A comma separated list of Spotify IDs for seed artists.  Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres.
 
 =item seed_genres
 
 Type: string | Required: required
-A comma separated list of any genres in the set of <a href="#available-genre-seeds">available genre seeds</a>.  Up to 5 seed values may be provided in any combination of <code class="highlighter-rouge">seed_artists</code>, <code class="highlighter-rouge">seed_tracks</code> and <code class="highlighter-rouge">seed_genres</code>.
+A comma separated list of any genres in the set of available genre seeds.  Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres.
 
 =item seed_tracks
 
 Type: string | Required: required
-A comma separated list of <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for a seed track.  Up to 5 seed values may be provided in any combination of <code class="highlighter-rouge">seed_artists</code>, <code class="highlighter-rouge">seed_tracks</code> and <code class="highlighter-rouge">seed_genres</code>.
+A comma separated list of Spotify IDs for a seed track.  Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres.
 
 =item target_acousticness
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_danceability
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_duration_ms
 
@@ -752,42 +752,42 @@ Target duration of the track (ms)
 =item target_energy
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_instrumentalness
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_key
 
 Type: integer | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_liveness
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_loudness
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_mode
 
 Type: integer | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_popularity
 
 Type: integer | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_speechiness
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_tempo
 
@@ -797,12 +797,12 @@ Target tempo (BPM)
 =item target_time_signature
 
 Type: integer | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =item target_valence
 
 Type: number | Required: optional
-For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request <code class="highlighter-rouge">target_energy=0.6</code> and <code class="highlighter-rouge">target_danceability=0.8</code>. All target values will be weighed equally in ranking results.
+For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request target_energy=0.6 and target_danceability=0.8. All target values will be weighed equally in ranking results.
 
 =back
 

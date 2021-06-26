@@ -35,12 +35,12 @@ Description: The type of the album: one of “album”, “single”, or “comp
 =item artists
 
 Type: Array[SimplifiedArtistObject]
-Description: The artists of the album. Each artist object includes a link in <code class="highlighter-rouge">href</code> to more detailed information about the artist.
+Description: The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
 
 =item available_markets
 
 Type: Array[String]
-Description: The markets in which the album is available: <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country codes</a>. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
+Description: The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
 
 =item external_urls
 
@@ -55,7 +55,7 @@ Description: A link to the Web API endpoint providing full details of the album.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the album.
+Description: The Spotify ID for the album.
 
 =item images
 
@@ -70,18 +70,18 @@ Description: The name of the album. In case of an album takedown, the value may 
 =item release_date
 
 Type: String
-Description: The date the album was first released, for example <code class="highlighter-rouge">1981</code>. Depending on the precision, it might be shown as <code class="highlighter-rouge">1981-12</code> or <code class="highlighter-rouge">1981-12-15</code>.
+Description: The date the album was first released, for example 1981. Depending on the precision, it might be shown as 1981-12 or 1981-12-15.
 
 =item release_date_precision
 
 Type: String
-Description: The precision with which <code class="highlighter-rouge">release_date</code> value is known: <code class="highlighter-rouge">year</code> , <code class="highlighter-rouge">month</code> , or <code class="highlighter-rouge">day</code>.
+Description: The precision with which release_date value is known: year , month , or day.
 
 =item restrictions
 
 Type: AlbumRestrictionObject
 Description: Included in the response when a content restriction is applied.
-See <a href="/documentation/web-api/reference/#object-albumrestrictionobject">Restriction Object</a> for more details.
+See Restriction Object for more details.
 
 =item total_tracks
 
@@ -96,7 +96,7 @@ Description: The object type: “album”
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the album.
+Description: The Spotify URI for the album.
 
 =back
 

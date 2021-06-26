@@ -35,7 +35,7 @@ Description: Information about the followers of the artist.
 =item genres
 
 Type: Array[String]
-Description: A list of the genres the artist is associated with. For example: <code class="highlighter-rouge">&quot;Prog Rock&quot;</code> , <code class="highlighter-rouge">&quot;Post-Grunge&quot;</code>. (If not yet classified, the array is empty.)
+Description: A list of the genres the artist is associated with. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)
 
 =item href
 
@@ -45,7 +45,7 @@ Description: A link to the Web API endpoint providing full details of the artist
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the artist.
+Description: The Spotify ID for the artist.
 
 =item images
 
@@ -65,12 +65,12 @@ Description: The popularity of the artist. The value will be between 0 and 100, 
 =item type
 
 Type: String
-Description: The object type: <code class="highlighter-rouge">&quot;artist&quot;</code>
+Description: The object type: "artist"
 
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the artist.
+Description: The Spotify URI for the artist.
 
 =back
 

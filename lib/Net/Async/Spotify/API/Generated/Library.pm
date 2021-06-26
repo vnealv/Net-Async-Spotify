@@ -25,7 +25,7 @@ Check C<crawl-api-doc.pl> for more information.
 
 =head2 check_users_saved_albums
 
-check_users_saved_albums - Check User&#39;s Saved Albums
+check_users_saved_albums - Check User's Saved Albums
 
 Check if one or more albums is already saved in the current Spotify user’s ‘Your Music’ library.
 
@@ -38,7 +38,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -49,7 +49,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the albums. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the albums. Maximum: 50 IDs.
 
 =back
 
@@ -92,10 +92,10 @@ async sub check_users_saved_albums {
 
 =head2 check_users_saved_episodes
 
-check_users_saved_episodes - Check User&#39;s Saved Episodes
+check_users_saved_episodes - Check User's Saved Episodes
 
-Check if one or more episodes is already saved in the current Spotify user’s ‘Your Episodes’ library.<br />
-This API endpoint is in <strong>beta</strong> and could change without warning. Please share any feedback that you have, or issues that you discover, in our <a href="https://community.spotify.com/t5/Spotify-for-Developers/bd-p/Spotify_Developer">developer community forum</a>..
+Check if one or more episodes is already saved in the current Spotify user’s ‘Your Episodes’ library.
+This API endpoint is in beta and could change without warning. Please share any feedback that you have, or issues that you discover, in our developer community forum..
 
 with Request details being:
 
@@ -106,7 +106,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -117,7 +117,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the episodes. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the episodes. Maximum: 50 IDs.
 
 =back
 
@@ -160,7 +160,7 @@ async sub check_users_saved_episodes {
 
 =head2 check_users_saved_shows
 
-check_users_saved_shows - Check User&#39;s Saved Shows
+check_users_saved_shows - Check User's Saved Shows
 
 Check if one or more shows is already saved in the current Spotify user’s library.
 
@@ -173,7 +173,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been isued on behalf of the user. The <code class="highlighter-rouge">user-libary-read</code> scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
 
 =back
 
@@ -226,7 +226,7 @@ async sub check_users_saved_shows {
 
 =head2 check_users_saved_tracks
 
-check_users_saved_tracks - Check User&#39;s Saved Tracks
+check_users_saved_tracks - Check User's Saved Tracks
 
 Check if one or more tracks is already saved in the current Spotify user’s ‘Your Music’ library.
 
@@ -239,7 +239,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -250,7 +250,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the tracks. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the tracks. Maximum: 50 IDs.
 
 =back
 
@@ -293,7 +293,7 @@ async sub check_users_saved_tracks {
 
 =head2 get_users_saved_albums
 
-get_users_saved_albums - Get User&#39;s Saved Albums
+get_users_saved_albums - Get User's Saved Albums
 
 Get a list of the albums saved in the current Spotify user’s ‘Your Music’ library.
 
@@ -306,7 +306,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -322,12 +322,12 @@ The maximum number of objects to return. Default: 20. Minimum: 1. Maximum: 50.
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first object to return. Default: 0 (i.e., the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of objects.
+The index of the first object to return. Default: 0 (i.e., the first object). Use with limit to get the next set of objects.
 
 =back
 
@@ -379,10 +379,10 @@ async sub get_users_saved_albums {
 
 =head2 get_users_saved_episodes
 
-get_users_saved_episodes - Get User&#39;s Saved Episodes
+get_users_saved_episodes - Get User's Saved Episodes
 
-Get a list of the episodes saved in the current Spotify user’s library.<br />
-This API endpoint is in <strong>beta</strong> and could change without warning. Please share any feedback that you have, or issues that you discover, in our <a href="https://community.spotify.com/t5/Spotify-for-Developers/bd-p/Spotify_Developer">developer community forum</a>.
+Get a list of the episodes saved in the current Spotify user’s library.
+This API endpoint is in beta and could change without warning. Please share any feedback that you have, or issues that you discover, in our developer community forum.
 
 with Request details being:
 
@@ -393,7 +393,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -409,17 +409,17 @@ The maximum number of objects to return. Default: 20. Minimum: 1. Maximum: 50.
 =item market
 
 Type: string | Required: optional
-An <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>.
-  If a country code is specified, only episodes that are available in that market will be returned.<br />
+An ISO 3166-1 alpha-2 country code.
+  If a country code is specified, only episodes that are available in that market will be returned.
   If a valid user access token is specified in the request header, the country associated with
-  the user account will take priority over this parameter.<br />
-  <em>Note: If neither market or user country are provided, the content is considered unavailable for the client.</em><br />
-  Users can view the country that is associated with their account in the <a href="https://www.spotify.com/se/account/overview/">account settings</a>.
+  the user account will take priority over this parameter.
+  Note: If neither market or user country are provided, the content is considered unavailable for the client.
+  Users can view the country that is associated with their account in the account settings.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first object to return. Default: 0 (i.e., the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of objects.
+The index of the first object to return. Default: 0 (i.e., the first object). Use with limit to get the next set of objects.
 
 =back
 
@@ -471,7 +471,7 @@ async sub get_users_saved_episodes {
 
 =head2 get_users_saved_shows
 
-get_users_saved_shows - Get User&#39;s Saved Shows
+get_users_saved_shows - Get User's Saved Shows
 
 Get a list of shows saved in the current Spotify user’s library. Optional parameters can be used to limit the number of shows returned.
 
@@ -484,7 +484,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been isued on behalf of the user. The <code class="highlighter-rouge">user-libary-read</code> scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
 
 =back
 
@@ -548,7 +548,7 @@ async sub get_users_saved_shows {
 
 =head2 get_users_saved_tracks
 
-get_users_saved_tracks - Get User&#39;s Saved Tracks
+get_users_saved_tracks - Get User's Saved Tracks
 
 Get a list of the songs saved in the current Spotify user’s ‘Your Music’ library.
 
@@ -561,7 +561,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The <code class="highlighter-rouge">user-library-read</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a> must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The user-library-read scope must have been authorized by the user.
 
 =back
 
@@ -577,12 +577,12 @@ The maximum number of objects to return. Default: 20. Minimum: 1. Maximum: 50.
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking.
 
 =item offset
 
 Type: integer | Required: optional
-The index of the first object to return. Default: 0 (i.e., the first object). Use with <code class="highlighter-rouge">limit</code> to get the next set of objects.
+The index of the first object to return. Default: 0 (i.e., the first object). Use with limit to get the next set of objects.
 
 =back
 
@@ -645,12 +645,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s “Your Music” collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s “Your Music” collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -661,7 +661,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">[&quot;4iV5W9uYEdYUVa79Axb7Rh&quot;, &quot;1301WleyT98MSxVHPZCA6M&quot;]</code><br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -672,7 +672,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M</code>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. For example: ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M. Maximum: 50 IDs.
 
 =back
 
@@ -724,10 +724,10 @@ async sub remove_albums_user {
 
 =head2 remove_episodes_user
 
-remove_episodes_user - Remove User&#39;s Saved Episodes
+remove_episodes_user - Remove User's Saved Episodes
 
-Remove one or more episodes from the current user’s library.<br />
-This API endpoint is in <strong>beta</strong> and could change without warning. Please share any feedback that you have, or issues that you discover, in our <a href="https://community.spotify.com/t5/Spotify-for-Developers/bd-p/Spotify_Developer">developer community forum</a>.
+Remove one or more episodes from the current user’s library.
+This API endpoint is in beta and could change without warning. Please share any feedback that you have, or issues that you discover, in our developer community forum.
 
 with Request details being:
 
@@ -738,12 +738,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -754,7 +754,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. <br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -765,7 +765,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. Maximum: 50 IDs.
 
 =back
 
@@ -817,7 +817,7 @@ async sub remove_episodes_user {
 
 =head2 remove_shows_user
 
-remove_shows_user - Remove User&#39;s Saved Shows
+remove_shows_user - Remove User's Saved Shows
 
 Delete one or more shows from current Spotify user’s library.
 
@@ -830,7 +830,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user. The <code class="highlighter-rouge">user-library-modify</code> scope must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user. The user-library-modify scope must have been authorized by the user.
 
 =back
 
@@ -846,12 +846,12 @@ A comma-separated list of Spotify IDs for the shows to be deleted from the user�
 =item market
 
 Type: string | Required: optional
-An <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>.
-If a country code is specified, only shows that are available in that market will be removed.<br />
+An ISO 3166-1 alpha-2 country code.
+If a country code is specified, only shows that are available in that market will be removed.
 If a valid user access token is specified in the request header, the country associated with
-the user account will take priority over this parameter.<br />
-<em>Note: If neither market or user country are provided, the content is considered unavailable for the client.</em><br />
-Users can view the country that is associated with their account in the <a href="https://www.spotify.com/se/account/overview/">account settings</a>.
+the user account will take priority over this parameter.
+Note: If neither market or user country are provided, the content is considered unavailable for the client.
+Users can view the country that is associated with their account in the account settings.
 
 =back
 
@@ -898,7 +898,7 @@ async sub remove_shows_user {
 
 =head2 remove_tracks_user
 
-remove_tracks_user - Remove User&#39;s Saved Tracks
+remove_tracks_user - Remove User's Saved Tracks
 
 Remove one or more tracks from the current user’s ‘Your Music’ library.
 
@@ -911,12 +911,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s “Your Music” collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s “Your Music” collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -927,7 +927,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">[&quot;4iV5W9uYEdYUVa79Axb7Rh&quot;, &quot;1301WleyT98MSxVHPZCA6M&quot;]</code><br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -938,7 +938,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M</code>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. For example: ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M. Maximum: 50 IDs.
 
 =back
 
@@ -1003,12 +1003,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s “Your Music” collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s “Your Music” collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -1019,7 +1019,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">[&quot;4iV5W9uYEdYUVa79Axb7Rh&quot;, &quot;1301WleyT98MSxVHPZCA6M&quot;]</code><br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -1030,7 +1030,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M</code>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. For example: ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M. Maximum: 50 IDs.
 
 =back
 
@@ -1084,8 +1084,8 @@ async sub save_albums_user {
 
 save_episodes_user - Save Episodes for User
 
-Save one or more episodes to the current user’s library.<br />
-This API endpoint is in <strong>beta</strong> and could change without warning. Please share any feedback that you have, or issues that you discover, in our <a href="https://community.spotify.com/t5/Spotify-for-Developers/bd-p/Spotify_Developer">developer community forum</a>.
+Save one or more episodes to the current user’s library.
+This API endpoint is in beta and could change without warning. Please share any feedback that you have, or issues that you discover, in our developer community forum.
 
 with Request details being:
 
@@ -1096,12 +1096,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s “Your Music” collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s “Your Music” collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -1112,7 +1112,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. <br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -1123,7 +1123,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. Maximum: 50 IDs.
 
 =back
 
@@ -1188,7 +1188,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details. The access token must have been issued on behalf of the user. The <code class="highlighter-rouge">user-library-modify</code> scope must have been authorized by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been issued on behalf of the user. The user-library-modify scope must have been authorized by the user.
 
 =back
 
@@ -1199,7 +1199,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. Maximum: 50 IDs.
 
 =back
 
@@ -1254,12 +1254,12 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.<br />Modification of the current user’s “Your Music” collection requires authorization of the <code class="highlighter-rouge">user-library-modify</code> <a href="/documentation/general/guides/authorization-guide/#list-of-scopes">scope</a>.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.Modification of the current user’s “Your Music” collection requires authorization of the user-library-modify scope.
 
 =item Content-Type
 
 Type: string | Required: optional
-<em>Required if the IDs are passed in the request body, otherwise ignored.</em> The content type of the request body: <code class="highlighter-rouge">application/json</code>
+Required if the IDs are passed in the request body, otherwise ignored. The content type of the request body: application/json
 
 =back
 
@@ -1270,7 +1270,7 @@ Type: string | Required: optional
 =item ids
 
 Type: array[string] | Required: optional
-A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">[&quot;4iV5W9uYEdYUVa79Axb7Rh&quot;, &quot;1301WleyT98MSxVHPZCA6M&quot;]</code><br />A maximum of 50 items can be specified in one request. <em>Note: if the <code class="highlighter-rouge">ids</code> parameter is present in the query string, any IDs listed here in the body will be ignored.</em>
+A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]A maximum of 50 items can be specified in one request. Note: if the ids parameter is present in the query string, any IDs listed here in the body will be ignored.
 
 =back
 
@@ -1281,7 +1281,7 @@ A JSON array of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spoti
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>. For example: <code class="highlighter-rouge">ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M</code>. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs. For example: ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M. Maximum: 50 IDs.
 
 =back
 

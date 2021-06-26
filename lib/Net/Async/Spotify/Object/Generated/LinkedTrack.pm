@@ -35,7 +35,7 @@ Description: A link to the Web API endpoint providing full details of the track.
 =item id
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the track.
+Description: The Spotify ID for the track.
 
 =item type
 
@@ -45,7 +45,7 @@ Description: The object type: “track”.
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the track.
+Description: The Spotify URI for the track.
 
 =back
 

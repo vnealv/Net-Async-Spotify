@@ -25,17 +25,17 @@ Those are Spotify Album Object attributes:
 =item album_type
 
 Type: String
-Description: The type of the album: <code class="highlighter-rouge">album</code>, <code class="highlighter-rouge">single</code>, or <code class="highlighter-rouge">compilation</code>.
+Description: The type of the album: album, single, or compilation.
 
 =item artists
 
 Type: Array[ArtistObject]
-Description: The artists of the album. Each artist object includes a link in <code class="highlighter-rouge">href</code> to more detailed information about the artist.
+Description: The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
 
 =item available_markets
 
 Type: Array[String]
-Description: The markets in which the album is available: <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country codes</a>. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
+Description: The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
 
 =item copyrights
 
@@ -101,7 +101,7 @@ Description: The precision with which release_date value is known: “year” , 
 
 Type: AlbumRestrictionObject
 Description: Included in the response when a content restriction is applied.
-See <a href="/documentation/web-api/reference/#object-albumrestrictionobject">Restriction Object</a> for more details.
+See Restriction Object for more details.
 
 =item total_tracks
 

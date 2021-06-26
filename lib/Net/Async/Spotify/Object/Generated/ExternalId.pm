@@ -25,17 +25,17 @@ Those are Spotify ExternalId Object attributes:
 =item ean
 
 Type: String
-Description: <a href="http://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29" target="_blank">International Article Number</a>
+Description: International Article Number
 
 =item isrc
 
 Type: String
-Description: <a href="http://en.wikipedia.org/wiki/International_Standard_Recording_Code" target="_blank">International Standard Recording Code</a>
+Description: International Standard Recording Code
 
 =item upc
 
 Type: String
-Description: <a href="http://en.wikipedia.org/wiki/Universal_Product_Code" target="_blank">Universal Product Code</a>
+Description: Universal Product Code
 
 =back
 

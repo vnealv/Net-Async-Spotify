@@ -35,7 +35,7 @@ Description:
 =item status
 
 Type: Integer
-Description: The HTTP status code. Either <code class="highlighter-rouge">404 NOT FOUND</code> or <code class="highlighter-rouge">403 FORBIDDEN</code>.  Also returned in the response header.
+Description: The HTTP status code. Either 404 NOT FOUND or 403 FORBIDDEN.  Also returned in the response header.
 
 =back
 

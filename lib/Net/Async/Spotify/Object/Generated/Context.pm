@@ -40,7 +40,7 @@ Description: The object type, e.g. “artist”, “playlist”, “album”, �
 =item uri
 
 Type: String
-Description: The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify URI</a> for the context.
+Description: The Spotify URI for the context.
 
 =back
 

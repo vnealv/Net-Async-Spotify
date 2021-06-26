@@ -39,7 +39,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.
 
 =back
 
@@ -50,7 +50,7 @@ valid access token from the Spotify Accounts service: see the <a href="/document
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the track.
 
 =back
@@ -107,7 +107,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.
 
 =back
 
@@ -118,7 +118,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a> for the track.
+The Spotify ID for the track.
 
 =back
 
@@ -173,7 +173,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a> for details.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details.
 
 =back
 
@@ -184,7 +184,7 @@ A valid access token from the Spotify Accounts service: see the <a href="/docume
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a>
+A comma-separated list of the Spotify IDs
 for the tracks. Maximum: 100 IDs.
 
 =back
@@ -245,7 +245,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.
 
 =back
@@ -257,12 +257,12 @@ for details.
 =item ids
 
 Type: string | Required: required
-A comma-separated list of the <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify IDs</a> for the tracks. Maximum: 50 IDs.
+A comma-separated list of the Spotify IDs for the tracks. Maximum: 50 IDs.
 
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track Relinking</a>.
+An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking.
 
 =back
 
@@ -328,7 +328,7 @@ with Request details being:
 
 Type: string | Required: required
 A valid access token from the Spotify Accounts service:
-see the <a href="/documentation/general/guides/authorization-guide/">Web API Authorization Guide</a>
+see the Web API Authorization Guide
 for details.
 
 =back
@@ -340,7 +340,7 @@ for details.
 =item id
 
 Type: string | Required: required
-The <a href="/documentation/web-api/#spotify-uris-and-ids">Spotify ID</a>
+The Spotify ID
 for the track.
 
 =back
@@ -352,9 +352,9 @@ for the track.
 =item market
 
 Type: string | Required: optional
-An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a>
-or the string <code class="highlighter-rouge">from_token</code>. Provide this parameter if you want to apply <a href="/documentation/general/guides/track-relinking-guide/">Track
-Relinking</a>.
+An ISO 3166-1 alpha-2 country code
+or the string from_token. Provide this parameter if you want to apply Track
+Relinking.
 
 =back
 
