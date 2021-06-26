@@ -47,7 +47,7 @@ my $available_types;
 BEGIN {
     # Include all Spotify Object classes
     my $current_path = path(module_path(__PACKAGE__) =~ s/\.pm/\//r );
-    push @$available_types, $_->basename =~ s/\.pm//r for $current_path->child('Generated')->children;
+    push @$available_types, $_->basename =~ s/\.pm//r for $current_path->child('Generated')->children(qr/.pm$/);
     require_module(join '::', __PACKAGE__, $_) for @$available_types;
 }
 

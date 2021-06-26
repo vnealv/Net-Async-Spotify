@@ -3,7 +3,7 @@ package Net::Async::Spotify;
 use strict;
 use warnings;
 
-# VERSION
+our $VERSION = 0.001;
 
 # ABSTRACT: Interaction with spotify.com API
 
