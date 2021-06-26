@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -37,7 +38,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -50,7 +51,7 @@ for details.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -61,7 +62,7 @@ The Spotify ID for the episode.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item market
 
@@ -80,12 +81,12 @@ and Response Objects being:
 - episode object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code>
-OK and the response body contains an <a href="/documentation/web-api/reference/#object-episodeobject">episode object</a>
-in JSON format.<br />
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a>
-and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<br />
-If an episode is unavailable in the given <code class="highlighter-rouge">market</code> the HTTP status code in the response header is <code class="highlighter-rouge">404</code> NOT FOUND.<a class="btn btn-sm btn-primary" href="/console/get-episode/?id=512ojhOuo1ktJprKbVcKyQ" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200
+OK and the response body contains an episode object
+in JSON format.
+On error, the header status code is an error code
+and the response body contains an error object.
+If an episode is unavailable in the given market the HTTP status code in the response header is 404 NOT FOUND.Try in our Web Console
 
 =cut
 
@@ -132,7 +133,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -145,7 +146,7 @@ for details.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -170,12 +171,12 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code>
-OK and the response body contains an object whose key is <code class="highlighter-rouge">episodes</code> and whose
-value is an array of <a href="/documentation/web-api/reference/#object-episodeobject">episode objects</a>
-in JSON format.Objects are returned in the order requested. If an object is not found, a <code class="highlighter-rouge">null</code> value is returned in the appropriate position.
-Duplicate <code class="highlighter-rouge">ids</code> in the query will result in duplicate objects in the response. If an episode is unavailable in the given <code class="highlighter-rouge">market</code>, a <code class="highlighter-rouge">null</code> value is returned.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-several-episodes/?ids=77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200
+OK and the response body contains an object whose key is episodes and whose
+value is an array of episode objects
+in JSON format.Objects are returned in the order requested. If an object is not found, a null value is returned in the appropriate position.
+Duplicate ids in the query will result in duplicate objects in the response. If an episode is unavailable in the given market, a null value is returned.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,23 +29,23 @@ Those are Spotify Context Object attributes:
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: External URLs for this context.
+Type:ExternalUrlObject
+Description:External URLs for this context.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the track.
+Type:String
+Description:A link to the Web API endpoint providing full details of the track.
 
 =item type
 
-Type: String
-Description: The object type, e.g. “artist”, “playlist”, “album”, “show”.
+Type:String
+Description:The object type, e.g. “artist”, “playlist”, “album”, “show”.
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the context.
+Type:String
+Description:The Spotify URI for the context.
 
 =back
 

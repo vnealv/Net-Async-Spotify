@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Generated::[% obj_name %]);

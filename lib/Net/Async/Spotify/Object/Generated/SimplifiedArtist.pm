@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,33 +29,33 @@ Those are Spotify SimplifiedArtist Object attributes:
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known external URLs for this artist.
+Type:ExternalUrlObject
+Description:Known external URLs for this artist.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the artist.
+Type:String
+Description:A link to the Web API endpoint providing full details of the artist.
 
 =item id
 
-Type: String
-Description: The Spotify ID for the artist.
+Type:String
+Description:The Spotify ID for the artist.
 
 =item name
 
-Type: String
-Description: The name of the artist.
+Type:String
+Description:The name of the artist.
 
 =item type
 
-Type: String
-Description: The object type: "artist"
+Type:String
+Description:The object type: "artist"
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the artist.
+Type:String
+Description:The Spotify URI for the artist.
 
 =back
 

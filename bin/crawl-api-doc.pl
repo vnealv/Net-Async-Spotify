@@ -125,7 +125,7 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
 		my ($api_cat) =  split ' ', $element->preceding('h1[id]')->last->content;
 		$endpoints->{$api_cat}{$ep_name}{short_description} = $element->text;
 		@{$endpoints->{$api_cat}{$ep_name}}{qw(method uri)} = split ' ', $element->next->children->first->at('code')->content;
-		$endpoints->{$api_cat}{$ep_name}{long_description} = $element->next->next->all_text;
+		chomp( $endpoints->{$api_cat}{$ep_name}{long_description} = $element->next->next->all_text );
 
 		my $request_dom = $element->following("h5")->first;
 		# Make sure it's request details.
@@ -139,7 +139,7 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
 					my $row = $_->children('td');
 					my $field_name = $keys->[0];
 					my $param_name = $row->first->at('code')->content =~ s/{|}//gr;
-					$endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{description} = $row->first->at('small')->all_text if $row->first->at('small');
+					chomp( $endpoints->{$api_cat}{$ep_name}{request}{$field_name}{$param_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
 					my $c = 1;
 					$row->tail(-1)->each(sub {
 						my $r = shift;
@@ -157,7 +157,7 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
 		if ( $response_dom->content eq 'Response') {
 			my $next = $response_dom->next;
 			while ( $next->tag ne 'h2' and $next->tag ne 'h1' ) {
-				$endpoints->{$api_cat}{$ep_name}{response}{raw} .= $next->content;
+				chomp($endpoints->{$api_cat}{$ep_name}{response}{raw} .= $next->all_text);
                 push $endpoints->{$api_cat}{$ep_name}{response}{objects}->@*, ($next->content =~ /(\w+ object)/);
 				$next = $next->next;
 			}
@@ -176,7 +176,7 @@ $docs_dom->find('[id]')->map(attr => 'id')->each(sub {
 			$next->find('tbody tr')->each(sub {
 				my $row = $_->children('td');
 				my $field_name = $row->first->at('code')->content;
-				$objects->{$o_name}{$field_name}{description} = $row->first->at('small')->all_text if $row->first->at('small');
+				chomp( $objects->{$o_name}{$field_name}{description} = $row->first->at('small')->all_text ) if $row->first->at('small');
 				$objects->{$o_name}{$field_name}{type} = $row->tail(-1)->first->content;
 			});
 		} else {

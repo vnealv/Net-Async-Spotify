@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -29,8 +30,8 @@ Those are Spotify [% obj_name %] Object attributes:
 [% FOREACH field IN fields.keys.sort -%]
 =item [% field %]
 
-Type: [% fields.$field.type %]
-Description: [% fields.$field.description %]
+Type:[% fields.$field.type %]
+Description:[% fields.$field.description %]
 
 [% END -%]
 =back

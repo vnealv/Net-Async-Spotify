@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,8 +29,8 @@ Those are Spotify ExternalUrl Object attributes:
 
 =item spotify
 
-Type: String
-Description: The Spotify URL for the object.
+Type:String
+Description:The Spotify URL for the object.
 
 =back
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,23 +29,23 @@ Those are Spotify Category Object attributes:
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint returning full details of the category.
+Type:String
+Description:A link to the Web API endpoint returning full details of the category.
 
 =item icons
 
-Type: Array[ImageObject]
-Description: The category icon, in various sizes.
+Type:Array[ImageObject]
+Description:The category icon, in various sizes.
 
 =item id
 
-Type: String
-Description: The Spotify category ID of the category.
+Type:String
+Description:The Spotify category ID of the category.
 
 =item name
 
-Type: String
-Description: The name of the category.
+Type:String
+Description:The name of the category.
 
 =back
 

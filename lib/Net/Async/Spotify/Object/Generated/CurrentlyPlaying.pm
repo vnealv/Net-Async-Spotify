@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,33 +29,33 @@ Those are Spotify CurrentlyPlaying Object attributes:
 
 =item context
 
-Type: ContextObject
-Description: A Context Object. Can be null.
+Type:ContextObject
+Description:A Context Object. Can be null.
 
 =item currently_playing_type
 
-Type: String
-Description: The object type of the currently playing item. Can be one of track, episode, ad or unknown.
+Type:String
+Description:The object type of the currently playing item. Can be one of track, episode, ad or unknown.
 
 =item is_playing
 
-Type: Boolean
-Description: If something is currently playing, return true.
+Type:Boolean
+Description:If something is currently playing, return true.
 
 =item item
 
-Type: TrackObject | EpisodeObject
-Description: The currently playing track or episode. Can be null.
+Type:TrackObject | EpisodeObject
+Description:The currently playing track or episode. Can be null.
 
 =item progress_ms
 
-Type: Integer
-Description: Progress into the currently playing track or episode. Can be null.
+Type:Integer
+Description:Progress into the currently playing track or episode. Can be null.
 
 =item timestamp
 
-Type: Integer
-Description: Unix Millisecond Timestamp when data was fetched
+Type:Integer
+Description:Unix Millisecond Timestamp when data was fetched
 
 =back
 

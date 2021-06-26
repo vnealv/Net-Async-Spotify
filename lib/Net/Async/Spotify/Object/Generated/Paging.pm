@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,38 +29,38 @@ Those are Spotify Paging Object attributes:
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint returning the full result of the request
+Type:String
+Description:A link to the Web API endpoint returning the full result of the request
 
 =item items
 
-Type: Array[Object]
-Description: The requested data.
+Type:Array[Object]
+Description:The requested data.
 
 =item limit
 
-Type: Integer
-Description: The maximum number of items in the response (as set in the query or by default).
+Type:Integer
+Description:The maximum number of items in the response (as set in the query or by default).
 
 =item next
 
-Type: String
-Description: URL to the next page of items. ( null if none)
+Type:String
+Description:URL to the next page of items. ( null if none)
 
 =item offset
 
-Type: Integer
-Description: The offset of the items returned (as set in the query or by default)
+Type:Integer
+Description:The offset of the items returned (as set in the query or by default)
 
 =item previous
 
-Type: String
-Description: URL to the previous page of items. ( null if none)
+Type:String
+Description:URL to the previous page of items. ( null if none)
 
 =item total
 
-Type: Integer
-Description: The total number of items available to return.
+Type:Integer
+Description:The total number of items available to return.
 
 =back
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,43 +29,43 @@ Those are Spotify PublicUser Object attributes:
 
 =item display_name
 
-Type: String
-Description: The name displayed on the user’s profile. null if not available.
+Type:String
+Description:The name displayed on the user’s profile. null if not available.
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known public external URLs for this user.
+Type:ExternalUrlObject
+Description:Known public external URLs for this user.
 
 =item followers
 
-Type: FollowersObject
-Description: Information about the followers of this user.
+Type:FollowersObject
+Description:Information about the followers of this user.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint for this user.
+Type:String
+Description:A link to the Web API endpoint for this user.
 
 =item id
 
-Type: String
-Description: The Spotify user ID for this user.
+Type:String
+Description:The Spotify user ID for this user.
 
 =item images
 
-Type: Array[ImageObject]
-Description: The user’s profile image.
+Type:Array[ImageObject]
+Description:The user’s profile image.
 
 =item type
 
-Type: String
-Description: The object type: “user”
+Type:String
+Description:The object type: “user”
 
 =item uri
 
-Type: String
-Description: The Spotify URI for this user.
+Type:String
+Description:The Spotify URI for this user.
 
 =back
 

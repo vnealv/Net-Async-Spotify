@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,18 +29,18 @@ Those are Spotify PlayHistory Object attributes:
 
 =item context
 
-Type: ContextObject
-Description: The context the track was played from.
+Type:ContextObject
+Description:The context the track was played from.
 
 =item played_at
 
-Type: Timestamp
-Description: The date and time the track was played.
+Type:Timestamp
+Description:The date and time the track was played.
 
 =item track
 
-Type: SimplifiedTrackObject
-Description: The track the user listened to.
+Type:SimplifiedTrackObject
+Description:The track the user listened to.
 
 =back
 

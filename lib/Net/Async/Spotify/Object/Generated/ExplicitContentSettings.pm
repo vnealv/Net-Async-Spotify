@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify ExplicitContentSettings Object attributes:
 
 =item filter_enabled
 
-Type: Boolean
-Description: When true, indicates that explicit content should not be played.
+Type:Boolean
+Description:When true, indicates that explicit content should not be played.
 
 =item filter_locked
 
-Type: Boolean
-Description: When true, indicates that the explicit content setting is locked and can’t be changed by the user.
+Type:Boolean
+Description:When true, indicates that the explicit content setting is locked and can’t be changed by the user.
 
 =back
 

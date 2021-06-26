@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify Copyright Object attributes:
 
 =item text
 
-Type: String
-Description: The copyright text for this content.
+Type:String
+Description:The copyright text for this content.
 
 =item type
 
-Type: String
-Description: The type of copyright: C = the copyright, P = the sound recording (performance) copyright.
+Type:String
+Description:The type of copyright: C = the copyright, P = the sound recording (performance) copyright.
 
 =back
 

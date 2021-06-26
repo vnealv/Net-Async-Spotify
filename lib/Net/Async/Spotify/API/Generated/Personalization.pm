@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item type
 
@@ -58,7 +59,7 @@ The type of entity to return. Valid values: artists or tracks
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -82,7 +83,7 @@ and Response Objects being:
 - paging object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code> and the response body contains a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a> of <a href="/documentation/web-api/reference/#object-artistobject">Artists</a> or <a href="/documentation/web-api/reference/#object-trackobject">Tracks</a>. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-top-artists-and-tracks/?type=artists" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a paging object of Artists or Tracks. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -52,7 +53,7 @@ Required if URIs are passed in the request body, otherwise ignored. The content 
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item position
 
@@ -68,7 +69,7 @@ A JSON array of the Spotify URIs to add. For example: {"uris": ["spotify:track:4
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -80,7 +81,7 @@ for the playlist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item position
 
@@ -99,7 +100,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">201</code> Created. The response body contains a <code class="highlighter-rouge">snapshot_id</code> in JSON format. The <code class="highlighter-rouge">snapshot_id</code> can be used to identify your playlist version in future requests. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to add an item when you do not have the user’s authorization, or when there are more than 10.000 items in the playlist, returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/post-playlist-tracks/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 201 Created. The response body contains a snapshot_id in JSON format. The snapshot_id can be used to identify your playlist version in future requests. On error, the header status code is an error code and the response body contains an error object. Trying to add an item when you do not have the user’s authorization, or when there are more than 10.000 items in the playlist, returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -165,7 +166,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -181,7 +182,7 @@ The content type of the request body: application/json
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item collaborative
 
@@ -207,7 +208,7 @@ If true the playlist will be public, if false it will be private.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -222,7 +223,7 @@ and Response Objects being:
 - error object
 
 
-On success the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK.On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to change a playlist when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/put-playlist/" target="_blank">Try in our Web Console</a>
+On success the HTTP status code in the response header is 200 OK.On error, the header status code is an error code and the response body contains an error object. Trying to change a playlist when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -286,7 +287,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -302,7 +303,7 @@ The content type of the request body: application/json
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item collaborative
 
@@ -328,7 +329,7 @@ Defaults to true . If true the playlist will be public, if false it will be priv
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item user_id
 
@@ -343,10 +344,10 @@ and Response Objects being:
 - error object
 
 
-On success, the response body contains the created <a href="/documentation/web-api/reference/#object-playlistobject">playlist object</a>
-in JSON format and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK or
-<code class="highlighter-rouge">201</code> Created. There is also a <code class="highlighter-rouge">Location</code> response header giving the Web API
-endpoint for the new playlist.On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to create a playlist when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/post-playlists/" target="_blank">Try in our Web Console</a>
+On success, the response body contains the created playlist object
+in JSON format and the HTTP status code in the response header is 200 OK or
+201 Created. There is also a Location response header giving the Web API
+endpoint for the new playlist.On error, the header status code is an error code and the response body contains an error object. Trying to create a playlist when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -411,7 +412,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -422,7 +423,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -444,7 +445,7 @@ and Response Objects being:
 - playlist object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedplaylistobject">playlist objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Please note that the access token has to be tied to a user.<a class="btn btn-sm btn-primary" href="/console/get-current-user-playlists/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of simplified playlist objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object. Please note that the access token has to be tied to a user.Try in our Web Console
 
 =cut
 
@@ -489,7 +490,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -500,7 +501,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item user_id
 
@@ -511,7 +512,7 @@ The user’s Spotify user ID.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -533,7 +534,7 @@ and Response Objects being:
 - playlist object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedplaylistobject">playlist objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-playlists/?user_id=wizzler" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of simplified playlist objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -584,7 +585,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -598,7 +599,7 @@ on provision of a valid access token.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -610,7 +611,7 @@ for the playlist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item additional_types
 
@@ -649,7 +650,7 @@ and Response Objects being:
 - playlist object
 
 
-On success, the response body contains a <a href="/documentation/web-api/reference/#object-playlistobject">playlist object</a> in JSON format and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. If an episode is unavailable in the given <code class="highlighter-rouge">market</code>, its information will not be included in the response. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Requesting playlists that you do not have the user’s authorization to access returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/get-playlist/?playlist_id=59ZbFPES4DQwEjBpWHzrtC&amp;user_id=spotify" target="_blank">Try in our Web Console</a>
+On success, the response body contains a playlist object in JSON format and the HTTP status code in the response header is 200 OK. If an episode is unavailable in the given market, its information will not be included in the response. On error, the header status code is an error code and the response body contains an error object. Requesting playlists that you do not have the user’s authorization to access returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -704,7 +705,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -715,7 +716,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -730,7 +731,7 @@ and Response Objects being:
 - image object
 
 
-On success, the response body contains a list of <a href="/documentation/web-api/reference/#object-imageobject">image objects</a> in JSON format and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK<br /> On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-playlist-images?playlist_id=3cEYpjA9oz9GiPac4AsH4n" target="_blank">Try in our Web Console</a>
+On success, the response body contains a list of image objects in JSON format and the HTTP status code in the response header is 200 OK On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -771,7 +772,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -782,7 +783,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -794,7 +795,7 @@ for the playlist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item additional_types
 
@@ -844,7 +845,7 @@ and Response Objects being:
 - track object
 
 
-On success, the response body contains an array of <a href="/documentation/web-api/reference/#object-simplifiedtrackobject">track objects</a> and <a href="/documentation/web-api/reference/#object-simplifiedepisodeobject">episode objects</a> (depends on the <code class="highlighter-rouge">additional_types</code> parameter), wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a> in JSON format and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. If an episode is unavailable in the given <code class="highlighter-rouge">market</code>, its information will not be included in the response. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Requesting playlists that you do not have the user’s authorization to access returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/get-playlist-tracks/?playlist_id=21THa8j9TaSGuXYNBU5tsC&amp;user_id=spotify_espa%C3%B1a" target="_blank">Try in our Web Console</a>
+On success, the response body contains an array of track objects and episode objects (depends on the additional_types parameter), wrapped in a paging object in JSON format and the HTTP status code in the response header is 200 OK. If an episode is unavailable in the given market, its information will not be included in the response. On error, the header status code is an error code and the response body contains an error object. Requesting playlists that you do not have the user’s authorization to access returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -907,7 +908,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -924,7 +925,7 @@ The content type of the request body: application/json
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item snapshot_id
 
@@ -943,7 +944,7 @@ For example: { "tracks": [{ "uri": "spotify:track:4iV5W9uYEdYUVa79Axb7Rh" },{ "u
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -957,21 +958,20 @@ and Response Objects being:
 - error object
 
 
-On success, the response body contains a <code class="highlighter-rouge">snapshot_id</code> in JSON format
-and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. The <code class="highlighter-rouge">snapshot_id</code>
-can be used to identify your playlist version in future requests.On error, the header status code is an <a href="https://developer.spotify.com/spotify-documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="https://developer.spotify.com/spotify-documentation/web-api/#response-schema">error object</a>.
-Trying to remove an item when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.
-Attempting to use several different ways to remove items returns <code class="highlighter-rouge">400</code> Bad Request.
-Other client errors returning <code class="highlighter-rouge">400</code> Bad Request include specifying invalid positions.Notes### Frequently Asked Questions:
-  <li>
-    <p><strong>Is it possible to delete a playlist?</strong>
-No, it isn’t. The reason there is no endpoint for this is explained in our Working With Playlists Guide in the section <a href="/documentation/general/guides/working-with-playlists/#following-and-unfollowing-a-playlist">Following and Unfollowing a Playlist</a>.</p>
-  </li>
-  <li>
-    <p><strong>Can I use <code class="highlighter-rouge">X-HTTP-Method-Override</code> or similar to send a DELETE request overriding the HTTP verb?</strong>
-Not at the moment, the delete operation needs to be specified through a DELETE request.</p>
-  </li>
-<a class="btn btn-sm btn-primary" href="/console/delete-playlist-tracks/" target="_blank">Try in our Web Console</a>
+On success, the response body contains a snapshot_id in JSON format
+and the HTTP status code in the response header is 200 OK. The snapshot_id
+can be used to identify your playlist version in future requests.On error, the header status code is an error code and the response body contains an error object.
+Trying to remove an item when you do not have the user’s authorization returns error 403 Forbidden.
+Attempting to use several different ways to remove items returns 400 Bad Request.
+Other client errors returning 400 Bad Request include specifying invalid positions.Notes### Frequently Asked Questions:
+  
+    Is it possible to delete a playlist?
+No, it isn’t. The reason there is no endpoint for this is explained in our Working With Playlists Guide in the section Following and Unfollowing a Playlist.
+  
+  
+    Can I use X-HTTP-Method-Override or similar to send a DELETE request overriding the HTTP verb?
+Not at the moment, the delete operation needs to be specified through a DELETE request.
+  Try in our Web Console
 
 =cut
 
@@ -1032,7 +1032,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1053,7 +1053,7 @@ Required if URIs are passed in the request body, otherwise ignored. The content 
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item insert_before
 
@@ -1084,7 +1084,7 @@ Type: array[string] | Required: optional
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -1096,7 +1096,7 @@ for the playlist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item uris
 
@@ -1110,13 +1110,13 @@ and Response Objects being:
 - error object
 
 
-On a successful <strong>reorder</strong> operation, the response body contains a <code class="highlighter-rouge">snapshot_id</code> in JSON format
-and the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. The <code class="highlighter-rouge">snapshot_id</code>
-can be used to identify your playlist version in future requests.On a successful <strong>replace</strong> operation, the HTTP status code in the response header is <code class="highlighter-rouge">201</code>
-Created.On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a>, 
-the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>, 
+On a successful reorder operation, the response body contains a snapshot_id in JSON format
+and the HTTP status code in the response header is 200 OK. The snapshot_id
+can be used to identify your playlist version in future requests.On a successful replace operation, the HTTP status code in the response header is 201
+Created.On error, the header status code is an error code, 
+the response body contains an error object, 
 and the existing playlist is unmodified.
-Trying to set an item when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/put-playlist-tracks/" target="_blank">Try in our Web Console</a>
+Trying to set an item when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -1189,7 +1189,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1205,7 +1205,7 @@ The content type of the request body: image/jpeg
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -1219,10 +1219,10 @@ and Response Objects being:
 
 
 
-If you get status code <code class="highlighter-rouge">429</code>, it means that you have sent too many requests. 
-If this happens, have a look in the <code class="highlighter-rouge">Retry-After</code> header, where you will see a number displayed. 
-This is the amount of seconds that you need to wait, before you can retry sending your requests.NotesThe request should contain a Base64 encoded JPEG image data, maximum payload size is 256 KB.<strong>Rate Limiting:</strong> If you get status code <code class="highlighter-rouge">429</code>, it means that you have sent too many requests. 
-If this happens, have a look in the <code class="highlighter-rouge">Retry-After</code> header, where you will see a number displayed. This is the amount of seconds that you need to wait, before you can retry sending your requests.<a class="btn btn-sm btn-primary" href="/console/put-playlist-images?playlist_id=3cEYpjA9oz9GiPac4AsH4n" target="_blank">Try in our Web Console</a>
+If you get status code 429, it means that you have sent too many requests. 
+If this happens, have a look in the Retry-After header, where you will see a number displayed. 
+This is the amount of seconds that you need to wait, before you can retry sending your requests.NotesThe request should contain a Base64 encoded JPEG image data, maximum payload size is 256 KB.Rate Limiting: If you get status code 429, it means that you have sent too many requests. 
+If this happens, have a look in the Retry-After header, where you will see a number displayed. This is the amount of seconds that you need to wait, before you can retry sending your requests.Try in our Web Console
 
 =cut
 

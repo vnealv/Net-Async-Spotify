@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,79 +29,79 @@ Those are Spotify SimplifiedAlbum Object attributes:
 
 =item album_group
 
-Type: String
-Description: The field is present when getting an artist’s albums. Possible values are “album”, “single”, “compilation”, “appears_on”. Compare to album_type this field represents relationship between the artist and the album.
+Type:String
+Description:The field is present when getting an artist’s albums. Possible values are “album”, “single”, “compilation”, “appears_on”. Compare to album_type this field represents relationship between the artist and the album.
 
 =item album_type
 
-Type: String
-Description: The type of the album: one of “album”, “single”, or “compilation”.
+Type:String
+Description:The type of the album: one of “album”, “single”, or “compilation”.
 
 =item artists
 
-Type: Array[SimplifiedArtistObject]
-Description: The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
+Type:Array[SimplifiedArtistObject]
+Description:The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
 
 =item available_markets
 
-Type: Array[String]
-Description: The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
+Type:Array[String]
+Description:The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known external URLs for this album.
+Type:ExternalUrlObject
+Description:Known external URLs for this album.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the album.
+Type:String
+Description:A link to the Web API endpoint providing full details of the album.
 
 =item id
 
-Type: String
-Description: The Spotify ID for the album.
+Type:String
+Description:The Spotify ID for the album.
 
 =item images
 
-Type: Array[ImageObject]
-Description: The cover art for the album in various sizes, widest first.
+Type:Array[ImageObject]
+Description:The cover art for the album in various sizes, widest first.
 
 =item name
 
-Type: String
-Description: The name of the album. In case of an album takedown, the value may be an empty string.
+Type:String
+Description:The name of the album. In case of an album takedown, the value may be an empty string.
 
 =item release_date
 
-Type: String
-Description: The date the album was first released, for example 1981. Depending on the precision, it might be shown as 1981-12 or 1981-12-15.
+Type:String
+Description:The date the album was first released, for example 1981. Depending on the precision, it might be shown as 1981-12 or 1981-12-15.
 
 =item release_date_precision
 
-Type: String
-Description: The precision with which release_date value is known: year , month , or day.
+Type:String
+Description:The precision with which release_date value is known: year , month , or day.
 
 =item restrictions
 
-Type: AlbumRestrictionObject
-Description: Included in the response when a content restriction is applied.
+Type:AlbumRestrictionObject
+Description:Included in the response when a content restriction is applied.
 See Restriction Object for more details.
 
 =item total_tracks
 
-Type: Integer
-Description: The total number of tracks in the album.
+Type:Integer
+Description:The total number of tracks in the album.
 
 =item type
 
-Type: String
-Description: The object type: “album”
+Type:String
+Description:The object type: “album”
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the album.
+Type:String
+Description:The Spotify URI for the album.
 
 =back
 

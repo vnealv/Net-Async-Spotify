@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -37,7 +38,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -48,7 +49,7 @@ valid access token from the Spotify Accounts service: see the Web API Authorizat
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -63,7 +64,7 @@ and Response Objects being:
 - analysis object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code> and the response body contains an audio analysis object in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-audio-analysis-track/?id=06AKEBrKUckW0KREUWRnvT" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an audio analysis object in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -105,7 +106,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -116,7 +117,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -130,7 +131,7 @@ and Response Objects being:
 - features object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code> and the response body contains an <a href="/documentation/web-api/reference/#object-audiofeaturesobject">audio features object</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-audio-features-track/?id=06AKEBrKUckW0KREUWRnvT" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an audio features object in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -171,7 +172,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -182,7 +183,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -198,9 +199,9 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code>
-and the response body contains an object whose key is <code class="highlighter-rouge">&quot;audio_features&quot;</code> and
-whose value is an array of audio features objects in JSON format.Objects are returned in the order requested. If an object is not found, a <code class="highlighter-rouge">null</code> value is returned in the appropriate position. Duplicate <code class="highlighter-rouge">ids</code> in the query will result in duplicate objects in the response. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-audio-features-several-tracks/?ids=4JpKVNYnVcJ8tuMKjAj50A,2NRANZE9UCmPAS5XVbXL40,24JygzOLM0EmRQeGtFcIcG" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK
+and the response body contains an object whose key is "audio_features" and
+whose value is an array of audio features objects in JSON format.Objects are returned in the order requested. If an object is not found, a null value is returned in the appropriate position. Duplicate ids in the query will result in duplicate objects in the response. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -242,7 +243,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -255,7 +256,7 @@ for details.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -275,10 +276,10 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code>
-OK and the response body contains an object whose key is <code class="highlighter-rouge">tracks</code> and whose
-value is an array of <a href="/documentation/web-api/reference/#object-trackobject">track objects</a>
-in JSON format.Objects are returned in the order requested. If an object is not found, a <code class="highlighter-rouge">null</code> value is returned in the appropriate position. Duplicate <code class="highlighter-rouge">ids</code> in the query will result in duplicate objects in the response. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-several-tracks/?ids=3n3Ppam7vgaVa1iaRUc9Lp,3twNvmDtFQtAd5gMKedhLD" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200
+OK and the response body contains an object whose key is tracks and whose
+value is an array of track objects
+in JSON format.Objects are returned in the order requested. If an object is not found, a null value is returned in the appropriate position. Duplicate ids in the query will result in duplicate objects in the response. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -325,7 +326,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -338,7 +339,7 @@ for details.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -350,7 +351,7 @@ for the track.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item market
 
@@ -366,10 +367,10 @@ and Response Objects being:
 - track object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code>
-OK and the response body contains a <a href="/documentation/web-api/reference/#object-trackobject">track object</a>
-in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a>
-and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-track/?id=3n3Ppam7vgaVa1iaRUc9Lp" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200
+OK and the response body contains a track object
+in JSON format. On error, the header status code is an error code
+and the response body contains an error object.Try in our Web Console
 
 =cut
 

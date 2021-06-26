@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,18 +29,18 @@ Those are Spotify Image Object attributes:
 
 =item height
 
-Type: Integer
-Description: The image height in pixels. If unknown: null or not returned.
+Type:Integer
+Description:The image height in pixels. If unknown: null or not returned.
 
 =item url
 
-Type: String
-Description: The source URL of the image.
+Type:String
+Description:The source URL of the image.
 
 =item width
 
-Type: Integer
-Description: The image width in pixels. If unknown: null or not returned.
+Type:Integer
+Description:The image width in pixels. If unknown: null or not returned.
 
 =back
 

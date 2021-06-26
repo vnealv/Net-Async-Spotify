@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify Error Object attributes:
 
 =item message
 
-Type: String
-Description: A short description of the cause of the error.
+Type:String
+Description:A short description of the cause of the error.
 
 =item status
 
-Type: Integer
-Description: The HTTP status code (also returned in the response header; see Response Status Codes for more information).
+Type:Integer
+Description:The HTTP status code (also returned in the response header; see Response Status Codes for more information).
 
 =back
 

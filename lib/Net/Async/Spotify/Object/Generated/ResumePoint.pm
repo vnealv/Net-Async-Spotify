@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify ResumePoint Object attributes:
 
 =item fully_played
 
-Type: Boolean
-Description: Whether or not the episode has been fully played by the user.
+Type:Boolean
+Description:Whether or not the episode has been fully played by the user.
 
 =item resume_position_ms
 
-Type: Integer
-Description: The user’s most recent position in the episode in milliseconds.
+Type:Integer
+Description:The user’s most recent position in the episode in milliseconds.
 
 =back
 

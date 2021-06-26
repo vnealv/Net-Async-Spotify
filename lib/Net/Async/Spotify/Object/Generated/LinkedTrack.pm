@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,28 +29,28 @@ Those are Spotify LinkedTrack Object attributes:
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known external URLs for this track.
+Type:ExternalUrlObject
+Description:Known external URLs for this track.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the track.
+Type:String
+Description:A link to the Web API endpoint providing full details of the track.
 
 =item id
 
-Type: String
-Description: The Spotify ID for the track.
+Type:String
+Description:The Spotify ID for the track.
 
 =item type
 
-Type: String
-Description: The object type: “track”.
+Type:String
+Description:The object type: “track”.
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the track.
+Type:String
+Description:The Spotify URI for the track.
 
 =back
 

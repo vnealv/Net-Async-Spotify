@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -50,7 +51,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is 200 OK and the response body contains a list of the countries in which Spotify is available, identified by their <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2 country code</a> with additional country codes for special territories. On error, the header status code is an error code and the response body contains an error object.<a class="btn btn-sm btn-primary" href="/console/get-available-markets/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a list of the countries in which Spotify is available, identified by their ISO 3166-1 alpha-2 country code with additional country codes for special territories. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 

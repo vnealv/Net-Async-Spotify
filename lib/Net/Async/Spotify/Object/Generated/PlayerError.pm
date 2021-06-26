@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,18 +29,18 @@ Those are Spotify PlayerError Object attributes:
 
 =item message
 
-Type: String
-Description: A short description of the cause of the error.
+Type:String
+Description:A short description of the cause of the error.
 
 =item reason
 
-Type: String
-Description: 
+Type:String
+Description:
 
 =item status
 
-Type: Integer
-Description: The HTTP status code. Either 404 NOT FOUND or 403 FORBIDDEN.  Also returned in the response header.
+Type:Integer
+Description:The HTTP status code. Either 404 NOT FOUND or 403 FORBIDDEN.  Also returned in the response header.
 
 =back
 

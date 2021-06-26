@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,8 +29,8 @@ Those are Spotify Cursor Object attributes:
 
 =item after
 
-Type: String
-Description: The cursor to use as key to find the next page of items.
+Type:String
+Description:The cursor to use as key to find the next page of items.
 
 =back
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,68 +29,68 @@ Those are Spotify SimplifiedPlaylist Object attributes:
 
 =item collaborative
 
-Type: Boolean
-Description: true if the owner allows other users to modify the playlist.
+Type:Boolean
+Description:true if the owner allows other users to modify the playlist.
 
 =item description
 
-Type: String
-Description: The playlist description. Only returned for modified, verified playlists, otherwise null.
+Type:String
+Description:The playlist description. Only returned for modified, verified playlists, otherwise null.
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known external URLs for this playlist.
+Type:ExternalUrlObject
+Description:Known external URLs for this playlist.
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the playlist.
+Type:String
+Description:A link to the Web API endpoint providing full details of the playlist.
 
 =item id
 
-Type: String
-Description: The Spotify ID for the playlist.
+Type:String
+Description:The Spotify ID for the playlist.
 
 =item images
 
-Type: Array[ImageObject]
-Description: Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See Working with Playlists. Note: If returned, the source URL for the image (url) is temporary and will expire in less than a day.
+Type:Array[ImageObject]
+Description:Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See Working with Playlists. Note: If returned, the source URL for the image (url) is temporary and will expire in less than a day.
 
 =item name
 
-Type: String
-Description: The name of the playlist.
+Type:String
+Description:The name of the playlist.
 
 =item owner
 
-Type: PublicUserObject
-Description: The user who owns the playlist
+Type:PublicUserObject
+Description:The user who owns the playlist
 
 =item public
 
-Type: Boolean
-Description: The playlist’s public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant. For more about public/private status, see Working with Playlists
+Type:Boolean
+Description:The playlist’s public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant. For more about public/private status, see Working with Playlists
 
 =item snapshot_id
 
-Type: String
-Description: The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version
+Type:String
+Description:The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version
 
 =item tracks
 
-Type: PlaylistTracksRefObject
-Description: A collection containing a link ( href ) to the Web API endpoint where full details of the playlist’s tracks can be retrieved, along with the total number of tracks in the playlist. Note, a track object may be null. This can happen if a track is no longer available.
+Type:PlaylistTracksRefObject
+Description:A collection containing a link ( href ) to the Web API endpoint where full details of the playlist’s tracks can be retrieved, along with the total number of tracks in the playlist. Note, a track object may be null. This can happen if a track is no longer available.
 
 =item type
 
-Type: String
-Description: The object type: “playlist”
+Type:String
+Description:The object type: “playlist”
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the playlist.
+Type:String
+Description:The Spotify URI for the playlist.
 
 =back
 

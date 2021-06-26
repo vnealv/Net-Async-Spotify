@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify Followers Object attributes:
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the followers; null if not available. Please note that this will always be set to null, as the Web API does not support it at the moment.
+Type:String
+Description:A link to the Web API endpoint providing full details of the followers; null if not available. Please note that this will always be set to null, as the Web API does not support it at the moment.
 
 =item total
 
-Type: Integer
-Description: The total number of followers.
+Type:Integer
+Description:The total number of followers.
 
 =back
 

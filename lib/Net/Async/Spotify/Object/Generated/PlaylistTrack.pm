@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,23 +29,23 @@ Those are Spotify PlaylistTrack Object attributes:
 
 =item added_at
 
-Type: Timestamp
-Description: The date and time the track or episode was added. Note that some very old playlists may return null in this field.
+Type:Timestamp
+Description:The date and time the track or episode was added. Note that some very old playlists may return null in this field.
 
 =item added_by
 
-Type: PublicUserObject
-Description: The Spotify user who added the track or episode. Note that some very old playlists may return null in this field.
+Type:PublicUserObject
+Description:The Spotify user who added the track or episode. Note that some very old playlists may return null in this field.
 
 =item is_local
 
-Type: Boolean
-Description: Whether this track or episode is a local file or not.
+Type:Boolean
+Description:Whether this track or episode is a local file or not.
 
 =item track
 
-Type: TrackObject | EpisodeObject
-Description: Information about the track or episode.
+Type:TrackObject | EpisodeObject
+Description:Information about the track or episode.
 
 =back
 

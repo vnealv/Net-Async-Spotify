@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,14 +29,14 @@ Those are Spotify SavedEpisode Object attributes:
 
 =item added_at
 
-Type: Timestamp
-Description: The date and time the episode was saved.
+Type:Timestamp
+Description:The date and time the episode was saved.
 Timestamps are returned in ISO 8601 format as Coordinated Universal Time (UTC) with a zero offset: YYYY-MM-DDTHH:MM:SSZ.
 
 =item episode
 
-Type: EpisodeObject
-Description: Information about the episode.
+Type:EpisodeObject
+Description:Information about the episode.
 
 =back
 

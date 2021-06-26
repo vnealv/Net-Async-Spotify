@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -38,7 +39,7 @@ with Request details being:
 [% FOREACH req_param IN endpoints.$ep.request.keys.sort -%]
 =head3 [% req_param %]
 
-=over 4 
+=over 4
 
 [% FOREACH param IN endpoints.$ep.request.$req_param.keys.sort -%]
 =item [% param %]

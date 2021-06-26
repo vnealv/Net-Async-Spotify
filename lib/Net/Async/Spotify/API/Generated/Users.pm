@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -37,7 +38,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -51,7 +52,7 @@ and Response Objects being:
 - user object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a <a href="/documentation/web-api/reference/#object-privateuserobject">user object</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. When requesting fields that you don’t have the user’s authorization to access, it will return error <code class="highlighter-rouge">403</code> Forbidden.<strong>Important!</strong> If the <code class="highlighter-rouge">user-read-email</code> scope is authorized, the returned JSON will include the email address that was entered when the user created their Spotify account. <strong>This email address is unverified</strong>; do not assume that the email address belongs to the user.<a class="btn btn-sm btn-primary" href="/console/get-current-user/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a user object in JSON format. On error, the header status code is an error code and the response body contains an error object. When requesting fields that you don’t have the user’s authorization to access, it will return error 403 Forbidden.Important! If the user-read-email scope is authorized, the returned JSON will include the email address that was entered when the user created their Spotify account. This email address is unverified; do not assume that the email address belongs to the user.Try in our Web Console
 
 =cut
 
@@ -86,7 +87,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -99,7 +100,7 @@ for details.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item user_id
 
@@ -113,7 +114,7 @@ and Response Objects being:
 - user object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a <a href="/documentation/web-api/reference/#object-publicuserobject">user object</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. If a user with that user_id doesn’t exist, the status code is <code class="highlighter-rouge">404</code> NOT FOUND.<a class="btn btn-sm btn-primary" href="/console/get-users-profile/?user_id=wizzler" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a user object in JSON format. On error, the header status code is an error code and the response body contains an error object. If a user with that user_id doesn’t exist, the status code is 404 NOT FOUND.Try in our Web Console
 
 =cut
 

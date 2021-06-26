@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,15 +29,15 @@ Those are Spotify SavedShow Object attributes:
 
 =item added_at
 
-Type: Timestamp
-Description: The date and time the show was saved.
+Type:Timestamp
+Description:The date and time the show was saved.
 Timestamps are returned in ISO 8601 format as Coordinated Universal Time (UTC) with a zero offset: YYYY-MM-DDTHH:MM:SSZ.
 If the time is imprecise (for example, the date/time of an album release), an additional field indicates the precision; see for example, release_date in an album object.
 
 =item show
 
-Type: SimplifiedShowObject
-Description: Information about the show.
+Type:SimplifiedShowObject
+Description:Information about the show.
 
 =back
 

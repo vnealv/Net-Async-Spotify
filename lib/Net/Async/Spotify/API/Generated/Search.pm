@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -37,7 +38,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -48,7 +49,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item include_external
 
@@ -111,40 +112,37 @@ and Response Objects being:
 - on object
 
 
-<strong>On success</strong>:
-  <li>In the response <em><strong>header</strong></em> the HTTP status code is <code class="highlighter-rouge">200</code> OK.</li>
-  <li>For each type provided in the <code class="highlighter-rouge">type</code> parameter, the response <em><strong>body</strong></em> contains an array of 
-<a href="/documentation/web-api/reference/#object-artistobject">artist objects</a> / 
-<a href="/documentation/web-api/reference/#object-simplifiedalbumobject">simplified album objects</a> / 
-<a href="/documentation/web-api/reference/#object-trackobject">track objects</a> / 
-<a href="/documentation/web-api/reference/#object-simplifiedshowobject">simplified show objects</a> / 
-<a href="/documentation/web-api/reference/#object-simplifiedepisodeobject">simplified episode objects</a> 
-wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a> in JSON.</li>
-<strong>On error</strong>:
-  <li>The <em><strong>header</strong></em> status code is an <a href="/documentation/web-api/#response-status-codes">error code</a>.</li>
-  <li>The response <em><strong>body</strong></em> contains an <a href="/documentation/web-api/#response-schema">error object</a>.</li>
-Notes<strong>Writing a Query - Guidelines</strong><strong>Encode spaces</strong> with the hex code <code class="highlighter-rouge">%20</code> or <code class="highlighter-rouge">+</code>.<strong>Keyword matching</strong>: Matching of search keywords is <em>not</em> case-sensitive. Operators, however, should be specified in uppercase.
+On success:
+  In the response header the HTTP status code is 200 OK.
+  For each type provided in the type parameter, the response body contains an array of 
+artist objects / 
+simplified album objects / 
+track objects / 
+simplified show objects / 
+simplified episode objects 
+wrapped in a paging object in JSON.On error:
+  The header status code is an error code.
+  The response body contains an error object.NotesWriting a Query - GuidelinesEncode spaces with the hex code %20 or +.Keyword matching: Matching of search keywords is not case-sensitive. Operators, however, should be specified in uppercase.
 Unless surrounded by double quotation marks, keywords are matched in any order. For example:
-<code class="highlighter-rouge">q=roadhouse&amp;20blues</code> matches both “Blues Roadhouse” and “Roadhouse of the Blues”.
-<code class="highlighter-rouge">q=&quot;roadhouse&amp;20blues&quot;</code> matches “My Roadhouse Blues” but not “Roadhouse of the Blues”.Searching for <strong>playlists</strong> returns results where the query keyword(s) match any part of the playlist’s name or description. Only popular public playlists are returned.<strong>Operator</strong>: The operator NOT can be used to exclude results.For example: <code class="highlighter-rouge">q=roadhouse%20NOT%20blues</code> returns items that match “roadhouse” but excludes those that also contain the keyword “blues”.<em>Note</em>: The operator must be specified in uppercase. Otherwise, they are handled as normal keywords to be matched.<strong>Field filters</strong>: By default, results are returned when a match is found in <em>any</em> field of the target object type. Searches can be made more specific by specifying an <code class="highlighter-rouge">album</code>, <code class="highlighter-rouge">artist</code> or <code class="highlighter-rouge">track</code> field filter.For example: The query <code class="highlighter-rouge">q=album:gold%20artist:abba&amp;type=album</code> returns only albums with the text “gold” in the album name and the text “abba” in the artist name.To limit the results to a particular <code class="highlighter-rouge">year</code>, use the field filter year with album, artist, and track searches.For example: <code class="highlighter-rouge">q=bob%20year:2014</code>Or with a date range. For example: <code class="highlighter-rouge">q=bob%20year:1980-2020</code>To retrieve only albums released in the last two weeks, use the field filter tag:new in album searches.To retrieve only albums with the lowest 10% popularity, use the field filter tag:hipster in album searches.
-<em>Note</em>: This field filter only works with album searches.Depending on object types being searched for, other field filters, include genre (applicable to tracks and artists), <code class="highlighter-rouge">upc</code>, and <code class="highlighter-rouge">isrc</code>.
-For example: <code class="highlighter-rouge">q=lil%20genre:%22southern%20hip%20hop%22&amp;type=artist</code>.
-Use double quotation marks around the genre keyword string if it contains spaces.<strong>Notes</strong>
-  <li>Currently, you cannot fetch sorted results.</li>
-  <li>You cannot search for playlists that contain a certain track.</li>
-  <li>You can search only one genre at a time.</li>
-  <li>You cannot search for playlists within a user’s library.</li>
-  <li>In an effort to keep the response small, but include as much information as possible, Spotify has expanded the response and intends to continue and improve the Search endpoint.</li>
-  <li>
-    <p>To query based on a release date query at a year level using the year scope. For example:</p>
+q=roadhouse&20blues matches both “Blues Roadhouse” and “Roadhouse of the Blues”.
+q="roadhouse&20blues" matches “My Roadhouse Blues” but not “Roadhouse of the Blues”.Searching for playlists returns results where the query keyword(s) match any part of the playlist’s name or description. Only popular public playlists are returned.Operator: The operator NOT can be used to exclude results.For example: q=roadhouse%20NOT%20blues returns items that match “roadhouse” but excludes those that also contain the keyword “blues”.Note: The operator must be specified in uppercase. Otherwise, they are handled as normal keywords to be matched.Field filters: By default, results are returned when a match is found in any field of the target object type. Searches can be made more specific by specifying an album, artist or track field filter.For example: The query q=album:gold%20artist:abba&type=album returns only albums with the text “gold” in the album name and the text “abba” in the artist name.To limit the results to a particular year, use the field filter year with album, artist, and track searches.For example: q=bob%20year:2014Or with a date range. For example: q=bob%20year:1980-2020To retrieve only albums released in the last two weeks, use the field filter tag:new in album searches.To retrieve only albums with the lowest 10% popularity, use the field filter tag:hipster in album searches.
+Note: This field filter only works with album searches.Depending on object types being searched for, other field filters, include genre (applicable to tracks and artists), upc, and isrc.
+For example: q=lil%20genre:%22southern%20hip%20hop%22&type=artist.
+Use double quotation marks around the genre keyword string if it contains spaces.Notes
+  Currently, you cannot fetch sorted results.
+  You cannot search for playlists that contain a certain track.
+  You can search only one genre at a time.
+  You cannot search for playlists within a user’s library.
+  In an effort to keep the response small, but include as much information as possible, Spotify has expanded the response and intends to continue and improve the Search endpoint.
+  
+    To query based on a release date query at a year level using the year scope. For example:
 
-    <p>The query</p>
+    The query
 
-    <p><code class="highlighter-rouge">https://api.spotify.com/v1/search?q=bob%20year:2014&amp;type=album</code></p>
+    https://api.spotify.com/v1/search?q=bob%20year:2014&type=album
 
-    <p>Returns albums released in 2014 with their names or artist names containing “bob”. You can also use the tag:new field filter to get just these albums, as well as compilations and singles, released in the last 2 weeks.</p>
-  </li>
-<a class="btn btn-sm btn-primary" href="/console/get-search-item/?q=tania+bowra&amp;type=artist" target="_blank">Try in our Web Console</a>
+    Returns albums released in 2014 with their names or artist names containing “bob”. You can also use the tag:new field filter to get just these albums, as well as compilations and singles, released in the last 2 weeks.
+  Try in our Web Console
 
 =cut
 

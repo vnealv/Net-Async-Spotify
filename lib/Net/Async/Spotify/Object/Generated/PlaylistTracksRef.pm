@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify PlaylistTracksRef Object attributes:
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint where full details of the playlist’s tracks can be retrieved.
+Type:String
+Description:A link to the Web API endpoint where full details of the playlist’s tracks can be retrieved.
 
 =item total
 
-Type: Integer
-Description: Number of tracks in the playlist.
+Type:Integer
+Description:Number of tracks in the playlist.
 
 =back
 

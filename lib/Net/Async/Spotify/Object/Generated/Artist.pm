@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,53 +29,53 @@ Those are Spotify Artist Object attributes:
 
 =item external_urls
 
-Type: ExternalUrlObject
-Description: Known external URLs for this artist.
+Type:ExternalUrlObject
+Description:Known external URLs for this artist.
 
 =item followers
 
-Type: FollowersObject
-Description: Information about the followers of the artist.
+Type:FollowersObject
+Description:Information about the followers of the artist.
 
 =item genres
 
-Type: Array[String]
-Description: A list of the genres the artist is associated with. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)
+Type:Array[String]
+Description:A list of the genres the artist is associated with. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)
 
 =item href
 
-Type: String
-Description: A link to the Web API endpoint providing full details of the artist.
+Type:String
+Description:A link to the Web API endpoint providing full details of the artist.
 
 =item id
 
-Type: String
-Description: The Spotify ID for the artist.
+Type:String
+Description:The Spotify ID for the artist.
 
 =item images
 
-Type: Array[ImageObject]
-Description: Images of the artist in various sizes, widest first.
+Type:Array[ImageObject]
+Description:Images of the artist in various sizes, widest first.
 
 =item name
 
-Type: String
-Description: The name of the artist.
+Type:String
+Description:The name of the artist.
 
 =item popularity
 
-Type: Integer
-Description: The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist’s popularity is calculated from the popularity of all the artist’s tracks.
+Type:Integer
+Description:The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist’s popularity is calculated from the popularity of all the artist’s tracks.
 
 =item type
 
-Type: String
-Description: The object type: "artist"
+Type:String
+Description:The object type: "artist"
 
 =item uri
 
-Type: String
-Description: The Spotify URI for the artist.
+Type:String
+Description:The Spotify URI for the artist.
 
 =back
 

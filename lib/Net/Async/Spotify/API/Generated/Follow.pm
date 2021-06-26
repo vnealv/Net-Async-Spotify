@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid user access token or your client credentials. Requires the user-follow-r
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -66,8 +67,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-following-contains/?type=user&amp;ids=exampleuser01" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of true or false values, in the same order in which the ids were specified.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -112,7 +113,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -123,7 +124,7 @@ A valid user access token or your client credentials. Requires the playlist-read
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -134,7 +135,7 @@ The Spotify ID of the playlist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -148,8 +149,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-playlist-followers-contains/?ids=possan,elogain&amp;user_id=jmperezperez&amp;playlist_id=2v3iNvBX8Ay1Gt2uXtUKUT" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of true or false values, in the same order in which the ids were specified.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -196,7 +197,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -212,7 +213,7 @@ Required if IDs are passed in the request body, otherwise ignored. The content t
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -224,7 +225,7 @@ For example: {ids:["74ASZWbe4lXaubB36ztrGX", "08td7MxkoHQkXnWAYD8d6Q"]}. A maxim
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -244,8 +245,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">204</code> No Content and the response body is empty.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/put-following/?type=user&amp;ids=exampleuser01" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 204 No Content and the response body is empty.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -300,7 +301,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -316,7 +317,7 @@ The content type of the request body: application/json
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item public
 
@@ -327,7 +328,7 @@ Defaults to true. If true the playlist will be included in user’s public playl
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -341,8 +342,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body is empty.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/put-playlist-followers/?playlist_id=2v3iNvBX8Ay1Gt2uXtUKUT&amp;body-json=%7B%0D%0A++%22public%22%3A+true%0D%0A%7D&amp;user_id=jmperezperez" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body is empty.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -393,7 +394,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -404,7 +405,7 @@ A valid user access token or your client credentials. Requires the user-follow-m
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item after
 
@@ -428,9 +429,9 @@ and Response Objects being:
 - paging object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an <code class="highlighter-rouge">artists</code> object.
-The <code class="highlighter-rouge">artists</code> object in turn contains a <a href="/documentation/web-api/reference/#object-cursorpagingobject">cursor-based paging object</a> of <a href="/documentation/web-api/reference/#object-artistobject">Artists</a>.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-following/?type=artist&amp;limit=20" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an artists object.
+The artists object in turn contains a cursor-based paging object of Artists.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -479,7 +480,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -495,7 +496,7 @@ Required if IDs are passed in the request body, otherwise ignored. The content t
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -506,7 +507,7 @@ A JSON array of the artist or user Spotify IDs. For example: {ids:["74ASZWbe4lXa
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -525,8 +526,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">204</code> No Content and the response body is empty.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/delete-following/?type=user&amp;ids=exampleuser01" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 204 No Content and the response body is empty.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -581,7 +582,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -592,7 +593,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item playlist_id
 
@@ -606,8 +607,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body is empty.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/delete-playlist-followers/?playlist_id=2v3iNvBX8Ay1Gt2uXtUKUT&amp;user_id=jmperezperez" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body is empty.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 

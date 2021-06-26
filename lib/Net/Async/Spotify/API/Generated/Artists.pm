@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -61,7 +62,7 @@ and Response Objects being:
 - artist object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an <a href="/documentation/web-api/reference/#object-artistobject">artist object</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-artist/?id=0OdUWJ0sBjDrqHygGUXeCF" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an artist object in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -102,7 +103,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -113,7 +114,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -124,7 +125,7 @@ The Spotify ID for the artist.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item include_groups
 
@@ -153,7 +154,7 @@ and Response Objects being:
 - album object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedalbumobject">album objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-artist-albums/?album_type=single&amp;limit=2&amp;market=ES&amp;id=1vCWHaC5f2uS3yhpwWbIA6" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of simplified album objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -212,7 +213,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -223,7 +224,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -237,7 +238,7 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an object whose key is <code class="highlighter-rouge">&quot;artists&quot;</code> and whose value is an array of up to 20 <a href="/documentation/web-api/reference/#object-artistobject">artist objects</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-artist-related-artists/?id=43ZHCT0cAZBISjO8DG9PnE" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an object whose key is "artists" and whose value is an array of up to 20 artist objects in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -278,7 +279,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -289,7 +290,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item id
 
@@ -300,7 +301,7 @@ The Spotify ID for the artist
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item market
 
@@ -314,7 +315,7 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an object whose key is <code class="highlighter-rouge">&quot;tracks&quot;</code> and whose value is an array of up to 10 <a href="/documentation/web-api/reference/#object-trackobject">track objects</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-artist-top-tracks/?country=SE&amp;id=43ZHCT0cAZBISjO8DG9PnE" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an object whose key is "tracks" and whose value is an array of up to 10 track objects in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -361,7 +362,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -372,7 +373,7 @@ A valid user access token or your client credentials.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -387,7 +388,7 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an object whose key is <code class="highlighter-rouge">&quot;artists&quot;</code> and whose value is an array of <a href="/documentation/web-api/reference/#object-artistobject">artist objects</a> in JSON format.Objects are returned in the order requested. If an object is not found, a <code class="highlighter-rouge">null</code> value is returned in the appropriate position. Duplicate <code class="highlighter-rouge">ids</code> in the query will result in duplicate objects in the response. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-several-artists/?ids=0oSGxfWSnnOXhD2fKuz2Gy,3dBVyJ7JuOMt4GE9607Qin" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an object whose key is "artists" and whose value is an array of artist objects in JSON format.Objects are returned in the order requested. If an object is not found, a null value is returned in the appropriate position. Duplicate ids in the query will result in duplicate objects in the response. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 

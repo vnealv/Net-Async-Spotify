@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,8 +29,8 @@ Those are Spotify Devices Object attributes:
 
 =item devices
 
-Type: Array[DeviceObject]
-Description: A list of 0..n Device objects
+Type:Array[DeviceObject]
+Description:A list of 0..n Device objects
 
 =back
 

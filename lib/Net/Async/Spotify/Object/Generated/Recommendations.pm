@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,13 +29,13 @@ Those are Spotify Recommendations Object attributes:
 
 =item seeds
 
-Type: Array[RecommendationSeedObject]
-Description: An array of recommendation seed objects.
+Type:Array[RecommendationSeedObject]
+Description:An array of recommendation seed objects.
 
 =item tracks
 
-Type: Array[SimplifiedTrackObject]
-Description: An array of track object (simplified) ordered according to the parameters supplied.
+Type:Array[SimplifiedTrackObject]
+Description:An array of track object (simplified) ordered according to the parameters supplied.
 
 =back
 

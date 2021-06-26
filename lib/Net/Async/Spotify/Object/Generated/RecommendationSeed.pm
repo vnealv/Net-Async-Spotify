@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,33 +29,33 @@ Those are Spotify RecommendationSeed Object attributes:
 
 =item afterFilteringSize
 
-Type: Integer
-Description: The number of tracks available after min_* and max_* filters have been applied.
+Type:Integer
+Description:The number of tracks available after min_* and max_* filters have been applied.
 
 =item afterRelinkingSize
 
-Type: Integer
-Description: The number of tracks available after relinking for regional availability.
+Type:Integer
+Description:The number of tracks available after relinking for regional availability.
 
 =item href
 
-Type: String
-Description: A link to the full track or artist data for this seed. For tracks this will be a link to a Track Object. For artists a link to an Artist Object. For genre seeds, this value will be null.
+Type:String
+Description:A link to the full track or artist data for this seed. For tracks this will be a link to a Track Object. For artists a link to an Artist Object. For genre seeds, this value will be null.
 
 =item id
 
-Type: String
-Description: The id used to select this seed. This will be the same as the string used in the seed_artists, seed_tracks or seed_genres parameter.
+Type:String
+Description:The id used to select this seed. This will be the same as the string used in the seed_artists, seed_tracks or seed_genres parameter.
 
 =item initialPoolSize
 
-Type: Integer
-Description: The number of recommended tracks available for this seed.
+Type:Integer
+Description:The number of recommended tracks available for this seed.
 
 =item type
 
-Type: String
-Description: The entity type of this seed. One of artist, track or genre.
+Type:String
+Description:The entity type of this seed. One of artist, track or genre.
 
 =back
 

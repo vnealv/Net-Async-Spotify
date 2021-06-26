@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,8 +29,8 @@ Those are Spotify AlbumRestriction Object attributes:
 
 =item reason
 
-Type: String
-Description: The reason for the restriction. Supported values:
+Type:String
+Description:The reason for the restriction. Supported values:
 
 =back
 

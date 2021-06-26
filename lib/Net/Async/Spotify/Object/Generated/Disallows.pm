@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,53 +29,53 @@ Those are Spotify Disallows Object attributes:
 
 =item interrupting_playback
 
-Type: Boolean
-Description: Interrupting playback. Optional field.
+Type:Boolean
+Description:Interrupting playback. Optional field.
 
 =item pausing
 
-Type: Boolean
-Description: Pausing. Optional field.
+Type:Boolean
+Description:Pausing. Optional field.
 
 =item resuming
 
-Type: Boolean
-Description: Resuming. Optional field.
+Type:Boolean
+Description:Resuming. Optional field.
 
 =item seeking
 
-Type: Boolean
-Description: Seeking playback location. Optional field.
+Type:Boolean
+Description:Seeking playback location. Optional field.
 
 =item skipping_next
 
-Type: Boolean
-Description: Skipping to the next context. Optional field.
+Type:Boolean
+Description:Skipping to the next context. Optional field.
 
 =item skipping_prev
 
-Type: Boolean
-Description: Skipping to the previous context. Optional field.
+Type:Boolean
+Description:Skipping to the previous context. Optional field.
 
 =item toggling_repeat_context
 
-Type: Boolean
-Description: Toggling repeat context flag. Optional field.
+Type:Boolean
+Description:Toggling repeat context flag. Optional field.
 
 =item toggling_repeat_track
 
-Type: Boolean
-Description: Toggling repeat track flag. Optional field.
+Type:Boolean
+Description:Toggling repeat track flag. Optional field.
 
 =item toggling_shuffle
 
-Type: Boolean
-Description: Toggling shuffle flag. Optional field.
+Type:Boolean
+Description:Toggling shuffle flag. Optional field.
 
 =item transferring_playback
 
-Type: Boolean
-Description: Transfering playback between devices. Optional field.
+Type:Boolean
+Description:Transfering playback between devices. Optional field.
 
 =back
 

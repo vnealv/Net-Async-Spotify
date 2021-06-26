@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -61,8 +62,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-contains-saved-albums/?ids=0pJJgBzj26qnE1nSQUxaB0%2C5ZAKzV4ZIa5Gt7z29OYHv0" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of true or false values, in the same order in which the ids were specified.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -104,7 +105,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -115,7 +116,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -129,8 +130,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-contains-saved-episodes/?ids=77o6BIVlYM3msb4MMIL1jH%2C0Q86acNRm6V9GYx55SXKwf" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of true or false values, in the same order in which the ids were specified.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -171,7 +172,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -182,7 +183,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -196,7 +197,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code>or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#error-details">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-contains-saved-shows/?ids=5AvwZVawapvyhJUIx71pdJ%2C6ups0LMt1G8n81XLlkbsPo%2C5AvwZVawapvyhJUIx71pdJ" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of trueor false values, in the same order in which the ids were specified. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -237,7 +238,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -248,7 +249,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -262,8 +263,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a JSON array of <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> values, in the same order in which the <code class="highlighter-rouge">ids</code> were specified.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-contains-saved-tracks/?ids=0udZHhCi7p1YzMlvI4fXoK%2C3SF5puV5eb6bgRSxBeMOk9" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a JSON array of true or false values, in the same order in which the ids were specified.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -304,7 +305,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -315,7 +316,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -340,7 +341,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of <a href="/documentation/web-api/reference/#object-savedalbumobject">saved album objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. Each album object is accompanied by a <a href="/documentation/web-api/#timestamps">timestamp</a> (<code class="highlighter-rouge">added_at</code>) to show when it was added. There is also an <strong>etag</strong> in the header that can be used in future <a href="/documentation/web-api/#conditional-requests">conditional requests</a>.On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-saved-albums/?limit=1" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved album objects (wrapped in a paging object) in JSON format. Each album object is accompanied by a timestamp (added_at) to show when it was added. There is also an etag in the header that can be used in future conditional requests.On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -391,7 +392,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -402,7 +403,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -432,8 +433,7 @@ and Response Objects being:
 
 
 
-  <li>On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of <a href="/documentation/web-api/reference/#object-savedepisodeobject">saved episode objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.</li>
-<a class="btn btn-sm btn-primary" href="/console/get-current-user-saved-episodes/" target="_blank">Try in our Web Console</a>
+  On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved episode objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -482,7 +482,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -493,7 +493,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -512,9 +512,9 @@ and Response Objects being:
 - show object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of <a href="/documentation/web-api/reference/#object-savedshowobject">saved show objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format.
-If the current user has no shows saved, the response will be an empty array. If a show is unavailable in the given <code class="highlighter-rouge">market</code> it is filtered out. The <code class="highlighter-rouge">total</code> field in the paging object represents the number of all items, filtered or not, and thus might be larger than the actual total number of observable items.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#error-details">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-saved-shows/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved show objects (wrapped in a paging object) in JSON format.
+If the current user has no shows saved, the response will be an empty array. If a show is unavailable in the given market it is filtered out. The total field in the paging object represents the number of all items, filtered or not, and thus might be larger than the actual total number of observable items.
+On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -559,7 +559,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -570,7 +570,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -594,7 +594,7 @@ and Response Objects being:
 - track object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of <a href="/documentation/web-api/reference/#object-savedtrackobject">saved track objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.<a class="btn btn-sm btn-primary" href="/console/get-current-user-saved-tracks/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of saved track objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Try in our Web Console
 
 =cut
 
@@ -643,7 +643,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -659,7 +659,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -670,7 +670,7 @@ A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301Wl
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -684,7 +684,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> Success. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to remove an album when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/delete-current-user-saved-albums/?ids=07bYtmE3bPsLB6ZbmmFi8d%2C48JYNjh7GMie6NjqYHMmtT%2C27cZdqrQiKt3IT00338dws" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 Success. On error, the header status code is an error code and the response body contains an error object. Trying to remove an album when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -736,7 +736,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -752,7 +752,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -763,7 +763,7 @@ A JSON array of the Spotify IDs. A maximum of 50 items can be specified in one r
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -777,7 +777,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> Success. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to remove an episode when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/delete-current-user-saved-episodes/?ids=77o6BIVlYM3msb4MMIL1jH%2C0Q86acNRm6V9GYx55SXKwf" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 Success. On error, the header status code is an error code and the response body contains an error object. Trying to remove an episode when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -828,7 +828,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -839,7 +839,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -863,8 +863,8 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK.
-On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#error-details">error object</a>. A <code class="highlighter-rouge">403 Forbidden</code> while trying to add a show when you do not have the user’s authorisation.<a class="btn btn-sm btn-primary" href="/console/delete-current-user-saved-shows/?ids=5AvwZVawapvyhJUIx71pdJ%2C6ups0LMt1G8n81XLlkbsPo%2C5AvwZVawapvyhJUIx71pdJ" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK.
+On error, the header status code is an error code and the response body contains an error object. A 403 Forbidden while trying to add a show when you do not have the user’s authorisation.Try in our Web Console
 
 =cut
 
@@ -909,7 +909,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -925,7 +925,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -936,7 +936,7 @@ A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301Wl
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -950,7 +950,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> Success. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to remove an album when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/delete-current-user-saved-tracks/?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 Success. On error, the header status code is an error code and the response body contains an error object. Trying to remove an album when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -1001,7 +1001,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1017,7 +1017,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1028,7 +1028,7 @@ A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301Wl
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1042,7 +1042,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">201</code> Created. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to add an album when you do not have the user’s authorization returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/put-current-user-saved-albums/?ids=07bYtmE3bPsLB6ZbmmFi8d%2C48JYNjh7GMie6NjqYHMmtT%2C27cZdqrQiKt3IT00338dws" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 201 Created. On error, the header status code is an error code and the response body contains an error object. Trying to add an album when you do not have the user’s authorization returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -1094,7 +1094,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1110,7 +1110,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1121,7 +1121,7 @@ A JSON array of the Spotify IDs. A maximum of 50 items can be specified in one r
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1135,7 +1135,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to add an episode when you do not have the user’s authorization, returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/put-current-user-saved-episodes/?ids=77o6BIVlYM3msb4MMIL1jH%2C0Q86acNRm6V9GYx55SXKwf" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object. Trying to add an episode when you do not have the user’s authorization, returns error 403 Forbidden.Try in our Web Console
 
 =cut
 
@@ -1186,7 +1186,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1197,7 +1197,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1211,7 +1211,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#error-details">error object</a>. A <code class="highlighter-rouge">403 Forbidden</code> while trying to add a show when you do not have the user’s authorisation or when the user already has have over 10,000 items saved in library.<a class="btn btn-sm btn-primary" href="/console/put-current-user-saved-shows/?ids=5AvwZVawapvyhJUIx71pdJ%2C6ups0LMt1G8n81XLlkbsPo%2C5AvwZVawapvyhJUIx71pdJ" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object. A 403 Forbidden while trying to add a show when you do not have the user’s authorisation or when the user already has have over 10,000 items saved in library.Try in our Web Console
 
 =cut
 
@@ -1252,7 +1252,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1268,7 +1268,7 @@ Required if the IDs are passed in the request body, otherwise ignored. The conte
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1279,7 +1279,7 @@ A JSON array of the Spotify IDs. For example: ["4iV5W9uYEdYUVa79Axb7Rh", "1301Wl
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item ids
 
@@ -1293,7 +1293,7 @@ and Response Objects being:
 - error object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>. Trying to add a track when you do not have the user’s authorization, or when you have over 10.000 tracks in Your Music, returns error <code class="highlighter-rouge">403</code> Forbidden.<a class="btn btn-sm btn-primary" href="/console/put-current-user-saved-tracks/?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object. Trying to add a track when you do not have the user’s authorization, or when you have over 10.000 tracks in Your Music, returns error 403 Forbidden.Try in our Web Console
 
 =cut
 

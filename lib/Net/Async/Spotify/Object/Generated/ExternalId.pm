@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,18 +29,18 @@ Those are Spotify ExternalId Object attributes:
 
 =item ean
 
-Type: String
-Description: International Article Number
+Type:String
+Description:International Article Number
 
 =item isrc
 
-Type: String
-Description: International Standard Recording Code
+Type:String
+Description:International Standard Recording Code
 
 =item upc
 
-Type: String
-Description: Universal Product Code
+Type:String
+Description:Universal Product Code
 
 =back
 

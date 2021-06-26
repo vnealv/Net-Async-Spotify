@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item category_id
 
@@ -58,7 +59,7 @@ The Spotify category ID for the category.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item country
 
@@ -82,7 +83,7 @@ and Response Objects being:
 - playlist object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedplaylistobject">playlist objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.Once you have retrieved the list, you can use <a href="https://developer.spotify.com/web-api/get-playlist/">Get a Playlist</a> and <a href="https://developer.spotify.com/web-api/get-playlists-tracks/">Get a Playlist’s Tracks</a> to drill down further.<a class="btn btn-sm btn-primary" href="/console/get-category-playlists/?country=BR&amp;category_id=party&amp;limit=2" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of simplified playlist objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Once you have retrieved the list, you can use Get a Playlist and Get a Playlist’s Tracks to drill down further.Try in our Web Console
 
 =cut
 
@@ -137,7 +138,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -148,7 +149,7 @@ A valid user access token or your client credentials.
 
 =head3 path_parameter
 
-=over 4 
+=over 4
 
 =item category_id
 
@@ -159,7 +160,7 @@ The Spotify category ID for the category.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item country
 
@@ -178,7 +179,7 @@ and Response Objects being:
 - category object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a <a href="#categoryobject">category object</a> in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.Once you have retrieved the category, you can use <a href="https://developer.spotify.com/web-api/get-categorys-playlists/">Get a Category’s Playlists</a> to drill down further.<a class="btn btn-sm btn-primary" href="/console/get-browse-category/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a category object in JSON format. On error, the header status code is an error code and the response body contains an error object.Once you have retrieved the category, you can use Get a Category’s Playlists to drill down further.Try in our Web Console
 
 =cut
 
@@ -229,7 +230,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -240,7 +241,7 @@ A valid user access token or your client credentials.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item country
 
@@ -269,7 +270,7 @@ and Response Objects being:
 - an object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an object with a <code class="highlighter-rouge">categories</code> field, with an array of <a href="#categoryobject">category objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.Once you have retrieved the list, you can use <a href="https://developer.spotify.com/web-api/get-category/">Get a Category</a> to drill down further.<a class="btn btn-sm btn-primary" href="/console/get-browse-categories/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an object with a categories field, with an array of category objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Once you have retrieved the list, you can use Get a Category to drill down further.Try in our Web Console
 
 =cut
 
@@ -322,7 +323,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -333,7 +334,7 @@ A valid user access token or your client credentials.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item country
 
@@ -368,7 +369,7 @@ and Response Objects being:
 - playlist object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a <code class="highlighter-rouge">message</code> and a <code class="highlighter-rouge">playlists</code> object. The <code class="highlighter-rouge">playlists</code> object contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedplaylistobject">playlist objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.Once you have retrieved the list of playlist objects, you can use <a href="https://developer.spotify.com/web-api/get-playlist/">Get a Playlist</a> and <a href="https://developer.spotify.com/web-api/get-playlists-tracks/">Get a Playlist’s Tracks</a> to drill down further.<a class="btn btn-sm btn-primary" href="/console/get-featured-playlists/?country=SE&amp;limit=2" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a message and a playlists object. The playlists object contains an array of simplified playlist objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Once you have retrieved the list of playlist objects, you can use Get a Playlist and Get a Playlist’s Tracks to drill down further.Try in our Web Console
 
 =cut
 
@@ -426,7 +427,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -437,7 +438,7 @@ A valid user access token or your client credentials.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item country
 
@@ -461,7 +462,7 @@ and Response Objects being:
 - album object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains a <code class="highlighter-rouge">message</code> and an<code class="highlighter-rouge">albums</code> object. The <code class="highlighter-rouge">albums</code> object contains an array of simplified <a href="/documentation/web-api/reference/#object-simplifiedalbumobject">album objects</a> (wrapped in a <a href="/documentation/web-api/reference/#object-pagingobject">paging object</a>) in JSON format. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.Once you have retrieved the list, you can use <a href="/documentation/web-api/reference/#endpoint-get-an-albums-tracks">Get an Album’s Tracks</a> to drill down further.The results are returned in an order reflected within the Spotify clients, and therefore may not be ordered by date.<a class="btn btn-sm btn-primary" href="/console/get-new-releases/?country=SE" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a message and analbums object. The albums object contains an array of simplified album objects (wrapped in a paging object) in JSON format. On error, the header status code is an error code and the response body contains an error object.Once you have retrieved the list, you can use Get an Album’s Tracks to drill down further.The results are returned in an order reflected within the Spotify clients, and therefore may not be ordered by date.Try in our Web Console
 
 =cut
 
@@ -510,7 +511,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -524,7 +525,7 @@ and Response Objects being:
 - response object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code> and the response body contains a recommendations response object in JSON format.<a class="btn btn-sm btn-primary" href="/console/get-available-genre-seeds/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a recommendations response object in JSON format.Try in our Web Console
 
 =cut
 
@@ -559,7 +560,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -570,7 +571,7 @@ A valid user access token or your client credentials.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item limit
 
@@ -814,7 +815,7 @@ and Response Objects being:
 - response object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200 OK</code> and the response body contains a recommendations response object in JSON format.<a class="btn btn-sm btn-primary" href="/console/get-recommendations/?seed_artists=4NHQUGzhtTLFvgF5SZesLK&amp;seed_tracks=0c6xIDDpzE81m2q797ordA&amp;min_energy=0.4&amp;min_popularity=50&amp;market=US" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains a recommendations response object in JSON format.Try in our Web Console
 
 =cut
 

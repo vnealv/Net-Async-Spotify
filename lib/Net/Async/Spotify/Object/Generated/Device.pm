@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,38 +29,38 @@ Those are Spotify Device Object attributes:
 
 =item id
 
-Type: String
-Description: The device ID. This may be null.
+Type:String
+Description:The device ID. This may be null.
 
 =item is_active
 
-Type: Boolean
-Description: If this device is the currently active device.
+Type:Boolean
+Description:If this device is the currently active device.
 
 =item is_private_session
 
-Type: Boolean
-Description: If this device is currently in a private session.
+Type:Boolean
+Description:If this device is currently in a private session.
 
 =item is_restricted
 
-Type: Boolean
-Description: Whether controlling this device is restricted. At present if this is “true” then no Web API commands will be accepted by this device.
+Type:Boolean
+Description:Whether controlling this device is restricted. At present if this is “true” then no Web API commands will be accepted by this device.
 
 =item name
 
-Type: String
-Description: The name of the device.
+Type:String
+Description:The name of the device.
 
 =item type
 
-Type: String
-Description: Device type, such as “computer”, “smartphone” or “speaker”.
+Type:String
+Description:Device type, such as “computer”, “smartphone” or “speaker”.
 
 =item volume_percent
 
-Type: Integer
-Description: The current volume in percent. This may be null.
+Type:Integer
+Description:The current volume in percent. This may be null.
 
 =back
 

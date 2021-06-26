@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::API::Base);
@@ -36,7 +37,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -47,7 +48,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -66,7 +67,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/post-queue/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -110,7 +111,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -128,8 +129,8 @@ and Response Objects being:
 - device object
 
 
-A successful request will return a <code class="highlighter-rouge">200 OK</code> response code with a json payload that contains the device objects (see below).
-When no available devices are found, the request will return a 200 OK response with an empty devices list.<a class="btn btn-sm btn-primary" href="/console/get-users-available-devices/" target="_blank">Try in our Web Console</a>
+A successful request will return a 200 OK response code with a json payload that contains the device objects (see below).
+When no available devices are found, the request will return a 200 OK response with an empty devices list.Try in our Web Console
 
 =cut
 
@@ -164,7 +165,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -175,7 +176,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item additional_types
 
@@ -196,8 +197,8 @@ and Response Objects being:
 
 
 
-A successful request will return a <code class="highlighter-rouge">200 OK</code> response code with a json payload that contains information about the current playback. The information returned is for the last known state, which means an inactive device could be returned if it was the last one to execute playback.
-When no available devices are found, the request will return a <code class="highlighter-rouge">200 OK</code> response but with no data populated.<a class="btn btn-sm btn-primary" href="/console/get-user-player/" target="_blank">Try in our Web Console</a>
+A successful request will return a 200 OK response code with a json payload that contains information about the current playback. The information returned is for the last known state, which means an inactive device could be returned if it was the last one to execute playback.
+When no available devices are found, the request will return a 200 OK response but with no data populated.Try in our Web Console
 
 =cut
 
@@ -242,7 +243,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -253,7 +254,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item after
 
@@ -281,7 +282,7 @@ and Response Objects being:
 - history object
 
 
-On success, the HTTP status code in the response header is <code class="highlighter-rouge">200</code> OK and the response body contains an array of <a href="#play-history-object">play history objects</a> (wrapped in a <a href="#cursor-based-paging-object">cursor-based paging object</a>) in JSON format. The play history items each contain the context the track was played from (e.g. playlist, album), the date and time the track was played, and a <a href="/documentation/web-api/reference/#object-simplifiedtrackobject">track object (simplified)</a>. On error, the header status code is an <a href="/documentation/web-api/#response-status-codes">error code</a> and the response body contains an <a href="/documentation/web-api/#response-schema">error object</a>.If private session is enabled the response will be a <code class="highlighter-rouge">204 NO CONTENT</code> with an empty payload.<a class="btn btn-sm btn-primary" href="/console/get-recently-played/" target="_blank">Try in our Web Console</a>
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of play history objects (wrapped in a cursor-based paging object) in JSON format. The play history items each contain the context the track was played from (e.g. playlist, album), the date and time the track was played, and a track object (simplified). On error, the header status code is an error code and the response body contains an error object.If private session is enabled the response will be a 204 NO CONTENT with an empty payload.Try in our Web Console
 
 =cut
 
@@ -330,7 +331,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -345,7 +346,7 @@ scope authorized in order to read information.
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item additional_types
 
@@ -366,7 +367,7 @@ and Response Objects being:
 
 
 
-A successful request will return a <code class="highlighter-rouge">200 OK</code> response code with a json payload that contains information about the currently playing track or episode and its context (see below). The information returned is for the last known state, which means an inactive device could be returned if it was the last one to execute playback.When no available devices are found, the request will return a <code class="highlighter-rouge">200 OK</code> response but with no data populated.When no track is currently playing, the request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response with no payload.If private session is enabled the response will be a <code class="highlighter-rouge">204 NO CONTENT</code> with an empty payload.<a class="btn btn-sm btn-primary" href="/console/get-users-currently-playing-track/" target="_blank">Try in our Web Console</a>
+A successful request will return a 200 OK response code with a json payload that contains information about the currently playing track or episode and its context (see below). The information returned is for the last known state, which means an inactive device could be returned if it was the last one to execute playback.When no available devices are found, the request will return a 200 OK response but with no data populated.When no track is currently playing, the request will return a 204 NO CONTENT response with no payload.If private session is enabled the response will be a 204 NO CONTENT with an empty payload.Try in our Web Console
 
 =cut
 
@@ -410,7 +411,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -421,7 +422,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -434,7 +435,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-pause/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -474,7 +475,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -485,7 +486,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -506,7 +507,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-seek/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -551,7 +552,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -562,7 +563,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -584,7 +585,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-repeat/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -628,7 +629,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -639,7 +640,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -657,7 +658,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-volume/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -701,7 +702,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -712,7 +713,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -725,7 +726,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/post-next/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -765,7 +766,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -776,7 +777,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -790,7 +791,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/post-previous/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -830,7 +831,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -841,7 +842,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item context_uri
 
@@ -867,7 +868,7 @@ Array of URIs
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -880,7 +881,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-play/" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -938,7 +939,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -949,7 +950,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 query_parameter
 
-=over 4 
+=over 4
 
 =item device_id
 
@@ -969,7 +970,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-shuffle/?state=true" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 
@@ -1013,7 +1014,7 @@ with Request details being:
 
 =head3 header
 
-=over 4 
+=over 4
 
 =item Authorization
 
@@ -1024,7 +1025,7 @@ A valid access token from the Spotify Accounts service: see the Web API Authoriz
 
 =head3 json_body_parameter
 
-=over 4 
+=over 4
 
 =item device_ids
 
@@ -1042,7 +1043,7 @@ and Response Objects being:
 
 
 
-A completed request will return a <code class="highlighter-rouge">204 NO CONTENT</code> response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the <a href="/documentation/web-api/reference/#endpoint-get-information-about-the-users-current-playback">Get Information About The User’s Current Playback </a> endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return <code class="highlighter-rouge">404 NOT FOUND</code> response code.If the user making the request is non-premium, a <code class="highlighter-rouge">403 FORBIDDEN</code> response code will be returned.<a class="btn btn-sm btn-primary" href="/console/put-user-player" target="_blank">Try in our Web Console</a>
+A completed request will return a 204 NO CONTENT response code, and then issue the command to the player. Due to the asynchronous nature of the issuance of the command, you should use the Get Information About The User’s Current Playback  endpoint to check that your issued command was handled correctly by the player.If the device is not found, the request will return 404 NOT FOUND response code.If the user making the request is non-premium, a 403 FORBIDDEN response code will be returned.Try in our Web Console
 
 =cut
 

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 # VERSION
+# AUTHORITY
 
 use mro;
 use parent qw(Net::Async::Spotify::Object::Base);
@@ -28,53 +29,53 @@ Those are Spotify CurrentlyPlayingContext Object attributes:
 
 =item actions
 
-Type: DisallowsObject
-Description: Allows to update the user interface based on which playback actions are available within the current context.
+Type:DisallowsObject
+Description:Allows to update the user interface based on which playback actions are available within the current context.
 
 =item context
 
-Type: ContextObject
-Description: A Context Object. Can be null.
+Type:ContextObject
+Description:A Context Object. Can be null.
 
 =item currently_playing_type
 
-Type: String
-Description: The object type of the currently playing item. Can be one of track, episode, ad or unknown.
+Type:String
+Description:The object type of the currently playing item. Can be one of track, episode, ad or unknown.
 
 =item device
 
-Type: DeviceObject
-Description: The device that is currently active.
+Type:DeviceObject
+Description:The device that is currently active.
 
 =item is_playing
 
-Type: Boolean
-Description: If something is currently playing, return true.
+Type:Boolean
+Description:If something is currently playing, return true.
 
 =item item
 
-Type: TrackObject | EpisodeObject
-Description: The currently playing track or episode. Can be null.
+Type:TrackObject | EpisodeObject
+Description:The currently playing track or episode. Can be null.
 
 =item progress_ms
 
-Type: Integer
-Description: Progress into the currently playing track or episode. Can be null.
+Type:Integer
+Description:Progress into the currently playing track or episode. Can be null.
 
 =item repeat_state
 
-Type: String
-Description: off, track, context
+Type:String
+Description:off, track, context
 
 =item shuffle_state
 
-Type: String
-Description: If shuffle is on or off.
+Type:String
+Description:If shuffle is on or off.
 
 =item timestamp
 
-Type: Integer
-Description: Unix Millisecond Timestamp when data was fetched.
+Type:Integer
+Description:Unix Millisecond Timestamp when data was fetched.
 
 =back
 
