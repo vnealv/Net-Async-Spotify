@@ -22,6 +22,7 @@ Helper class that will have some functions that are general and can be used acro
 
 =cut
 
+# TODO: Make it our, and allow permenant type set.
 my %uri_responses = (
     'https://api.spotify.com/v1/artists/{id}/albums' => 'Album',
     'https://api.spotify.com/v1/me/player/devices'   => 'Devices',
@@ -33,6 +34,25 @@ my %uri_responses = (
 
 Due to the unstructured response details in Spotify documentation page in regards they type of response for every request.
 This method will act as a reliable mapping for Spotify API responses to their desired Objects type.
+Takes:
+
+=over 4
+
+=item available_types
+
+which consists of the availabe Object types that are loaded by Caller.
+
+=item response_hash
+
+which consists of possible `response_objs` types and `uri` that was  called for this response.
+
+=back
+
+It uses smart matching mechanism; meaning that first it will check if that Spotify uri has a specific retun type
+set in C<%uri_responses> hash, if nothing is set for the uri. It will check C<@$possible_types> passed by
+trying to find for the exact Object name, if not  found it will get the first object that includes the passed name
+as part of it's own name.
+It will return the Object class name if found, and `undef` when it can't find a suitable object.
 
 =cut
 
@@ -52,13 +72,12 @@ sub response_object_map {
         # Search for exact first, then check composite ones.
         ($possible_name) = grep { /^$type[0]$/i } @$available_types;
         ($possible_name) = grep { /$type[0]/gi } @$available_types unless defined $possible_name;
-        return undef unless defined $possible_name;
     } else {
        $possible_name = $uri_responses{$for_uri};
     }
-    my $class = join '::', 'Net::Async::Spotify::Object', $possible_name;
 
-    return $class;
+    return undef unless defined $possible_name;
+    return join '::', 'Net::Async::Spotify::Object', $possible_name;
 }
 
 1;

@@ -12,6 +12,19 @@ use warnings;
 
 Net::Async::Spotify::Scope - Helper for Spotify Scopes
 
+=head1 SYNOPSIS
+
+    use Net::Async::Spotify::Scope qw(scopes images);
+
+    my @all = scopes();
+    my @needed = scopes(qw(ugc_image_upload user_read_recently_played));
+
+    my @images_scopes = images();
+    my $mod_lib = Net::Async::Spotify::Scope::user_library_modify();
+
+    # Safe to call, even if Scope does not exist
+    my $dne = Net::Async::Spotify::Scope::dne();
+
 =head1 DESCRIPTION
 
 Representation for Spotify Authorization Scopes defined in https://developer.spotify.com/documentation/general/guides/scopes
@@ -39,10 +52,6 @@ Returns list of Spotify Scopes, if no specific scopes requested; will return all
 =cut
 
 sub scopes {
-    # Allow it to be called as method
-    my $self = shift;
-    unshift @_, $self if $self and $self ne __PACKAGE__;
-
     my @keys = @_;
     if ( @keys ) {
         # Get only defined scopes only
@@ -116,14 +125,20 @@ Retruns list of Spotify Scopes for Users
 
 sub users { @scopes{qw(user_read_email user_read_private)} }
 
+=head2 AUTOLOAD
+
+An addition to this helper is that it will check if sub name called corresponde to any Spotify scope.
+And return a Scope, or log a warn message and return empty list when not found.
+
+=cut
+
 sub AUTOLOAD {
     my ($s) = our $AUTOLOAD =~ m{^.*::([^:]+)$};
     # Check if exists as individual scope. Else return empty list.
     return $scopes{$s} if exists $scopes{$s};
     return $scopes{$s =~ s/-/_/gr} if exists $scopes{$s =~ s/-/_/gr};
     $log->warnf('Could not find Spotify Scope, for: %s', $s);
-    return ();
-
+    return '';
 }
 
 1;

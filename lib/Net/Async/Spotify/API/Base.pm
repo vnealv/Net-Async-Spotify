@@ -42,6 +42,7 @@ sub spotify { shift->{spotify} }
 =head2 call_api
 
 Calls Spotify API with the passed params.
+Allowing also to accept user passed response type C<obj_type> as member of C<%args>
 
 =cut
 
@@ -51,6 +52,8 @@ async sub call_api {
 
     my ( $result, $request_headers, $request_uri, $request_content, $res_hash, $decoded_res, $mapped_res );
     # Prepare needed response params.
+    # override if response type passed explicitly
+    $response_objs = [$args{obj_type}] if exists $args{obj_type};
     $res_hash = {response_objs => $response_objs, uri => $request->{uri}};
     # Path Parameter
     if (my $path_parameter = $request->{param}{path_parameter} ) {

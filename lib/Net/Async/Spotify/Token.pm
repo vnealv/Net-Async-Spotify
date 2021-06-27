@@ -9,9 +9,34 @@ use warnings;
 use Log::Any qw($log);
 use Time::Moment;
 
+=head1 NAME
+
+Net::Async::Spotify::Token - Representation for Spotify Token Object
+
+=head1 SYNOPSIS
+
+    use Net::Async::Spotify::Token;
+
+    my $token = Net::Async::Spotify::Token->new(
+        access_token  => "NgCXRK...MzYjw",
+        token_type    => "Bearer",
+        scope         => "user-read-private user-read-email",
+        expires_in    => 3600,
+        refresh_token => "NgAagA...Um_SHo",
+    );
+
+    my $time_obtained = $token->updated_at->epoch;
+    my $auth_header = $token->header_string;
+    # Bearer NgCXRK...MzYjw
+
+    my $new_token = {access_token => 'NEW...ONE',}; # can have the reset of params.
+    $token->renew($new_token);
+    my $new_time = $token->updated_at->epoch;
+
 =head1 DESCRIPTION
 
-=head1 SYN
+Class representing Spotify Token Object. Adds some functionality to Token object where it's easier to deal with.
+More details about Token itself, L<RFC-6749|http://tools.ietf.org/html/rfc6749#section-4.1>.
 
 =head1 PARAMETERS
 
@@ -25,11 +50,23 @@ Spotify App User access_token
 
 Spotify App User refresh_token
 
-=item token_scope
+=item token_type
+
+Spotify Token type, usually it's set to `Bearer` when used with Access Token.
+However it's also set to `Basic` when used with Authentication.
+
+=item expires_in
+
+Token validity in seconds from obtained time. set in C<updated_at>
+
+=item scope
 
 Spotify App User token allowed scope list
+L<https://developer.spotify.com/documentation/general/guides/scopes/>
 
 =back
+
+=head1 METHODS
 
 =cut
 
@@ -44,12 +81,26 @@ sub new {
     return $self;
 }
 
+=head2 renew
+
+call this method while passing a new Token hash, to update the current Token Object.
+Accepts the same hash that you'd pass it in C<new()>.
+
+=cut
+
 sub renew {
     my ( $self, $args ) = @_;
     for my $key ( keys %$args ) {
         $self->$key($args->{$key}) if $self->can($key);
     }
 }
+
+=head2 access_token
+
+Mutator for Spotify User's Access Token, every time its set C<updated_at> field will be set to the current time.
+It will return the current set  Spotify Access Token.
+
+=cut
 
 sub access_token {
     my ( $self, $token ) = @_;
@@ -66,7 +117,19 @@ sub access_token {
     return $self->{access_token};
 }
 
+=head2 updated_at
+
+it will return L<Time::Moment> Object, indicating Spotify Access Token last set time.
+
+=cut
+
 sub updated_at { shift->{updated_at} }
+
+=head2 refresh_token
+
+set and get, or just get the current Spotify user's Refresh Token
+
+=cut
 
 sub refresh_token {
     my ( $self, $token ) = @_;
@@ -76,6 +139,12 @@ sub refresh_token {
     return $self->{refresh_token};
 }
 
+=head2 token_type
+
+set and get, or just get the Token type, default is set to `Bearer`
+
+=cut
+
 sub token_type {
     my ( $self, $type ) = @_;
 
@@ -84,6 +153,12 @@ sub token_type {
     return $self->{token_type} //= 'Bearer';
 }
 
+=head2 expires_in
+
+set and get, or just get the Token expires_in filed. Default is set to 3600 (seconds)
+
+=cut
+
 sub expires_in {
     my ( $self, $expiry ) = @_;
 
@@ -91,6 +166,15 @@ sub expires_in {
     # Set it to default if not set
     return $self->{expires_in} //= 3600;
 }
+
+=head2 scope
+
+set and get, or just get the configured Spotify Scopes for the Token.
+Accepts a space space separated list of Scopes, or an Array reference of Scopes.
+Returns an Array reference of Spotify Scopes set to Token.
+L<https://developer.spotify.com/documentation/general/guides/scopes/>
+
+=cut
 
 sub scope {
     my ( $self, $scopes ) = @_;
@@ -101,6 +185,13 @@ sub scope {
 
     return $self->{scope};
 }
+
+=head2 header_string
+
+Returns a String, containing the Token type and the Access Token, space separated.
+Needed for Authorization header.
+
+=cut
 
 sub header_string {
     my $self = shift;

@@ -19,18 +19,36 @@ use Net::Async::Spotify::Object::General;
 
     Net::Async::Spotify::Object - Common Wrapper package for Spotify response Objects
 
+=head1 SYNOPSIS
+
+To be used internally, and it will be used as a response to L<Net::Async::Spotify::API>
+However this is how it's actually being used:
+
+    use Net::Async::Spotify::Object;
+
+    my $sp_json_decoded_res = {danceability => 0.735,,...}; # Audio Features response.
+    my $obj = Net::Async::Spotify::Object->new(
+        $sp_json_decoded_res,
+        {
+            response_objs => ['features'],
+            uri => 'https://api.spotify.com/v1/audio-features/{id}',
+        },
+    );
+    ref $obj; # => Net::Async::Spotify::Object::AudioFeatures
+
 =head1 DESCRIPTION
 
 Common wrapper for Spotify response Objects. To be used to dynamically be able to create
 resonse objects.
-
-=head1 SYNOPSIS
-
-
+It does so by so by figuring out needed Object type using L<Net::Async::Spotify::Util::response_object_map>
+and returning a new instance of that L<perlsyn/"Objects">. When it can't determine an exact object type it will
+return an instance of L<Net::Async::Spotify::Object::General>.
+Note that some responses are paginated, so might contain L<Net::Async::Spotify::Object::Paging>.
+and if it's an erroneous response it will be L<Net::Async::Spotify::Object::Error>.
 
 =head1 PARAMETERS
 
-We would need to pass what we thing this Object might be along with the content.
+We would need to pass what we think this Object might be along with the content.
 
 =over 4
 
@@ -82,3 +100,214 @@ sub new {
 }
 
 1;
+
+=head1 Objects
+
+Here is a list of the current available Spotify Object types.
+Found in link here L<https://developer.spotify.com/documentation/web-api/reference/#objects-index>
+
+=over 4
+
+=item *
+
+L<Net::Async::Spotify::Object::Album>
+
+=item *
+
+L<Net::Async::Spotify::Object::AlbumRestriction>
+
+=item *
+
+L<Net::Async::Spotify::Object::Artist>
+
+=item *
+
+L<Net::Async::Spotify::Object::AudioFeatures>
+
+=item *
+
+L<Net::Async::Spotify::Object::Base>
+
+=item *
+
+L<Net::Async::Spotify::Object::Category>
+
+=item *
+
+L<Net::Async::Spotify::Object::Context>
+
+=item *
+
+L<Net::Async::Spotify::Object::Copyright>
+
+=item *
+
+L<Net::Async::Spotify::Object::CurrentlyPlaying>
+
+=item *
+
+L<Net::Async::Spotify::Object::CurrentlyPlayingContext>
+
+=item *
+
+L<Net::Async::Spotify::Object::Cursor>
+
+=item *
+
+L<Net::Async::Spotify::Object::CursorPaging>
+
+=item *
+
+L<Net::Async::Spotify::Object::Device>
+
+=item *
+
+L<Net::Async::Spotify::Object::Devices>
+
+=item *
+
+L<Net::Async::Spotify::Object::Disallows>
+
+=item *
+
+L<Net::Async::Spotify::Object::Episode>
+
+=item *
+
+L<Net::Async::Spotify::Object::EpisodeRestriction>
+
+=item *
+
+L<Net::Async::Spotify::Object::Error>
+
+=item *
+
+L<Net::Async::Spotify::Object::ExplicitContentSettings>
+
+=item *
+
+L<Net::Async::Spotify::Object::ExternalId>
+
+=item *
+
+L<Net::Async::Spotify::Object::ExternalUrl>
+
+=item *
+
+L<Net::Async::Spotify::Object::Followers>
+
+=item *
+
+L<Net::Async::Spotify::Object::General>
+
+=item *
+
+L<Net::Async::Spotify::Object::Image>
+
+=item *
+
+L<Net::Async::Spotify::Object::LinkedTrack>
+
+=item *
+
+L<Net::Async::Spotify::Object::Paging>
+
+=item *
+
+L<Net::Async::Spotify::Object::PlayHistory>
+
+=item *
+
+L<Net::Async::Spotify::Object::PlayerError>
+
+=item *
+
+L<Net::Async::Spotify::Object::Playlist>
+
+=item *
+
+L<Net::Async::Spotify::Object::PlaylistTrack>
+
+=item *
+
+L<Net::Async::Spotify::Object::PlaylistTracksRef>
+
+=item *
+
+L<Net::Async::Spotify::Object::PrivateUser>
+
+=item *
+
+L<Net::Async::Spotify::Object::PublicUser>
+
+=item *
+
+L<Net::Async::Spotify::Object::RecommendationSeed>
+
+=item *
+
+L<Net::Async::Spotify::Object::Recommendations>
+
+=item *
+
+L<Net::Async::Spotify::Object::ResumePoint>
+
+=item *
+
+L<Net::Async::Spotify::Object::SavedAlbum>
+
+=item *
+
+L<Net::Async::Spotify::Object::SavedEpisode>
+
+=item *
+
+L<Net::Async::Spotify::Object::SavedShow>
+
+=item *
+
+L<Net::Async::Spotify::Object::SavedTrack>
+
+=item *
+
+L<Net::Async::Spotify::Object::Show>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedAlbum>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedArtist>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedEpisode>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedPlaylist>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedShow>
+
+=item *
+
+L<Net::Async::Spotify::Object::SimplifiedTrack>
+
+=item *
+
+L<Net::Async::Spotify::Object::Track>
+
+=item *
+
+L<Net::Async::Spotify::Object::TrackRestriction>
+
+=item *
+
+L<Net::Async::Spotify::Object::TuneableTrack>
+
+=back
+
+=cut

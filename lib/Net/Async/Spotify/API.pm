@@ -15,16 +15,10 @@ use Module::Runtime qw(require_module);
 
     Net::Async::Spotify::API - Common Wrapper Package for Spotify API Classes.
 
-=head1 DESCRIPTION
-
-Common Wrapper class to be used in order to give you access for all available Spotify API
-It will create an instance for the requested API when invoked.
-also you can limit which APIs you want to be available by passing them in C<apis>
-
 =head1 SYNOPSIS
 
-Created to give you back Generic Spotify API wrapper
-Can't be used by itself, as in Net::Async::Spotify object must be passed.
+Created to give you back Generic Spotify API wrapper.
+Not to be used by itself, as in Net::Async::Spotify object must be present.
 
     use Net::Async::Spotify;
     use Net::Async::Spotify::API;
@@ -35,9 +29,19 @@ Can't be used by itself, as in Net::Async::Spotify object must be passed.
         apis    => [qw(albums tracks)],      # optional
     );
 
-    print ref($api->albums);
-    # Net::Async::Spotify::API::Albums
+    ref($api->albums); # Net::Async::Spotify::API::Albums
 
+    # However the way it should be used is the following:
+
+    my $spotify = Net::Async::Spotify->new(..., apis =>  [qw(albums tracks)]);
+    # With apis being optional, and if not set all APIs classes will be present.
+    $spotify->api->player->skip_users_playback_to_next_track->get();
+
+=head1 DESCRIPTION
+
+Common Wrapper class to be used in order to give you access for all available Spotify APIs
+It will create an instance for the requested API when invoked.
+also you can limit which APIs you want to be available by passing them in C<apis>
 
 =head1 METHODS
 
@@ -95,3 +99,74 @@ sub prepare_apis {
 }
 
 1;
+
+=head1 APIs
+
+List of available APIs for Spotify. Official list found here L<https://developer.spotify.com/documentation/web-api/reference/#reference-index>
+These are the defined classes for them:
+
+=over 4
+
+=item *
+
+L<Net::Async::Spotify::API::Albums>
+
+=item *
+
+L<Net::Async::Spotify::API::Artists>
+
+=item *
+
+L<Net::Async::Spotify::API::Base>
+
+=item *
+
+L<Net::Async::Spotify::API::Browse>
+
+=item *
+
+L<Net::Async::Spotify::API::Episodes>
+
+=item *
+
+L<Net::Async::Spotify::API::Follow>
+
+=item *
+
+L<Net::Async::Spotify::API::Library>
+
+=item *
+
+L<Net::Async::Spotify::API::Markets>
+
+=item *
+
+L<Net::Async::Spotify::API::Personalization>
+
+=item *
+
+L<Net::Async::Spotify::API::Player>
+
+=item *
+
+L<Net::Async::Spotify::API::Playlists>
+
+=item *
+
+L<Net::Async::Spotify::API::Search>
+
+=item *
+
+L<Net::Async::Spotify::API::Shows>
+
+=item *
+
+L<Net::Async::Spotify::API::Tracks>
+
+=item *
+
+L<Net::Async::Spotify::API::Users>
+
+=back
+
+=cut

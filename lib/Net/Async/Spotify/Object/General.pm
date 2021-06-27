@@ -16,8 +16,10 @@ use Syntax::Keyword::Try;
 
 =head1 DESCRIPTION
 
-Default representation of unmapped Objects. where C<data> will contain a hash of the returned response.
+Default representation of unmapped Objects. where L</data> will contain a hash of the returned response.
 Without specifying field names.
+
+=head1 METHODS
 
 =cut
 
@@ -29,6 +31,13 @@ sub new {
     return $self;
 
 }
+
+=head2 data
+
+Contains all the decoded hash response, without any of the fields defined as methods.
+More like full raw content of Spotify API response.
+
+=cut
 
 sub data { shift->{data} }
 
