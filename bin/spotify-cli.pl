@@ -47,15 +47,18 @@ Can be set as environment variable I<access_token>
 =item B<-i>, B<--interactive>
 
 If exists it will run this script in interactive mode, where it will continuously wait for a command to perform.
+However manual handling for Authentication process.
 
 =item B<-w>, B<--web-server>
 
-If exists it will make the script run in the background as HTTP server listening to port 80 on localhost.
-So it can process Spotify callback automatically and can receive commands.
+If exists it will make the script run in interactive mode, with an HTTP Webserver running in background listening to port 80 on localhost.
+So it can process Spotify C<callback> GET requests automatically. and can be extended to receive commands.
+Note: define L<http://localhost/callback> as a B<Redirect URI> in your Spotify App settings.
+Also if running in Docker, then run container with I<-p 127.0.0.1:80:80/tcp> option.
 
 =item B<-l> I<debug>, B<--log-level>=I<info>
 
-Log level used.
+Log level used. with default being I<Info>.
 
 =back
 
@@ -71,6 +74,7 @@ use Log::Any qw($log);
 use Net::Async::Spotify;
 use Data::Dumper;
 use JSON::MaybeUTF8 qw(:v1);
+use Net::Async::HTTP::Server;
 
 GetOptions(
     'c|client-id=s'     => \(my $client_id = $ENV{client_id}),
@@ -114,7 +118,7 @@ my $stream = IO::Async::Stream->new(
             my $command = $cmd_array[0];
             unless (defined $command) {
                 print "\n";
-                print pod2usage(
+                pod2usage(
                     {
                         -verbose  => 99,
                         -sections => "COMMANDS",
@@ -139,10 +143,39 @@ my $stream = IO::Async::Stream->new(
 );
 $loop->add( $stream );
 
+my $callback_f = $loop->new_future(label => 'CallbackFuture');
+# Web server for incoming callback request
+my $server = Net::Async::HTTP::Server->new(
+    on_request => sub {
+        my ( $self, $req ) = @_;
+        $log->tracef('Webserver receives %s %s: %s | %s', $req->method, $req->path, {$req->query_form}, $req->body);
+        if ( $req->method eq 'GET' and $req->path eq '/callback' ) {
+            # That's what we are waiting for.
+            my %params = $req->query_form;
+            $callback_f->done(%params) unless $callback_f->is_done;
+
+            my $response = HTTP::Response->new(200);
+            $response->add_content(encode_json_utf8({response => 'Got it! From spotify-cli.pl ;)'}));
+            $response->content_type("application/json");
+            $response->content_length(length $response->content);
+
+            $req->respond($response);
+        }
+    },
+);
+$loop->add( $server );
+
+my $listner = await $server->listen(
+    addr => {
+        family   => 'inet',
+        socktype => 'stream',
+        port     => 80,
+    },
+) if $webserver;
 
 my %authorize = $spotify->authorize(scope => ['scopes'], show_dialog => 'false');
 
-$stream->write(sprintf("Your Authorize URI is:\n\n%s\n\nstate: %s\n", $authorize{uri}, $authorize{state}));
+$stream->write(sprintf("Your Authorize URI is (state: %s) :\n\n%s\n\n", $authorize{state}, $authorize{uri}));
 
 if ( $interactive ) {
     $stream->write("Please insert your `code` response in callback URL...\n");
@@ -156,6 +189,13 @@ if ( $interactive ) {
     await $spotify->obtain_token(code => $auth_code, auto_refresh => 1);
     $stream->write("Waiting for your Command!...\nCMD: ");
     $loop->run;
+} elsif ( $webserver ) {
+    my %auth_res = await $callback_f;
+    if ( $auth_res{state} eq $authorize{state} ) {
+        await $spotify->obtain_token(code => $auth_res{code}, auto_refresh => 1);
+        $stream->write("Waiting for your Command!...\nCMD: ");
+        $loop->run;
+    }
 }
 
 sub write_to_stream {
@@ -213,12 +253,13 @@ async sub n {
 
 =head2 CMD => b
 
-Previous - Player ->
+Previous - Player -> skip_users_playback_to_previous_track
 
 =cut
 
 async sub b {
-
+    my $r = await $spotify->api->player->skip_users_playback_to_previous_track();
+    write_to_stream($r);
 }
 
 =head2 CMD => c
@@ -273,6 +314,62 @@ async sub v {
     }
     my $r = await $spotify->api->player->set_volume_for_users_playback(volume_percent => $cmd_array[1], device_id => $device_id);
     write_to_stream($r);
+}
+
+=head2 CMD => l
+
+Like the current playing song.
+
+=cut
+
+async sub l {
+    my @cmd_array = @_;
+    my $current = await $spotify->api->player->get_information_about_the_users_current_playback();
+    my $id = $current->{content}->data->{item}{id};
+    if ( $id ) {
+        my $r = await $spotify->api->library->save_tracks_user(ids => $id);
+        write_to_stream($r);
+    } else {
+        write_to_stream('Could not get Track ID');
+    }
+
+}
+
+=head2 CMD => ul
+
+Remove the current playing song from Liked.
+
+=cut
+
+async sub ul {
+    my @cmd_array = @_;
+    my $current = await $spotify->api->player->get_information_about_the_users_current_playback();
+    my $id = $current->{content}->data->{item}{id};
+    if ( $id ) {
+        my $r = await $spotify->api->library->remove_tracks_user(ids => $id);
+        write_to_stream($r);
+    } else {
+        write_to_stream('Could not get Track ID');
+    }
+
+}
+
+=head2 CMD => f
+
+Current track Audio Features.
+
+=cut
+
+async sub f {
+    my @cmd_array = @_;
+    my $current = await $spotify->api->player->get_information_about_the_users_current_playback();
+    my $id = $current->{content}->data->{item}{id};
+    if ( $id ) {
+        my $r = await $spotify->api->tracks->get_audio_features(id => $id);
+        write_to_stream($r);
+    } else {
+        write_to_stream('Could not get Track ID');
+    }
 }
 
 =head2 CMD => I<api_name> I<method_name> I<%args>

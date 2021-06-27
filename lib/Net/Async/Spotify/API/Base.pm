@@ -126,14 +126,14 @@ async sub call_api {
     }
 
     try {
-        $decoded_res = decode_json_utf8($result->content);
+        $decoded_res = $result->content ? decode_json_utf8($result->content) : $result->content;
     } catch ($e) {
         $log->warnf('Could not JSON decode Spotify API Response | Error: %s', $e);
         return { status_line => $result->status_line, content => $result->content };
     }
     # Separate Try/Catch for better error isolation
     try {
-        $mapped_res = Net::Async::Spotify::Object->new($decoded_res, $res_hash);
+        $mapped_res = $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $res_hash) : $decoded_res;
     } catch ($e) {
         $log->warnf('Could not Map Spotify API Response to its Object %s | Error: %s | data: %s', $res_hash, $e, $decoded_res);
         return { status_line => $result->status_line, content => $decoded_res };
