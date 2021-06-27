@@ -11,6 +11,8 @@ use Future::AsyncAwait;
 use Scalar::Util qw(isweak weaken);
 use Module::Runtime qw(require_module);
 
+=encoding utf8
+
 =head1 NAME
 
     Net::Async::Spotify::API - Common Wrapper Package for Spotify API Classes.

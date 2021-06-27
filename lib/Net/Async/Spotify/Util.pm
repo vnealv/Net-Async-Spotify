@@ -12,6 +12,8 @@ use Syntax::Keyword::Try;
 use Exporter 'import';
 our @EXPORT_OK = qw(response_object_map);
 
+=encoding utf8
+
 =head1 NAME
 
     Net::Async::Spotify::Util - Helper class for some common functions.

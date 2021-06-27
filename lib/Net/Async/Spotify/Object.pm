@@ -15,6 +15,8 @@ use Module::Runtime qw(require_module);
 use Net::Async::Spotify::Util qw(response_object_map);
 use Net::Async::Spotify::Object::General;
 
+=encoding utf8
+
 =head1 NAME
 
     Net::Async::Spotify::Object - Common Wrapper package for Spotify response Objects

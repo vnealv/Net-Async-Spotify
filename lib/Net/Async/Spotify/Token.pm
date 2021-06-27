@@ -9,6 +9,8 @@ use warnings;
 use Log::Any qw($log);
 use Time::Moment;
 
+=encoding utf8
+
 =head1 NAME
 
 Net::Async::Spotify::Token - Representation for Spotify Token Object
