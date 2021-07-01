@@ -8,6 +8,7 @@ use warnings;
 
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
+use List::Util qw(first);
 
 use Exporter 'import';
 our @EXPORT_OK = qw(response_object_map);
@@ -60,6 +61,7 @@ It will return the Object class name if found, and `undef` when it can't find a 
 
 sub response_object_map {
     my ($available_types, $res_hash) = @_;
+    my @available_types = $available_types->@*;
 
     my $possible_types = $res_hash->{response_objs};
     my $for_uri = $res_hash->{uri};
@@ -72,8 +74,8 @@ sub response_object_map {
         #my $type = ($possible_t =~ /^[^\s]+/);
         my @type = split ' ', $possible_t;
         # Search for exact first, then check composite ones.
-        ($possible_name) = grep { /^$type[0]$/i } @$available_types;
-        ($possible_name) = grep { /$type[0]/gi } @$available_types unless defined $possible_name;
+        $possible_name = first { /^$type[0]$/i } @available_types;
+        $possible_name = first { /$type[0]/gi } @available_types unless defined $possible_name;;
     } else {
        $possible_name = $uri_responses{$for_uri};
     }
