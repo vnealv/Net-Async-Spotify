@@ -14,6 +14,7 @@ use Module::Path qw(module_path);
 use Module::Runtime qw(require_module);
 use Net::Async::Spotify::Util qw(response_object_map);
 use Net::Async::Spotify::Object::General;
+use Net::Async::Spotify::Object::MultiAudioFeatures;
 
 =encoding utf8
 
@@ -71,6 +72,8 @@ BEGIN {
     # Include all Spotify Object classes
     my $current_path = path(module_path(__PACKAGE__) =~ s/\.pm/\//r );
     push @$available_types, $_->basename =~ s/\.pm//r for $current_path->child('Generated')->children(qr/.pm$/);
+    # Add custom Objects.
+    push @$available_types, 'General', 'MultiAudioFeatures';
     require_module(join '::', __PACKAGE__, $_) for @$available_types;
 }
 

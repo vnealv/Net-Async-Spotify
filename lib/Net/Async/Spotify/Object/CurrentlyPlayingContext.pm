@@ -24,4 +24,16 @@ Will hold all extra functionality for Spotify CurrentlyPlayingContext Object
 
 =cut
 
+sub to_human {
+    my $self = shift;
+    return join(' | ',
+        $self->currently_playing_type,
+        $self->item->id,
+        $self->item->name,
+        join(' & ', map {$_->name} $self->item->artists->@*),
+        $self->item->album->name,
+        $self->device->name . '( ' . $self->device->volume_percent .'% )'
+    );
+}
+
 1;

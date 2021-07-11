@@ -24,4 +24,15 @@ Will hold all extra functionality for Spotify Artist Object
 
 =cut
 
+sub to_human {
+    my $self = shift;
+    return join(' | ',
+        $self->id,
+        $self->name,
+        $self->type,
+        join(', ', $self->genres->@*),
+        $self->popularity
+    );
+}
+
 1;

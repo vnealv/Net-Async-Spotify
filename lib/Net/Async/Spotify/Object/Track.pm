@@ -24,4 +24,15 @@ Will hold all extra functionality for Spotify Track Object
 
 =cut
 
+sub to_human {
+    my $self = shift;
+    return join(' | ',
+        $self->id,
+        $self->name,
+        join(' & ', map {$_->name} $self->artists->@*),
+        $self->album->name,
+        $self->popularity
+    );
+}
+
 1;
