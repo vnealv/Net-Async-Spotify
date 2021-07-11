@@ -24,4 +24,10 @@ Will hold all extra functionality for Spotify Tracks API
 
 =cut
 
+sub new {
+    my $self  = (shift)->next::method(@_);
+    $self->mapping->{get_several_audio_features}{response} = ['MultiAudioFeatures'];
+    return $self;
+}
+
 1;

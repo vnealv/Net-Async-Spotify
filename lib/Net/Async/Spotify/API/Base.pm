@@ -33,7 +33,8 @@ sub new {
     my $self = bless { @_[1..$#_] }, $_[0];
     die "Net::Async::Spotify has to be provided" unless $self->spotify and $self->spotify->isa('Net::Async::Spotify');
     weaken($self->{spotify}) unless isweak($self->spotify);
-    $self;
+    $self->{mapping} = {};
+    return $self;
 }
 
 sub spotify { shift->{spotify} }
@@ -48,7 +49,6 @@ Allowing also to accept user passed response type C<obj_type> as member of C<%ar
 
 async sub call_api {
     my ($self, $request, $response_objs, %args) = @_;
-    $log->tracef('CALL API CALLED: %s | %s | %s', $request, $response_objs, \%args);
 
     my ( $result, $request_headers, $request_uri, $request_content, $res_hash, $decoded_res, $mapped_res );
     # Prepare needed response params.
@@ -99,11 +99,14 @@ async sub call_api {
     # Body parameters
     for my $bp (keys $request->{param}{json_body_parameter}->%*) {
         if ( exists $args{$bp} ) {
-            unless ( $request->{param}{json_body_parameter}{$bp}{type} =~ /^array/
-                or ref($args{$bp}) eq 'ARRAY' ) {
-                $request_content->{content}{$bp} = $args{$bp};
+            if ( $request->{param}{json_body_parameter}{$bp}{type} =~ /^array/ ) {
+                if ( ref($args{$bp}) eq 'ARRAY' ) {
+                    $request_content->{content}{$bp} = $args{$bp};
+                } else {
+                    push $request_content->{content}{$bp}->@*, split ',', $args{$bp};
+                }
             } else {
-                push $request_content->{content}{$bp}->@*, split ',', $args{$bp};
+                $request_content->{content}{$bp} = $args{$bp};
             }
         } elsif ( $request->{param}{json_body_parameter}{$bp}{required} eq 'required' ) {
             $log->errorf('Missing Required Body Parameter: %s', $bp);
@@ -113,18 +116,19 @@ async sub call_api {
 
     $request_content->{content} = encode_json_utf8($request_content->{content}) if exists $request_content->{content};
     try {
+        $log->tracef('Requesting Spotify API: request: %s | uri: %s | content: %s', $request, $request_uri, $request_content);
         $result = await $self->spotify->http->do_request(
             method => $request->{method},
             uri => $request_uri,
             defined $request_content ? ($request_content->%*) : (),
             headers => $request_headers,
         );
+        $log->tracef('Spotify API response: %s', $result);
     } catch ($e) {
         use Data::Dumper;
         $log->errorf('Error calling Spotify API request: %s | Error: %s', $request_uri->as_string, Dumper($e));
         return;
     }
-
     try {
         $decoded_res = $result->content ? decode_json_utf8($result->content) : $result->content;
     } catch ($e) {

@@ -24,4 +24,11 @@ Will hold all extra functionality for Spotify Player API
 
 =cut
 
+sub new {
+    my $self  = (shift)->next::method(@_);
+    $self->mapping->{get_information_about_the_users_current_playback}{response} = ['currentlyplayingcontext'];
+    $self->mapping->{get_a_users_available_devices}{response} = ['Devices'];
+    return $self;
+}
+
 1;

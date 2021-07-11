@@ -24,4 +24,10 @@ Will hold all extra functionality for Spotify Artists API
 
 =cut
 
+sub new {
+    my $self  = (shift)->next::method(@_);
+    $self->mapping->{get_an_artists_albums}{response} = ['Album'];
+    return $self;
+}
+
 1;

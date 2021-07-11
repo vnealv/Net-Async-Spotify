@@ -24,4 +24,11 @@ Will hold all extra functionality for Spotify Browse API
 
 =cut
 
+sub new {
+    my $self  = (shift)->next::method(@_);
+    $self->mapping->{get_recommendation_genres}{response} = ['RecommendationSeed'];
+    $self->mapping->{get_recommendations}{response} = ['Recommendations'];
+    return $self;
+}
+
 1;
