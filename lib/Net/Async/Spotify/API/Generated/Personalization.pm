@@ -27,6 +27,8 @@ Check C<crawl-api-doc.pl> for more information.
 
 =cut
 
+sub mapping { shift->{mapping} }
+
 =head2 get_users_top_artists_and_tracks
 
 get_users_top_artists_and_tracks - Get a User's Top Artists and Tracks
@@ -90,9 +92,10 @@ On success, the HTTP status code in the response header is 200 OK and the respon
 async sub get_users_top_artists_and_tracks {
     my ($self, %args) = @_;
 
-    my $request->{method} = 'GET';
-    $request->{uri}    = 'https://api.spotify.com/v1/me/top/{type}';
-    $request->{param}  = {
+    my $mapping = $self->mapping;
+    my $request->{method} = $mapping->{get_users_top_artists_and_tracks}{method} // 'GET';
+    $request->{uri}    = $mapping->{get_users_top_artists_and_tracks}{uri} // 'https://api.spotify.com/v1/me/top/{type}';
+    $request->{param}  = $mapping->{get_users_top_artists_and_tracks}{param} // {
         header => {
             'Authorization' => {
                 type     => 'string',
@@ -120,7 +123,7 @@ async sub get_users_top_artists_and_tracks {
             },
         },
     };
-    my $response_objs = [
+    my $response_objs = $mapping->{get_users_top_artists_and_tracks}{response} // [
         'paging object',
 
     ];

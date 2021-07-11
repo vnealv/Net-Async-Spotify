@@ -27,6 +27,8 @@ Check C<crawl-api-doc.pl> for more information.
 
 =cut
 
+sub mapping { shift->{mapping} }
+
 =head2 search
 
 search - Search for an Item
@@ -139,9 +141,10 @@ Use double quotation marks around the genre keyword string if it contains spaces
 async sub search {
     my ($self, %args) = @_;
 
-    my $request->{method} = 'GET';
-    $request->{uri}    = 'https://api.spotify.com/v1/search';
-    $request->{param}  = {
+    my $mapping = $self->mapping;
+    my $request->{method} = $mapping->{search}{method} // 'GET';
+    $request->{uri}    = $mapping->{search}{uri} // 'https://api.spotify.com/v1/search';
+    $request->{param}  = $mapping->{search}{param} // {
         header => {
             'Authorization' => {
                 type     => 'string',
@@ -175,7 +178,7 @@ async sub search {
             },
         },
     };
-    my $response_objs = [
+    my $response_objs = $mapping->{search}{response} // [
         'artist object',
         'error object',
         'target object',
