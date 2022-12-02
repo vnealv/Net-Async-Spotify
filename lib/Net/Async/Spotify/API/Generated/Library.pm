@@ -181,7 +181,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-library-read scope must have been authorised by the user.
 
 =back
 
@@ -494,7 +494,7 @@ with Request details being:
 =item Authorization
 
 Type: string | Required: required
-A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-libary-read scope must have been authorised by the user.
+A valid access token from the Spotify Accounts service: see the Web API Authorization Guide for details. The access token must have been isued on behalf of the user. The user-library-read scope must have been authorised by the user.
 
 =back
 

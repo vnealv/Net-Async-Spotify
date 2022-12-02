@@ -35,7 +35,7 @@ sub parser {
     my $mapped_res;
     $mapped_res = $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $expected) : $decoded_res;
 
-   return { status_line => $response->status_line, content => $mapped_res };
+   return $mapped_res;
 }
 
 sub parse_response {
