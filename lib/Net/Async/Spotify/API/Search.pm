@@ -9,6 +9,11 @@ use warnings;
 use mro;
 use parent qw(Net::Async::Spotify::API::Generated::Search);
 
+use Log::Any qw($log);
+use Syntax::Keyword::Try;
+use JSON::MaybeUTF8 qw(:v1);
+use Net::Async::Spotify::Object;
+
 =encoding utf8
 
 =head1 NAME
@@ -24,4 +29,23 @@ Will hold all extra functionality for Spotify Search API
 
 =cut
 
+sub parser {
+    my ( $self, $decoded_res, $expected ) = @_;
+
+    my $mapped_res;
+    $mapped_res = $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $expected) : $decoded_res;
+
+   return { status_line => $response->status_line, content => $mapped_res };
+}
+
+sub parse_response {
+    my ( $self, $decoded_res, $expected ) = @_;
+
+    try {
+        return $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $expected) : $decoded_res;
+    } catch ($e) {
+        $log->warnf('Could not Map Spotify API Response to its Object %s | Error: %s | data: %s', $expected, $e, $decoded_res);
+        return $decoded_res;
+    }
+}
 1;

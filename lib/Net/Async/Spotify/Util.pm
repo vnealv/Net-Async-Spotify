@@ -6,10 +6,13 @@ use warnings;
 # VERSION
 # AUTHORITY
 
+use utf8;
+
 use Log::Any qw($log);
 use Syntax::Keyword::Try;
 use List::Util qw(first);
 use Data::Dumper;
+use Data::Dumper::AutoEncode;
 use Perl::Tidy;
 
 use Exporter 'import';
@@ -47,7 +50,7 @@ which consists of possible `response_objs` types and `uri` that was  called for 
 
 =back
 
-It uses smart matching mechanism; meaning that it will check C<@$possible_types> passed by
+It uses smart matching mechanism; meaning that it will check C<@$expected> passed by
 trying to find for the exact Object name, if not  found it will get the first object that includes the passed name
 as part of it's own name.
 It will return the Object class name if found, and `undef` when it can't find a suitable object.
@@ -55,21 +58,18 @@ It will return the Object class name if found, and `undef` when it can't find a 
 =cut
 
 sub response_object_map {
-    my ($available_types, $res_hash) = @_;
+    my ($available_types, $expected) = @_;
     my @available_types = $available_types->@*;
 
-    my $possible_types = $res_hash->{response_objs};
-    my $for_uri = $res_hash->{uri};
-    $log->tracef('Got response object to map. Possible_types: %s | for_uri: %s', $possible_types, $for_uri);
-    return undef if scalar(@$possible_types) == 0;
+    return undef if scalar(@$expected) == 0;
 
     my $possible_name;
-    my $possible_t = $possible_types->[0];
+    my $possible_t = $expected->[0];
     #my $type = ($possible_t =~ /^[^\s]+/);
     my @type = split ' ', $possible_t;
     # Search for exact first, then check composite ones.
     $possible_name = first { /^$type[0]$/i } @available_types;
-    $possible_name = first { /$type[0]/gi } @available_types unless defined $possible_name;;
+    $possible_name = first { /$type[0]/gi } @available_types unless defined $possible_name;
 
     return undef unless defined $possible_name;
     return join '::', 'Net::Async::Spotify::Object', $possible_name;
@@ -94,7 +94,7 @@ sub hash_to_string {
                 else                       { $a cmp $b }
             } keys %{ $_[0] }];
         };
-        my $source = Dumper(@_);
+        my $source = eDumper(@_);
         my $result;
         Perl::Tidy::perltidy(
                 source      => \$source,

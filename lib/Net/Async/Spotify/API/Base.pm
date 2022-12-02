@@ -50,11 +50,10 @@ Allowing also to accept user passed response type C<obj_type> as member of C<%ar
 async sub call_api {
     my ($self, $request, $response_objs, %args) = @_;
 
-    my ( $result, $request_headers, $request_uri, $request_content, $res_hash, $decoded_res, $mapped_res );
+    my ( $result, $request_headers, $request_uri, $request_content );
     # Prepare needed response params.
     # override if response type passed explicitly
     $response_objs = [$args{obj_type}] if exists $args{obj_type};
-    $res_hash = {response_objs => $response_objs, uri => $request->{uri}};
     # Path Parameter
     if (my $path_parameter = $request->{param}{path_parameter} ) {
         # Path parameters should be always required.
@@ -129,21 +128,39 @@ async sub call_api {
         $log->errorf('Error calling Spotify API request: %s | Error: %s', $request_uri->as_string, Dumper($e));
         return;
     }
+
+    if ( $result->content ) {
+        return {
+            status_line => $result->status_line,
+            content => $self->parse_response($self->decode_response($result->content), $response_objs)
+        };
+    }
+    return { status_line => $result->status_line, content => $result->content };
+
+}
+
+sub decode_response {
+    my ( $self, $content ) = @_;
+
     try {
-        $decoded_res = $result->content ? decode_json_utf8($result->content) : $result->content;
+        return decode_json_utf8($content);
     } catch ($e) {
         $log->warnf('Could not JSON decode Spotify API Response | Error: %s', $e);
-        return { status_line => $result->status_line, content => $result->content };
+        return 0;
     }
-    # Separate Try/Catch for better error isolation
-    try {
-        $mapped_res = $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $res_hash) : $decoded_res;
-    } catch ($e) {
-        $log->warnf('Could not Map Spotify API Response to its Object %s | Error: %s | data: %s', $res_hash, $e, $decoded_res);
-        return { status_line => $result->status_line, content => $decoded_res };
-    }
+}
 
-    return { status_line => $result->status_line, content => $mapped_res };
+sub parse_response {
+    my ( $self, $decoded_res, $expected ) = @_;
+
+    $log->tracef('API Base Mapping: %s', $self->mapping);
+
+    try {
+        return $decoded_res ? Net::Async::Spotify::Object->new($decoded_res, $expected) : $decoded_res;
+    } catch ($e) {
+        $log->warnf('Could not Map Spotify API Response to its Object %s | Error: %s | data: %s', $expected, $e, $decoded_res);
+        return $decoded_res;
+    }
 }
 
 1;

@@ -78,10 +78,10 @@ BEGIN {
 }
 
 sub new {
-    my ( $obj, $data, $res_hash ) = @_;
+    my ( $obj, $data, $expected ) = @_;
 
-    my $class = response_object_map($available_types, $res_hash);
-    $log->debugf('Response object mapping; params: %s | Class selected: %s', $res_hash, $class);
+    my $class = response_object_map($available_types, $expected);
+    $log->tracef('Response object mapping; params: %s | Class selected: %s', $expected, $class);
     # return generic when not found.
     return Net::Async::Spotify::Object::General->new($data->%*) unless defined $class;
 
@@ -99,7 +99,7 @@ sub new {
             return $class->new($data->%*);
         }
     } catch ($e) {
-        $log->warnf('Could not create Spotify Object %s | error: %s | res_hash: %s ', $class, $e, $res_hash);
+        $log->warnf('Could not create Spotify Object %s | error: %s | res_hash: %s ', $class, $e, $expected);
     }
     return Net::Async::Spotify::Object::General->new($data->%*);
 }

@@ -31,6 +31,7 @@ requires 'Template';
 requires 'Mojo::DOM';
 requires 'Perl::Tidy';
 requires 'Data::Dumper';
+requires 'Data::Dumper::AutoEncode';
 
 on 'build' => sub {
     requires 'Dist::Zilla', '>= 6.015';

@@ -76,8 +76,9 @@ use Net::Async::Spotify::Util qw(hash_to_string);
 use JSON::MaybeUTF8 qw(:v1);
 use Net::Async::HTTP::Server;
 use Future::Utils qw(fmap_concat);
-use Unicode::UTF8 qw[encode_utf8];
+use Unicode::UTF8 qw(encode_utf8);
 use Scalar::Util qw(blessed);
+use Encode qw(encode);
 
 GetOptions(
     'c|client-id=s'     => \(my $client_id = $ENV{client_id}),
@@ -310,13 +311,13 @@ async sub set_s {
     write_to_stream($r);
 }
 
-=head2 CMD => s I<(true)|false>
+=head2 CMD => sh I<(true)|false>
 
 Toggle Shuffle for current Playback context.
 
 =cut
 
-async sub s {
+async sub sh {
     my @cmd_array = @_;
 
     my $state = $cmd_array[1] || 'true';
@@ -579,8 +580,8 @@ async sub seed_a {
     write_to_stream('OK'.hash_to_string($spotify->api->personalization->{seed_artists}));
 }
 
-=head2 CMD => rng I<genre(reggae)> I<(auto)|manual> I<acousticness> I<danceability> I<energy>
-                I<instrumentalness> I<liveness> I<loudness> I<speechiness> I<tempo> I<valence>
+=head2 CMD => rng I<genre(reggae)> I<(auto)|manual> I<acousticness> I<danceability> I<energy> I<instrumentalness> I<liveness> I<loudness> I<speechiness> I<tempo> I<valence>
+
 Get you a random track based on passed Genre, Tracks and Artists used as seed, Auto for them to be your top tracks and artists.
 and manual for selected seeded ones. Also accepts constrains on track features.
 
@@ -589,89 +590,46 @@ and manual for selected seeded ones. Also accepts constrains on track features.
 async sub rng {
     my @cmd_array = @_;
 
-    my $get_random = async sub {
-
-        my $trials = shift || 0;
-        my $genre =  $cmd_array[1] || 'reggae';
-        my $seed_source = $cmd_array[2] || 'auto';
-        my ($tracks_ids, $artists_ids);
-        if ( $seed_source eq 'auto' ) {
-            my $top_tracks = await $spotify->api->personalization->get_users_top_artists_and_tracks(type => 'tracks', limit => 2, offset => $trials);
-            $tracks_ids = [ map { $_->id } $top_tracks->{content}->items->@*];
-            my $top_artists = await $spotify->api->personalization->get_users_top_artists_and_tracks(type => 'artists', limit => 2, offset => $trials);
-            $artists_ids = [ map { $_->id } $top_artists->{content}->items->@*];
-        }
-        $tracks_ids = $spotify->api->personalization->{seed_tracks} unless defined $tracks_ids;
-        $artists_ids = $spotify->api->personalization->{seed_artists} unless defined $artists_ids;
-        my %rec_args = (
-            seed_tracks => $tracks_ids || [],
-            seed_artists => $artists_ids || [],
-            seed_genres => [$genre],
-            limit => 100,
-        );
-        my %h;
-        @h{qw(acousticness danceability energy instrumentalness liveness loudness speechiness tempo valence)} = @cmd_array[3 .. 12];
-        for my $k (keys %h) {
-            # zero value is skipped.
-            if (defined $h{$k} and $h{$k}) {
-                $rec_args{"target_$k"} = $h{$k};
-                $rec_args{"max_$k"} = $h{$k} + 0.1;
-                $rec_args{"min_$k"} = $h{$k} - 0.1;
-            }
-        }
-        my $rng_rec = await $spotify->api->browse->get_recommendations(%rec_args);
-        # Even though spotify API might be efficient to find what we are looking for.
-        # However let's make sure.
-        my $suggested_ids = join ',', map { $_->id } $rng_rec->{content}->tracks->@*;
-        my $suggested_uri = join ',', map { $_->uri } $rng_rec->{content}->tracks->@*;
-
-        #my $playlist_id =  $spotify->api->playlists->{selected_playlist}->id;
-        #await $spotify->api->playlists->add_tracks_to_playlist(playlist_id => $playlist_id, uris => $suggested_uri);
-
-        my $t_af = await $spotify->api->tracks->get_several_audio_features(ids => $suggested_ids);
-        return $t_af->{content};
-    };
-    my ($i, $count, $found);
-    $i = 0;
+    my $genre =  $cmd_array[1] || 'reggae';
+    my $seed_source = $cmd_array[2] || 'auto';
+    my ($tracks_ids, $artists_ids);
+    if ( $seed_source eq 'auto' ) {
+        my $top_tracks = await $spotify->api->personalization->get_users_top_artists_and_tracks(type => 'tracks', limit => 2, time_range => 'short_term');
+        $tracks_ids = [ map { $_->id } $top_tracks->{content}->items->@*];
+        my $top_artists = await $spotify->api->personalization->get_users_top_artists_and_tracks(type => 'artists', limit => 2, time_range => 'short_term');
+        $artists_ids = [ map { $_->id } $top_artists->{content}->items->@*];
+    }
+    $tracks_ids = $spotify->api->personalization->{seed_tracks} unless defined $tracks_ids;
+    $artists_ids = $spotify->api->personalization->{seed_artists} unless defined $artists_ids;
+    my %rec_args = (
+        seed_tracks => $tracks_ids || [],
+        seed_artists => $artists_ids || [],
+        seed_genres => [$genre],
+        limit => 100,
+    );
     my %h;
     @h{qw(acousticness danceability energy instrumentalness liveness loudness speechiness tempo valence)} = @cmd_array[3 .. 12];
-    OUTER: while ( !defined $found ) {
-        my $tracks_audio_f = await $get_random->($i++);
-        INNER1: for my $t_af ($tracks_audio_f->audio_features->@*) {
-            ++$count;
-            my $partial_match;
-            INNER2: for my $k ( keys %h ) {
-                if ( defined $h{$k} ) {
-                    $log->warnf('Checking %s | %s | %s | %s', $k, $t_af->$k, $h{$k}, $t_af);
-
-                    unless ( defined $t_af->$k ) {
-                        # considered matching.
-                        $partial_match = 1;
-                        next INNER2;
-                    }
-                    if ( $t_af->$k >= ( $h{$k} -1 ) and $t_af->$k < ($h{$k} + 0.1) ) {
-                        $log->warnf('Partial Match (%s)!', $k);
-                        $partial_match = 1;
-                    } else {
-                        $log->warnf('ops, not matching. next...');
-                        $partial_match = 0;
-                        last INNER2;
-                    }
-                }
-            }
-
-            #$found = $t_af->uri;
-            $found = $t_af->uri if $partial_match or scalar(values %h) < 1;
-            # Limit, and return the last checked one.
-            $found = $t_af->uri if $i > 22;
-
-            $log->warnf('Full Match! %s', $found) if $partial_match or scalar(values %h) < 1;
-            last INNER1 if $found;
+    for my $k (keys %h) {
+        # zero value is skipped.
+        if (defined $h{$k} and $h{$k}) {
+            $rec_args{"target_$k"} = $h{$k};
+            $rec_args{"max_$k"} = $h{$k} + 0.1;
+            $rec_args{"min_$k"} = $h{$k} - 0.1;
         }
     }
-    await $spotify->api->player->start_a_users_playback(uris => $found);
+    my $rng_rec = await $spotify->api->browse->get_recommendations(%rec_args);
+    my $suggested_ids = join ',', map { $_->id } $rng_rec->{content}->tracks->@*;
+    my $suggested_uris = join ',', map { $_->uri } $rng_rec->{content}->tracks->@*;
+
+    # Spotify API seems to be good enough with the accuracy. so do not re-check.
+    # my $playlist_id =  $spotify->api->playlists->{selected_playlist}->id;
+    # await $spotify->api->playlists->add_tracks_to_playlist(playlist_id => $playlist_id, uris => $suggested_uris);
+    # my $t_af = await $spotify->api->tracks->get_several_audio_features(ids => $suggested_ids);
+
+    await $spotify->api->player->start_a_users_playback(uris => $suggested_uris);
+
     my $r = await $spotify->api->player->get_information_about_the_users_current_playback();
-    write_to_stream("Tracks checked before finding this one count ( $count Tracks)");
+    write_to_stream("Tracks found and currently in queue: " . scalar @$suggested_ids . " Tracks (max. 100)");
     write_to_stream($r->{content}->to_human);
 }
 
@@ -685,6 +643,24 @@ async sub me {
     my @cmd_array = @_;
     my $me = await $spotify->api->users->get_current_users_profile();
     write_to_stream($me);
+}
+
+=head2 CMD => s I<string>
+
+Search for a track
+
+=cut
+
+async sub s {
+    my @cmd_array = @_;
+    shift @cmd_array;
+
+    try {
+        my $r = await $spotify->api->search->search(type => 'track', q => join(' ', @cmd_array));
+        $log->warnf('dddddd %s', hash_to_string($r));
+    } catch ($e) {
+        warn hash_to_string($e);
+    }
 }
 
 # Playlists
@@ -727,7 +703,7 @@ async sub pl_add {
     write_to_stream($r);
 }
 
-=head2 CMD => pl_select I<name|ID> I<1|(0)/play>
+=head2 CMD => pl_select I<1|0(playit?)> I<name|ID>
 
 Selects a playlist, passing a second parameter will play it too.
 
@@ -735,12 +711,16 @@ Selects a playlist, passing a second parameter will play it too.
 
 async sub pl_select {
     my @cmd_array = @_;
+    shift @cmd_array;
+    my $play_it = shift @cmd_array;
+    my $name = join ' ', @cmd_array;
     my $pl;
     try {
         my $pls = await $spotify->api->playlists->get_a_list_of_current_users_playlists(limit => 50);
-        my @sel_pl = grep { $_->name eq $cmd_array[1] or $_->id eq $cmd_array[1] } $pls->{content}->items->@*;
+        my @sel_pl = grep { encode('UTF-8', $_->name) =~ m/$name/ or $_->id eq $name } $pls->{content}->items->@*;
+        $log->warnf('NAME: %s | %s', $name, \@sel_pl);
         $pl = $spotify->api->playlists->{selected_playlist} = $sel_pl[0];
-        await $spotify->api->player->start_a_users_playback(context_uri => $sel_pl[0]->uri) if $cmd_array[2];
+        await $spotify->api->player->start_a_users_playback(context_uri => $sel_pl[0]->uri) if $play_it;
     } catch ($e) {
         $log->warnf('error : %s', $e);
     }
